@@ -1,0 +1,11 @@
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.exe.config
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.exe
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.pdb
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csprojAssemblyReference.cache
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.Properties.Resources.resources
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csproj.GenerateResource.cache
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csproj.CoreCompileInputs.cache
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.exe
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.pdb
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormController.resources
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ProductForm.resources
