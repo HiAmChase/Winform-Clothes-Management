@@ -157,9 +157,14 @@ VALUES
 INSERT INTO ThuongHieu
 VALUES
 (N'Không', N'Không')
-
+	
 INSERT INTO CTMatHang
 VALUES
 (N'Không', N'Không', 0, 'Không')
 
+INSERT INTO MatHang
+VALUES
+('1', N'Tên', N'Không', N'Không', N'Không', 1, 'Cái', 303),
+('2', N'Test', N'Không', N'Không', N'Không', 2, 'Cái', 105)
 
+SELECT * FROM MatHang

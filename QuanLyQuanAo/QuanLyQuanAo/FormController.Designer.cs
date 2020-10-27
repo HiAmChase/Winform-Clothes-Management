@@ -47,7 +47,7 @@
             this.buttonProduct.Text = "Quản lý sản phẩm";
             this.buttonProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonProduct.UseVisualStyleBackColor = true;
-            this.buttonProduct.Click += new System.EventHandler(this.productButton_Click);
+            this.buttonProduct.Click += new System.EventHandler(this.ProductButton_Click);
             // 
             // panel1
             // 

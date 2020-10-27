@@ -17,20 +17,20 @@ namespace QuanLyQuanAo
             InitializeComponent();
         }
 
-        private void productButton_Click(object sender, EventArgs e)
+        private void FormController_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Chọn OK để thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;    
+            }
+        }
+
+        private void ProductButton_Click(object sender, EventArgs e)
         {
             ProductForm productForm = new ProductForm();
             this.Hide();
             productForm.ShowDialog();
             this.Show();
-        }
-
-        private void FormController_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Chọn OK để thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
         }
     }
 }
