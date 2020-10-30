@@ -17,19 +17,24 @@ namespace QuanLyQuanAo
         public ProductForm()
         {
             InitializeComponent();
-            LoadData();
+            LoadProduct();
+            AddBinding();
         }
 
-        private void LoadData()
+        private void LoadProduct()
         {
-            string query = "EXEC USP_GetProduct";
+            dataViewProduct.DataSource = SanPhamDAO.Instance.GetProduct();
+        }
 
-            dataViewProduct.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        private void AddBinding()
+        {
+            //textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "MaMatHang");
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
+
     }
 }

@@ -49,13 +49,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.exitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel2.SuspendLayout();
@@ -77,6 +77,7 @@
             this.dataViewProduct.AllowUserToDeleteRows = false;
             this.dataViewProduct.AllowUserToResizeColumns = false;
             this.dataViewProduct.AllowUserToResizeRows = false;
+            this.dataViewProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewProduct.Location = new System.Drawing.Point(6, 3);
             this.dataViewProduct.Name = "dataViewProduct";
@@ -291,18 +292,6 @@
             this.panel3.Size = new System.Drawing.Size(215, 174);
             this.panel3.TabIndex = 2;
             // 
-            // exitButton
-            // 
-            this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(1031, 572);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(86, 39);
-            this.exitButton.TabIndex = 25;
-            this.exitButton.Text = "Thoát";
-            this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
             // cancelButton
             // 
             this.cancelButton.Enabled = false;
@@ -369,6 +358,18 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Chức năng";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(1031, 572);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(86, 39);
+            this.exitButton.TabIndex = 25;
+            this.exitButton.Text = "Thoát";
+            this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // ProductForm
             // 
