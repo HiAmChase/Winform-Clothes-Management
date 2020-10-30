@@ -68,15 +68,21 @@
             this.panel1.Controls.Add(this.dataViewProduct);
             this.panel1.Location = new System.Drawing.Point(74, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 299);
+            this.panel1.Size = new System.Drawing.Size(815, 415);
             this.panel1.TabIndex = 0;
             // 
             // dataViewProduct
             // 
+            this.dataViewProduct.AllowUserToAddRows = false;
+            this.dataViewProduct.AllowUserToDeleteRows = false;
+            this.dataViewProduct.AllowUserToResizeColumns = false;
+            this.dataViewProduct.AllowUserToResizeRows = false;
             this.dataViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewProduct.Location = new System.Drawing.Point(3, 3);
+            this.dataViewProduct.Location = new System.Drawing.Point(6, 3);
             this.dataViewProduct.Name = "dataViewProduct";
-            this.dataViewProduct.Size = new System.Drawing.Size(591, 293);
+            this.dataViewProduct.ReadOnly = true;
+            this.dataViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewProduct.Size = new System.Drawing.Size(806, 409);
             this.dataViewProduct.TabIndex = 0;
             // 
             // panel2
@@ -98,13 +104,14 @@
             this.panel2.Controls.Add(this.textBoxID);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(77, 342);
+            this.panel2.Location = new System.Drawing.Point(80, 449);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(591, 144);
+            this.panel2.Size = new System.Drawing.Size(806, 162);
             this.panel2.TabIndex = 1;
             // 
             // textBoxPrice
             // 
+            this.textBoxPrice.Enabled = false;
             this.textBoxPrice.Location = new System.Drawing.Point(401, 105);
             this.textBoxPrice.Multiline = true;
             this.textBoxPrice.Name = "textBoxPrice";
@@ -124,6 +131,7 @@
             // 
             // comboBoxUnit
             // 
+            this.comboBoxUnit.Enabled = false;
             this.comboBoxUnit.FormattingEnabled = true;
             this.comboBoxUnit.Location = new System.Drawing.Point(215, 104);
             this.comboBoxUnit.Name = "comboBoxUnit";
@@ -143,6 +151,7 @@
             // 
             // numericUpDown
             // 
+            this.numericUpDown.Enabled = false;
             this.numericUpDown.Location = new System.Drawing.Point(86, 105);
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(49, 20);
@@ -161,6 +170,7 @@
             // 
             // comboBoxColor
             // 
+            this.comboBoxColor.Enabled = false;
             this.comboBoxColor.FormattingEnabled = true;
             this.comboBoxColor.Location = new System.Drawing.Point(504, 67);
             this.comboBoxColor.Name = "comboBoxColor";
@@ -180,6 +190,7 @@
             // 
             // comboBoxType
             // 
+            this.comboBoxType.Enabled = false;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Location = new System.Drawing.Point(360, 67);
             this.comboBoxType.Name = "comboBoxType";
@@ -199,6 +210,7 @@
             // 
             // textBoxProduct
             // 
+            this.textBoxProduct.Enabled = false;
             this.textBoxProduct.Location = new System.Drawing.Point(128, 67);
             this.textBoxProduct.Multiline = true;
             this.textBoxProduct.Name = "textBoxProduct";
@@ -218,6 +230,7 @@
             // 
             // comboBoxSupplier
             // 
+            this.comboBoxSupplier.Enabled = false;
             this.comboBoxSupplier.FormattingEnabled = true;
             this.comboBoxSupplier.Location = new System.Drawing.Point(326, 30);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
@@ -230,7 +243,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label3.Location = new System.Drawing.Point(187, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 21);
+            this.label3.Size = new System.Drawing.Size(146, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nhà cung cấp";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,14 +280,13 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.exitButton);
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Controls.Add(this.saveButton);
             this.panel3.Controls.Add(this.deleteButton);
             this.panel3.Controls.Add(this.editButton);
             this.panel3.Controls.Add(this.addButton);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(677, 312);
+            this.panel3.Location = new System.Drawing.Point(902, 31);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(215, 174);
             this.panel3.TabIndex = 2;
@@ -282,7 +294,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(126, 135);
+            this.exitButton.Location = new System.Drawing.Point(1031, 572);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(86, 39);
             this.exitButton.TabIndex = 25;
@@ -362,7 +374,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 521);
+            this.ClientSize = new System.Drawing.Size(1129, 623);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

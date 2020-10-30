@@ -168,3 +168,47 @@ VALUES
 ('2', N'Test', N'Không', N'Không', N'Không', 2, 'Cái', 105)
 
 SELECT * FROM MatHang
+
+INSERT INTO Loai
+VALUES
+('AO', N'Áo'),
+('QUN', N'Quần')
+
+INSERT INTO CTMatHang
+VALUES
+('1', N'Vải hoa', 38, N'Cam'),
+('2', N'Vải lanh', 50, N'Xanh')
+
+INSERT INTO ThuongHieu
+VALUES
+('BLG', 'Balenciaga')
+
+INSERT INTO MatHang
+VALUES
+('3', N'Quần jean', N'QUN', '2', N'Không', 100, 'Cái', 700000),
+('4', N'Áo khoác', N'AO', '1', N'BLG', 50, 'Cái', 600000)
+
+SELECT 
+	MH.TenMatHang AS Tên,
+	L.TenLoai AS Loại,
+	CT.TenLoaiVai AS [Loại vải],
+	CT.MauSac AS Màu,
+	TH.MaThuongHieu AS [Thương hiệu],
+	MH.DonViTinh AS [Đơn vị tính],
+	MH.SoLuong AS [Số lượng],
+	CAST(MH.DonGia AS float) AS [Đơn giá]
+FROM 
+	MatHang MH
+INNER JOIN 
+	Loai L
+ON 
+	MH.MaLoai = L.MaLoai
+INNER JOIN
+	CTMatHang CT
+ON
+	MH.MaChiTiet = CT.MaChiTiet
+INNER JOIN
+	ThuongHieu TH
+ON
+	MH.MaThuongHieu = TH.MaThuongHieu
+

@@ -22,11 +22,9 @@ namespace QuanLyQuanAo
 
         private void LoadData()
         {
-            string query = "EXEC USP_GetProductByProductID @productID";
+            string query = "EXEC USP_GetProduct";
 
-            DataProvider data = new DataProvider();
-
-            dataViewProduct.DataSource = data.ExecuteQuery(query, new object[] {"2"});
+            dataViewProduct.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
