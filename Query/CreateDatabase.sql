@@ -194,3 +194,20 @@ ADD CONSTRAINT FK_Product_IDType
 	REFERENCES Size(IDSize)
 	ON UPDATE CASCADE ON DELETE SET DEFAULT
 
+SELECT * FROM Type
+
+SELECT * FROM Branch
+
+SELECT * FROM Size
+
+SELECT * FROM Color
+
+SELECT * FROM Product
+
+INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
+VALUES
+(N'Áo hoodie', 4, 3, 2, 2, 50, N'Cái', 750000),
+(N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000),
+(N'Giày thể thao', 6, 4, 4, 3, 10, N'Đôi', 350000),
+(N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000)
+

@@ -22,7 +22,7 @@ namespace QuanLyQuanAo
 
         private void LoadProduct()
         {
-            dataViewProduct.DataSource = SanPhamDAO.Instance.GetProduct();
+            dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

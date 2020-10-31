@@ -1,6 +1,7 @@
 ﻿USE QuanLyQuanAo
 GO
 
+--Example
 CREATE PROC USP_GetProductByProductID
 @productID NVARCHAR(10)
 AS
@@ -17,26 +18,17 @@ GO
 CREATE PROC USP_GetProduct
 AS
 	SELECT 
-	MH.TenMatHang AS Tên,
-	L.TenLoai AS Loại,
-	CT.TenLoaiVai AS [Loại vải],
-	CT.MauSac AS Màu,
-	TH.TenThuongHieu AS [Thương hiệu],
-	MH.DonViTinh AS [Đơn vị tính],
-	MH.SoLuong AS [Số lượng],
-	CAST(MH.DonGia AS float) AS [Đơn giá]
-	FROM 
-		MatHang MH
-	INNER JOIN 
-		Loai L
-	ON 
-		MH.MaLoai = L.MaLoai
-	INNER JOIN
-		CTMatHang CT
-	ON
-		MH.MaChiTiet = CT.MaChiTiet
-	INNER JOIN
-		ThuongHieu TH
-	ON
-		MH.MaThuongHieu = TH.MaThuongHieu
-	
+	P.Name AS [Tên],
+	T.Name AS [Loại],
+	B.Name AS [Thương Hiệu],
+	S.Size AS [Kích Thước],
+	C.Color AS [Màu Sắc],
+	P.Amount AS [Số Lượng],
+	P.Unit AS [Đơn Vị Tính],
+	CAST(P.Price AS float) AS [Đơn Giá]
+	FROM Product P
+	INNER JOIN Type T ON T.IDType = P.IDType
+	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
+	INNER JOIN Size S ON S.IDSize = P.IDSize
+	INNER JOIN Color C ON C.IDColor = P.IDColor
+

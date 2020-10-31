@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace QuanLyQuanAo.DAO
 {
-    public class SanPhamDAO
+    public class ProductDAO
     {
-        private static SanPhamDAO instance;
-        public static SanPhamDAO Instance { 
-            get { if (instance == null) instance = new SanPhamDAO(); return SanPhamDAO.instance; }
-            private set { SanPhamDAO.instance = value; }
+        private static ProductDAO instance;
+        public static ProductDAO Instance { 
+            get { if (instance == null) instance = new ProductDAO(); return ProductDAO.instance; }
+            private set { ProductDAO.instance = value; }
         }
-        private SanPhamDAO() { }
+        private ProductDAO() { }
         
         public DataTable GetProduct()
         {
-            return DataProvider.Instance.ExecuteQuery("EXEC USP_GetProduct");
+            return DataProvider.Instance.ExecuteQuery("SELECT * FROM Product");
         }
 
         /* Chưa sửa
