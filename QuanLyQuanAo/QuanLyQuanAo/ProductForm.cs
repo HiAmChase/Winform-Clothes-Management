@@ -18,7 +18,6 @@ namespace QuanLyQuanAo
         {
             InitializeComponent();
             LoadProduct();
-            AddBinding();
         }
 
         private void LoadProduct()
@@ -26,14 +25,9 @@ namespace QuanLyQuanAo
             dataViewProduct.DataSource = SanPhamDAO.Instance.GetProduct();
         }
 
-        private void AddBinding()
-        {
-            //textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "MaMatHang");
-        }
-
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
     }

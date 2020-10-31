@@ -21,7 +21,7 @@ AS
 	L.TenLoai AS Loại,
 	CT.TenLoaiVai AS [Loại vải],
 	CT.MauSac AS Màu,
-	TH.MaThuongHieu AS [Thương hiệu],
+	TH.TenThuongHieu AS [Thương hiệu],
 	MH.DonViTinh AS [Đơn vị tính],
 	MH.SoLuong AS [Số lượng],
 	CAST(MH.DonGia AS float) AS [Đơn giá]

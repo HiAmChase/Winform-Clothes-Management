@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\SanPhamDAO.cs" />
-    <Compile Include="DTO\SanPham.cs" />
     <Compile Include="FormController.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +90,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DTO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
