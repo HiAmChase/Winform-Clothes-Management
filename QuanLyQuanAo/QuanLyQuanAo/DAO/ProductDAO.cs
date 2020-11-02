@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanAo.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,27 +16,20 @@ namespace QuanLyQuanAo.DAO
             private set { ProductDAO.instance = value; }
         }
         private ProductDAO() { }
-        
-        public DataTable GetProduct()
-        {
-            return DataProvider.Instance.ExecuteQuery("SELECT * FROM Product");
-        }
 
-        /* Chưa sửa
-        public List<SanPham> GetProductTest()
+        public List<ProductInfo> GetProduct()
         {
-            List<SanPham> listProduct = new List<SanPham>();
+            List<ProductInfo> listProduct = new List<ProductInfo>();
 
             DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_GetProduct");
 
             foreach(DataRow item in data.Rows)
             {
-                SanPham product = new SanPham(item);
+                ProductInfo product = new ProductInfo(item);
                 listProduct.Add(product);
             }
 
             return listProduct;
         }
-        */
     }
 }

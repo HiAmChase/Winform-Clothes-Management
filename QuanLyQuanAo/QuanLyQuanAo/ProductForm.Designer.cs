@@ -31,22 +31,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewProduct = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxSize = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxUnit = new System.Windows.Forms.TextBox();
+            this.textBoxAmount = new System.Windows.Forms.TextBox();
+            this.textBoxBranch = new System.Windows.Forms.TextBox();
+            this.textBoxColor = new System.Windows.Forms.TextBox();
+            this.textBoxType = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -59,7 +59,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +67,7 @@
             this.panel1.Controls.Add(this.dataViewProduct);
             this.panel1.Location = new System.Drawing.Point(74, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(815, 415);
+            this.panel1.Size = new System.Drawing.Size(815, 371);
             this.panel1.TabIndex = 0;
             // 
             // dataViewProduct
@@ -83,128 +82,179 @@
             this.dataViewProduct.Name = "dataViewProduct";
             this.dataViewProduct.ReadOnly = true;
             this.dataViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewProduct.Size = new System.Drawing.Size(806, 409);
+            this.dataViewProduct.Size = new System.Drawing.Size(806, 355);
             this.dataViewProduct.TabIndex = 0;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxSize);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBoxUnit);
+            this.panel2.Controls.Add(this.textBoxAmount);
+            this.panel2.Controls.Add(this.textBoxBranch);
+            this.panel2.Controls.Add(this.textBoxColor);
+            this.panel2.Controls.Add(this.textBoxType);
             this.panel2.Controls.Add(this.textBoxPrice);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.comboBoxUnit);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.numericUpDown);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.comboBoxColor);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.comboBoxType);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBoxProduct);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.comboBoxSupplier);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBoxID);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(80, 449);
+            this.panel2.Location = new System.Drawing.Point(80, 405);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(806, 162);
+            this.panel2.Size = new System.Drawing.Size(872, 206);
             this.panel2.TabIndex = 1;
+            // 
+            // textBoxSize
+            // 
+            this.textBoxSize.Enabled = false;
+            this.textBoxSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSize.Location = new System.Drawing.Point(164, 96);
+            this.textBoxSize.Multiline = true;
+            this.textBoxSize.Name = "textBoxSize";
+            this.textBoxSize.ReadOnly = true;
+            this.textBoxSize.Size = new System.Drawing.Size(60, 33);
+            this.textBoxSize.TabIndex = 26;
+            this.textBoxSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(3, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(172, 33);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Kích thước";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxUnit
+            // 
+            this.textBoxUnit.Enabled = false;
+            this.textBoxUnit.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnit.Location = new System.Drawing.Point(134, 151);
+            this.textBoxUnit.Multiline = true;
+            this.textBoxUnit.Name = "textBoxUnit";
+            this.textBoxUnit.ReadOnly = true;
+            this.textBoxUnit.Size = new System.Drawing.Size(90, 33);
+            this.textBoxUnit.TabIndex = 24;
+            this.textBoxUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxAmount
+            // 
+            this.textBoxAmount.Enabled = false;
+            this.textBoxAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAmount.Location = new System.Drawing.Point(369, 151);
+            this.textBoxAmount.Multiline = true;
+            this.textBoxAmount.Name = "textBoxAmount";
+            this.textBoxAmount.ReadOnly = true;
+            this.textBoxAmount.Size = new System.Drawing.Size(116, 33);
+            this.textBoxAmount.TabIndex = 23;
+            this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxBranch
+            // 
+            this.textBoxBranch.Enabled = false;
+            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBranch.Location = new System.Drawing.Point(618, 48);
+            this.textBoxBranch.Multiline = true;
+            this.textBoxBranch.Name = "textBoxBranch";
+            this.textBoxBranch.ReadOnly = true;
+            this.textBoxBranch.Size = new System.Drawing.Size(166, 32);
+            this.textBoxBranch.TabIndex = 22;
+            this.textBoxBranch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxColor
+            // 
+            this.textBoxColor.Enabled = false;
+            this.textBoxColor.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxColor.Location = new System.Drawing.Point(618, 96);
+            this.textBoxColor.Multiline = true;
+            this.textBoxColor.Name = "textBoxColor";
+            this.textBoxColor.ReadOnly = true;
+            this.textBoxColor.Size = new System.Drawing.Size(166, 33);
+            this.textBoxColor.TabIndex = 21;
+            this.textBoxColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxType
+            // 
+            this.textBoxType.Enabled = false;
+            this.textBoxType.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxType.Location = new System.Drawing.Point(369, 96);
+            this.textBoxType.Multiline = true;
+            this.textBoxType.Name = "textBoxType";
+            this.textBoxType.ReadOnly = true;
+            this.textBoxType.Size = new System.Drawing.Size(116, 33);
+            this.textBoxType.TabIndex = 20;
+            this.textBoxType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPrice
             // 
             this.textBoxPrice.Enabled = false;
-            this.textBoxPrice.Location = new System.Drawing.Point(401, 105);
+            this.textBoxPrice.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrice.Location = new System.Drawing.Point(618, 151);
             this.textBoxPrice.Multiline = true;
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(187, 21);
+            this.textBoxPrice.ReadOnly = true;
+            this.textBoxPrice.Size = new System.Drawing.Size(166, 33);
             this.textBoxPrice.TabIndex = 19;
+            this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(318, 104);
+            this.label9.Location = new System.Drawing.Point(497, 151);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 21);
+            this.label9.Size = new System.Drawing.Size(115, 33);
             this.label9.TabIndex = 18;
             this.label9.Text = "Đơn giá";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxUnit
-            // 
-            this.comboBoxUnit.Enabled = false;
-            this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(215, 104);
-            this.comboBoxUnit.Name = "comboBoxUnit";
-            this.comboBoxUnit.Size = new System.Drawing.Size(97, 21);
-            this.comboBoxUnit.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label8.Location = new System.Drawing.Point(141, 104);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 21);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Đơn vị";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown
-            // 
-            this.numericUpDown.Enabled = false;
-            this.numericUpDown.Location = new System.Drawing.Point(86, 105);
-            this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(49, 20);
-            this.numericUpDown.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label7.Location = new System.Drawing.Point(-4, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Số lượng";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxColor
-            // 
-            this.comboBoxColor.Enabled = false;
-            this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(504, 67);
-            this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxColor.TabIndex = 13;
-            // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(450, 67);
+            this.label6.Location = new System.Drawing.Point(495, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 21);
+            this.label6.Size = new System.Drawing.Size(87, 33);
             this.label6.TabIndex = 12;
             this.label6.Text = "Màu";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxType
+            // label8
             // 
-            this.comboBoxType.Enabled = false;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(360, 67);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxType.TabIndex = 11;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label8.Location = new System.Drawing.Point(0, 151);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 33);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Đơn vị";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label7.Location = new System.Drawing.Point(232, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 33);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Số lượng";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(302, 67);
+            this.label5.Location = new System.Drawing.Point(242, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 21);
+            this.label5.Size = new System.Drawing.Size(78, 33);
             this.label5.TabIndex = 10;
             this.label5.Text = "Loại";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,69 +262,43 @@
             // textBoxProduct
             // 
             this.textBoxProduct.Enabled = false;
-            this.textBoxProduct.Location = new System.Drawing.Point(128, 67);
+            this.textBoxProduct.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProduct.Location = new System.Drawing.Point(192, 47);
             this.textBoxProduct.Multiline = true;
             this.textBoxProduct.Name = "textBoxProduct";
-            this.textBoxProduct.Size = new System.Drawing.Size(167, 21);
+            this.textBoxProduct.ReadOnly = true;
+            this.textBoxProduct.Size = new System.Drawing.Size(229, 33);
             this.textBoxProduct.TabIndex = 9;
+            this.textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(-4, 67);
+            this.label4.Location = new System.Drawing.Point(3, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 21);
+            this.label4.Size = new System.Drawing.Size(201, 53);
             this.label4.TabIndex = 8;
             this.label4.Text = "Tên sản phẩm";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxSupplier
-            // 
-            this.comboBoxSupplier.Enabled = false;
-            this.comboBoxSupplier.FormattingEnabled = true;
-            this.comboBoxSupplier.Location = new System.Drawing.Point(326, 30);
-            this.comboBoxSupplier.Name = "comboBoxSupplier";
-            this.comboBoxSupplier.Size = new System.Drawing.Size(136, 21);
-            this.comboBoxSupplier.TabIndex = 7;
-            // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(187, 30);
+            this.label3.Location = new System.Drawing.Point(427, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 21);
+            this.label3.Size = new System.Drawing.Size(185, 32);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Nhà cung cấp";
+            this.label3.Text = "Thương hiệu";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.Enabled = false;
-            this.textBoxID.Location = new System.Drawing.Point(74, 30);
-            this.textBoxID.Multiline = true;
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(107, 21);
-            this.textBoxID.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(0, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 21);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Mã số";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-10, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 23);
+            this.label1.Size = new System.Drawing.Size(205, 39);
             this.label1.TabIndex = 3;
             this.label1.Text = "Thông tin sản phẩm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,7 +411,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -396,25 +419,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataViewProduct;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxSupplier;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxProduct;
-        private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBoxUnit;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button exitButton;
@@ -423,5 +438,13 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.TextBox textBoxBranch;
+        private System.Windows.Forms.TextBox textBoxColor;
+        private System.Windows.Forms.TextBox textBoxType;
+        private System.Windows.Forms.DataGridView dataViewProduct;
+        private System.Windows.Forms.TextBox textBoxUnit;
+        private System.Windows.Forms.TextBox textBoxAmount;
+        private System.Windows.Forms.TextBox textBoxSize;
+        private System.Windows.Forms.Label label2;
     }
 }

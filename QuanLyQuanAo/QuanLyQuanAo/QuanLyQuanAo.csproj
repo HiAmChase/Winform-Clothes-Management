@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
-    <Compile Include="DTO\Product.cs" />
+    <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="FormController.cs">
       <SubType>Form</SubType>
     </Compile>

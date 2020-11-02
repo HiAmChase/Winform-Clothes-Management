@@ -18,6 +18,7 @@ namespace QuanLyQuanAo
         {
             InitializeComponent();
             LoadProduct();
+            AddProductBinding();
         }
 
         private void LoadProduct()
@@ -25,10 +26,21 @@ namespace QuanLyQuanAo
             dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
         }
 
+        private void AddProductBinding()
+        {
+            textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
+            textBoxBranch.DataBindings.Add("Text", dataViewProduct.DataSource, "Branch");
+            textBoxSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
+            textBoxType.DataBindings.Add("Text", dataViewProduct.DataSource, "Type");
+            textBoxColor.DataBindings.Add("Text", dataViewProduct.DataSource, "Color");
+            textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
+            textBoxAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
+            textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
+        }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }
