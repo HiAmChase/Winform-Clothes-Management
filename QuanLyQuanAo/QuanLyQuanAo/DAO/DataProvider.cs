@@ -39,7 +39,6 @@ namespace QuanLyQuanAo.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            sqlCommand.Parameters.Clear();
                             sqlCommand.Parameters.AddWithValue(item, parameters[i]);
                             i++;
                         }

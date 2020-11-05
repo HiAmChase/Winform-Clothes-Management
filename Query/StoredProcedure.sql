@@ -14,10 +14,10 @@ GO
 EXEC USP_GetProductByProductID @productID = '2'
 GO
 
-
-ALTER PROC USP_GetProduct
+CREATE PROC USP_GetProduct
 AS
 	SELECT 
+	P.IDProduct AS [ID],
 	P.Name AS [Tên],
 	T.Name AS [Loại],
 	B.Name AS [Thương Hiệu],
@@ -31,4 +31,17 @@ AS
 	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
 	INNER JOIN Size S ON S.IDSize = P.IDSize
 	INNER JOIN Color C ON C.IDColor = P.IDColor
+GO
 
+CREATE PROC USP_GetBranchByProductID
+@IDProduct INT
+AS
+BEGIN
+	SELECT 
+	B.*
+	FROM 
+		Product P, Branch B
+	WHERE 
+		P.IDBranch = B.IDBranch AND IDProduct = @IDProduct
+END
+GO

@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BranchDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DTO\Branch.cs" />
+    <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="FormController.cs">
       <SubType>Form</SubType>

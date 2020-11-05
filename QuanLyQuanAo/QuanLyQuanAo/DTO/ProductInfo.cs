@@ -10,6 +10,7 @@ namespace QuanLyQuanAo.DTO
 {
     public class ProductInfo
     {
+        private int idProduct;
         private string name;
         private string type;
         private string branch;
@@ -19,9 +20,10 @@ namespace QuanLyQuanAo.DTO
         private int amount;
         private double price;
 
-        public ProductInfo(string name, string type, string branch, string color,
+        public ProductInfo(int idProduct, string name, string type, string branch, string color,
                         string unit, int size, int amount, double price)
         {
+            this.IdProduct = idProduct;
             this.Name = name;
             this.Type = type;
             this.Branch = branch;
@@ -34,6 +36,7 @@ namespace QuanLyQuanAo.DTO
 
         public ProductInfo(DataRow row)
         {
+            this.IdProduct = (int)row["ID"];
             this.Name = row["Tên"].ToString();
             this.Type = row["Loại"].ToString();
             this.Branch = row["Thương Hiệu"].ToString();
@@ -42,8 +45,12 @@ namespace QuanLyQuanAo.DTO
             this.Size = (int)row["Kích Thước"];
             this.Amount = (int)row["Số Lượng"];
             this.Price = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
-        } 
-
+        }
+        public int IdProduct
+        {
+            get => idProduct;
+            set => idProduct = value;
+        }
         public string Name 
         {   
             get => name; 
@@ -84,5 +91,6 @@ namespace QuanLyQuanAo.DTO
             get => price;
             set => price = value; 
         }
+        
     }
 }

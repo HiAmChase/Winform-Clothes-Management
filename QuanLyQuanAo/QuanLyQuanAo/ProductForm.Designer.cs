@@ -33,11 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxSize = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxUnit = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
-            this.textBoxBranch = new System.Windows.Forms.TextBox();
-            this.textBoxColor = new System.Windows.Forms.TextBox();
-            this.textBoxType = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,6 +52,11 @@
             this.addButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
+            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel2.SuspendLayout();
@@ -87,13 +88,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxID);
+            this.panel2.Controls.Add(this.comboBoxUnit);
+            this.panel2.Controls.Add(this.comboBoxColor);
+            this.panel2.Controls.Add(this.comboBoxType);
+            this.panel2.Controls.Add(this.comboBoxBranch);
             this.panel2.Controls.Add(this.textBoxSize);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBoxUnit);
             this.panel2.Controls.Add(this.textBoxAmount);
-            this.panel2.Controls.Add(this.textBoxBranch);
-            this.panel2.Controls.Add(this.textBoxColor);
-            this.panel2.Controls.Add(this.textBoxType);
             this.panel2.Controls.Add(this.textBoxPrice);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label6);
@@ -116,7 +118,6 @@
             this.textBoxSize.Location = new System.Drawing.Point(164, 96);
             this.textBoxSize.Multiline = true;
             this.textBoxSize.Name = "textBoxSize";
-            this.textBoxSize.ReadOnly = true;
             this.textBoxSize.Size = new System.Drawing.Size(60, 33);
             this.textBoxSize.TabIndex = 26;
             this.textBoxSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -132,18 +133,6 @@
             this.label2.Text = "Kích thước";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxUnit
-            // 
-            this.textBoxUnit.Enabled = false;
-            this.textBoxUnit.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnit.Location = new System.Drawing.Point(134, 151);
-            this.textBoxUnit.Multiline = true;
-            this.textBoxUnit.Name = "textBoxUnit";
-            this.textBoxUnit.ReadOnly = true;
-            this.textBoxUnit.Size = new System.Drawing.Size(90, 33);
-            this.textBoxUnit.TabIndex = 24;
-            this.textBoxUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textBoxAmount
             // 
             this.textBoxAmount.Enabled = false;
@@ -151,46 +140,9 @@
             this.textBoxAmount.Location = new System.Drawing.Point(369, 151);
             this.textBoxAmount.Multiline = true;
             this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(116, 33);
             this.textBoxAmount.TabIndex = 23;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxBranch
-            // 
-            this.textBoxBranch.Enabled = false;
-            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBranch.Location = new System.Drawing.Point(618, 48);
-            this.textBoxBranch.Multiline = true;
-            this.textBoxBranch.Name = "textBoxBranch";
-            this.textBoxBranch.ReadOnly = true;
-            this.textBoxBranch.Size = new System.Drawing.Size(166, 32);
-            this.textBoxBranch.TabIndex = 22;
-            this.textBoxBranch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxColor
-            // 
-            this.textBoxColor.Enabled = false;
-            this.textBoxColor.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxColor.Location = new System.Drawing.Point(618, 96);
-            this.textBoxColor.Multiline = true;
-            this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.ReadOnly = true;
-            this.textBoxColor.Size = new System.Drawing.Size(166, 33);
-            this.textBoxColor.TabIndex = 21;
-            this.textBoxColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxType
-            // 
-            this.textBoxType.Enabled = false;
-            this.textBoxType.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxType.Location = new System.Drawing.Point(369, 96);
-            this.textBoxType.Multiline = true;
-            this.textBoxType.Name = "textBoxType";
-            this.textBoxType.ReadOnly = true;
-            this.textBoxType.Size = new System.Drawing.Size(116, 33);
-            this.textBoxType.TabIndex = 20;
-            this.textBoxType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPrice
             // 
@@ -199,7 +151,6 @@
             this.textBoxPrice.Location = new System.Drawing.Point(618, 151);
             this.textBoxPrice.Multiline = true;
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(166, 33);
             this.textBoxPrice.TabIndex = 19;
             this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -266,7 +217,6 @@
             this.textBoxProduct.Location = new System.Drawing.Point(192, 47);
             this.textBoxProduct.Multiline = true;
             this.textBoxProduct.Name = "textBoxProduct";
-            this.textBoxProduct.ReadOnly = true;
             this.textBoxProduct.Size = new System.Drawing.Size(229, 33);
             this.textBoxProduct.TabIndex = 9;
             this.textBoxProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -296,9 +246,9 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-10, 0);
+            this.label1.Location = new System.Drawing.Point(-10, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 39);
+            this.label1.Size = new System.Drawing.Size(205, 23);
             this.label1.TabIndex = 3;
             this.label1.Text = "Thông tin sản phẩm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,6 +345,57 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(618, 42);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(166, 32);
+            this.comboBoxBranch.TabIndex = 27;
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.Enabled = false;
+            this.comboBoxType.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(369, 96);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(116, 32);
+            this.comboBoxType.TabIndex = 28;
+            // 
+            // comboBoxColor
+            // 
+            this.comboBoxColor.Enabled = false;
+            this.comboBoxColor.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Location = new System.Drawing.Point(618, 97);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(166, 32);
+            this.comboBoxColor.TabIndex = 29;
+            // 
+            // comboBoxUnit
+            // 
+            this.comboBoxUnit.Enabled = false;
+            this.comboBoxUnit.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Location = new System.Drawing.Point(134, 151);
+            this.comboBoxUnit.Name = "comboBoxUnit";
+            this.comboBoxUnit.Size = new System.Drawing.Size(90, 32);
+            this.comboBoxUnit.TabIndex = 30;
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Enabled = false;
+            this.textBoxID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxID.Location = new System.Drawing.Point(192, 3);
+            this.textBoxID.Multiline = true;
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(84, 23);
+            this.textBoxID.TabIndex = 31;
+            this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,13 +439,14 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.TextBox textBoxBranch;
-        private System.Windows.Forms.TextBox textBoxColor;
-        private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.DataGridView dataViewProduct;
-        private System.Windows.Forms.TextBox textBoxUnit;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.TextBox textBoxSize;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxBranch;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ComboBox comboBoxUnit;
+        private System.Windows.Forms.ComboBox comboBoxColor;
+        private System.Windows.Forms.TextBox textBoxID;
     }
 }
