@@ -44,4 +44,31 @@ BEGIN
 	WHERE 
 		P.IDBranch = B.IDBranch AND IDProduct = @IDProduct
 END
+
 GO
+
+CREATE PROC USP_GetColorByProductID
+@IDProduct INT
+AS
+BEGIN 
+	SELECT 
+	C.*
+	FROM 
+		Product P, Color C
+	WHERE 
+		P.IDColor = C.IDColor AND IDProduct = @IDProduct
+END
+
+GO
+
+CREATE PROC USP_GetTypeByProductID
+@IDProduct INT
+AS
+BEGIN 
+	SELECT 
+	T.*
+	FROM 
+		Product P, Type T
+	WHERE 
+		P.IDType = T.IDType AND IDProduct = @IDProduct
+END

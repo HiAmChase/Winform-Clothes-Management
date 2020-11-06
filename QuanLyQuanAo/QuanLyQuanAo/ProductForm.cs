@@ -21,6 +21,17 @@ namespace QuanLyQuanAo
             LoadProduct();
             AddProductBinding();
             LoadBranchesIntoComboBox();
+            LoadColorIntoComboBox();
+            LoadTypeIntoComboBox();
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+
+            AutoUpdateComboBoxBranch(idProduct);
+            AutoUpdateComboBoxColor(idProduct);
+            AutoUpdateComboBoxType(idProduct);
         }
 
         private void LoadProduct()
@@ -34,6 +45,18 @@ namespace QuanLyQuanAo
             comboBoxBranch.DisplayMember = "Name";
         }
 
+        private void LoadColorIntoComboBox()
+        {
+            comboBoxColor.DataSource = ColorDAO.Instance.GetColor();
+            comboBoxColor.DisplayMember = "NameColor";
+        }
+
+        private void LoadTypeIntoComboBox()
+        {
+            comboBoxType.DataSource = TypeDAO.Instance.GetTypeInfo();
+            comboBoxType.DisplayMember = "Name";
+        }
+
         private void AddProductBinding()
         {
             textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "IDProduct");
@@ -41,17 +64,11 @@ namespace QuanLyQuanAo
             textBoxSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
             textBoxAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
             textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
+            textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void AutoUpdateComboBoxBranch(int idProduct)
         {
-            this.Close();
-        }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-            int idProduct = (int) dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
-
             Branch branch = BranchDAO.Instance.GetBranchByIDProduct(idProduct);
 
             int index = -1;
@@ -67,6 +84,49 @@ namespace QuanLyQuanAo
                 i++;
             }
             comboBoxBranch.SelectedIndex = index;
+        }
+
+        private void AutoUpdateComboBoxColor(int idProduct)
+        {
+            ColorInfo color = ColorDAO.Instance.GetColorByIDProduct(idProduct);
+
+            int index = -1;
+            int i = 0;
+
+            foreach (ColorInfo item in comboBoxColor.Items)
+            {
+                if (item.IdColor == color.IdColor)
+                {
+                    index = i;
+                    break;
+                }
+                i++;
+            }
+            comboBoxColor.SelectedIndex = index;
+        }
+
+        private void AutoUpdateComboBoxType(int idProduct)
+        {
+            TypeInfo type = TypeDAO.Instance.GetTypeByIDProduct(idProduct);
+
+            int index = -1;
+            int i = 0;
+
+            foreach (TypeInfo item in comboBoxType.Items)
+            {
+                if (item.IdType == type.IdType)
+                {
+                    index = i;
+                    break;
+                }
+                i++;
+            }
+            comboBoxType.SelectedIndex = index;
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

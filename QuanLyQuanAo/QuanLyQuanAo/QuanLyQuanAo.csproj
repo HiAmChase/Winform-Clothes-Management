@@ -47,11 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BranchDAO.cs" />
+    <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\TypeDAO.cs" />
     <Compile Include="DTO\Branch.cs" />
+    <Compile Include="DTO\ColorInfo.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
+    <Compile Include="DTO\TypeInfo.cs" />
     <Compile Include="FormController.cs">
       <SubType>Form</SubType>
     </Compile>
