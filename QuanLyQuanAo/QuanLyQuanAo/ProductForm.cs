@@ -15,9 +15,15 @@ namespace QuanLyQuanAo
 {
     public partial class ProductForm : Form
     {
+        BindingSource listProduct = new BindingSource();
         public ProductForm()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             LoadProduct();
             AddProductBinding();
             LoadBranchesIntoComboBox();
@@ -34,9 +40,20 @@ namespace QuanLyQuanAo
             AutoUpdateComboBoxType(idProduct);
         }
 
+        private void AddProductBinding()
+        {
+            textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "IDProduct");
+            textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
+            numUpDownSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
+            numUpDownAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
+            textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
+            textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
+        }
+
         private void LoadProduct()
         {
-            dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
+            dataViewProduct.DataSource = listProduct;
+            listProduct.DataSource = ProductDAO.Instance.GetProduct();
         }
 
         private void LoadBranchesIntoComboBox()
@@ -55,16 +72,6 @@ namespace QuanLyQuanAo
         {
             comboBoxType.DataSource = TypeDAO.Instance.GetTypeInfo();
             comboBoxType.DisplayMember = "Name";
-        }
-
-        private void AddProductBinding()
-        {
-            textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "IDProduct");
-            textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
-            textBoxSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
-            textBoxAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
-            textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
-            textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
         }
 
         private void AutoUpdateComboBoxBranch(int idProduct)
@@ -122,6 +129,71 @@ namespace QuanLyQuanAo
                 i++;
             }
             comboBoxType.SelectedIndex = index;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            labelNotify.Text = "Điền thông tin: ";
+            saveButton.Enabled = true;
+
+            ClearDataBinding();
+            EnableTextBoxAndComboBox();
+            ReleaseInput();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            InsertProduct();
+        }
+
+        private void ClearDataBinding()
+        {
+            textBoxID.DataBindings.Clear();
+            textBoxProduct.DataBindings.Clear();
+            numUpDownSize.DataBindings.Clear();
+            numUpDownAmount.DataBindings.Clear();
+            textBoxPrice.DataBindings.Clear();
+            textBoxUnit.DataBindings.Clear();
+        }
+
+        private void EnableTextBoxAndComboBox()
+        {
+            //textBoxID.Enabled = true;
+            textBoxProduct.Enabled = true;
+            numUpDownSize.Enabled = true;
+            numUpDownAmount.Enabled = true;
+            textBoxPrice.Enabled = true;
+            textBoxUnit.Enabled = true;
+            comboBoxBranch.Enabled = true;
+            comboBoxColor.Enabled = true;
+            comboBoxType.Enabled = true;
+        }
+
+        private void ReleaseInput()
+        {
+            textBoxID.Text = "";
+            textBoxProduct.Text = "";
+            numUpDownSize.Text = "";
+            numUpDownAmount.Text = "";
+            textBoxPrice.Text = "";
+            textBoxUnit.Text = "";
+            comboBoxBranch.SelectedIndex = 0;
+            comboBoxColor.SelectedIndex = 0;
+            comboBoxType.SelectedIndex = 0;
+        }
+
+        private void InsertProduct()
+        {
+            string name = textBoxProduct.Text;
+            string branch = comboBoxBranch.Text;
+            int size = Convert.ToInt32(numUpDownSize.Value);
+            string type = comboBoxType.Text;
+            string color = comboBoxColor.Text;
+            string unit = textBoxUnit.Text;
+            int amount = Convert.ToInt32(numUpDownAmount.Value);
+            double price = Convert.ToDouble(textBoxPrice.Text);
+
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

@@ -53,7 +53,6 @@
     <Compile Include="DAO\TypeDAO.cs" />
     <Compile Include="DTO\Branch.cs" />
     <Compile Include="DTO\ColorInfo.cs" />
-    <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="DTO\TypeInfo.cs" />
     <Compile Include="FormController.cs">

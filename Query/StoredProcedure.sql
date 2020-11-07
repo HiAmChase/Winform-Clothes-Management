@@ -72,3 +72,24 @@ BEGIN
 	WHERE 
 		P.IDType = T.IDType AND IDProduct = @IDProduct
 END
+GO
+
+CREATE PROC USP_InsertProduct
+@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
+@Amount INT, @Unit NVARCHAR(50), @Price DECIMAL(19, 4)
+AS
+BEGIN
+	DECLARE @IDType INT = (SELECT IDType FROM Type WHERE Name = @Type),
+	@IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @Branch),
+	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
+	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
+
+	INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
+	VALUES
+	(@Name, @IDType, @IDBranch, @IDSize, @IDColor, @Amount, @Unit, @Price)
+
+END
+
+--Example
+EXEC USP_InsertProduct @Name = N'Test', @Type = N'Giày', @Branch = N'Không', @Size = 1,
+				@Color = N'Trắng', @Amount = 5, @Unit = N'Đôi', @Price = 10000

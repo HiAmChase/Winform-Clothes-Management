@@ -32,6 +32,13 @@ namespace QuanLyQuanAo.DAO
             return listProduct;
         }
 
+        public bool InsertProduct()
+        {
+
+
+            return true;
+        }
+
 
     }
 }
