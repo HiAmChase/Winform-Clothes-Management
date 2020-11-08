@@ -123,3 +123,11 @@ END
 --Example
 EXEC USP_UpdateProduct @IDProduct = 13, @Name = N'NewTest', @Type = N'Giày', @Branch = N'Balenciaga', @Size = 1,
 				@Color = N'Đen', @Amount = 10, @Unit = N'Cái', @Price = 1000000
+GO
+
+CREATE PROC USP_DeleteProduct
+@IDProduct INT
+AS
+BEGIN
+	DELETE FROM Product WHERE IDProduct = @IDProduct
+END

@@ -122,7 +122,7 @@
             this.numUpDownAmount.Location = new System.Drawing.Point(369, 149);
             this.numUpDownAmount.Name = "numUpDownAmount";
             this.numUpDownAmount.Size = new System.Drawing.Size(116, 35);
-            this.numUpDownAmount.TabIndex = 35;
+            this.numUpDownAmount.TabIndex = 15;
             this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numUpDownSize
@@ -132,7 +132,7 @@
             this.numUpDownSize.Location = new System.Drawing.Point(166, 96);
             this.numUpDownSize.Name = "numUpDownSize";
             this.numUpDownSize.Size = new System.Drawing.Size(60, 35);
-            this.numUpDownSize.TabIndex = 34;
+            this.numUpDownSize.TabIndex = 11;
             this.numUpDownSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelNotify
@@ -153,7 +153,7 @@
             this.textBoxUnit.Multiline = true;
             this.textBoxUnit.Name = "textBoxUnit";
             this.textBoxUnit.Size = new System.Drawing.Size(98, 33);
-            this.textBoxUnit.TabIndex = 32;
+            this.textBoxUnit.TabIndex = 14;
             this.textBoxUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxID
@@ -176,7 +176,7 @@
             this.comboBoxColor.Location = new System.Drawing.Point(618, 97);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(166, 35);
-            this.comboBoxColor.TabIndex = 29;
+            this.comboBoxColor.TabIndex = 13;
             // 
             // comboBoxType
             // 
@@ -186,7 +186,7 @@
             this.comboBoxType.Location = new System.Drawing.Point(369, 96);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(116, 35);
-            this.comboBoxType.TabIndex = 28;
+            this.comboBoxType.TabIndex = 12;
             // 
             // comboBoxBranch
             // 
@@ -196,7 +196,8 @@
             this.comboBoxBranch.Location = new System.Drawing.Point(618, 42);
             this.comboBoxBranch.Name = "comboBoxBranch";
             this.comboBoxBranch.Size = new System.Drawing.Size(166, 35);
-            this.comboBoxBranch.TabIndex = 27;
+            this.comboBoxBranch.TabIndex = 10;
+            this.comboBoxBranch.Tag = "";
             // 
             // label2
             // 
@@ -217,7 +218,7 @@
             this.textBoxPrice.Multiline = true;
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(166, 33);
-            this.textBoxPrice.TabIndex = 19;
+            this.textBoxPrice.TabIndex = 16;
             this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
@@ -367,6 +368,7 @@
             this.deleteButton.Text = "Xóa";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 

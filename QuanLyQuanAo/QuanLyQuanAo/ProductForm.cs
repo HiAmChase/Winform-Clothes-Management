@@ -35,13 +35,10 @@ namespace QuanLyQuanAo
             TurnOffFlag();
         }
 
-        private void textBoxID_TextChanged(object sender, EventArgs e)
+        private void LoadProduct()
         {
-            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
-
-            AutoUpdateComboBoxBranch(idProduct);
-            AutoUpdateComboBoxColor(idProduct);
-            AutoUpdateComboBoxType(idProduct);
+            dataViewProduct.DataSource = listProduct;
+            listProduct.DataSource = ProductDAO.Instance.GetProduct();
         }
 
         private void AddProductBinding()
@@ -52,12 +49,6 @@ namespace QuanLyQuanAo
             numUpDownAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
             textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
             textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
-        }
-
-        private void LoadProduct()
-        {
-            dataViewProduct.DataSource = listProduct;
-            listProduct.DataSource = ProductDAO.Instance.GetProduct();
         }
 
         private void LoadBranchesIntoComboBox()
@@ -93,6 +84,21 @@ namespace QuanLyQuanAo
             cancelButton.Enabled = false;
 
             labelNotify.Text = "";
+        }
+
+        private void TurnOffFlag()
+        {
+            addFlag = 0;
+            editFlag = 0;
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+
+            AutoUpdateComboBoxBranch(idProduct);
+            AutoUpdateComboBoxColor(idProduct);
+            AutoUpdateComboBoxType(idProduct);
         }
 
         private void AutoUpdateComboBoxBranch(int idProduct)
@@ -177,6 +183,16 @@ namespace QuanLyQuanAo
             EnableTextBoxAndComboBox();
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo", 
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
+            {
+                ClearDataBinding();
+                DeleteProduct();
+            }
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (addFlag == 1)
@@ -184,7 +200,6 @@ namespace QuanLyQuanAo
             if (editFlag == 1)
                 UpdateProduct();
         }
-
 
         private void ClearDataBinding()
         {
@@ -234,12 +249,12 @@ namespace QuanLyQuanAo
 
             if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, price))
             {
-                MessageBox.Show("Thao tác thực hiện thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
             }
             else
             {
-                MessageBox.Show("Không thể thực hiện thao tác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
 
@@ -257,20 +272,29 @@ namespace QuanLyQuanAo
 
             if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, price))
             {
-                MessageBox.Show("Thao tác thực hiện thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
             }
             else
             {
-                MessageBox.Show("Không thể thực hiện thao tác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
 
         }
 
-        private void TurnOffFlag()
+        private void DeleteProduct()
         {
-            addFlag = 0;
-            editFlag = 0;
+            int idProduct = Convert.ToInt32(textBoxID.Text);
+
+            if (ProductDAO.Instance.DeleteProduct(idProduct))
+            {
+                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

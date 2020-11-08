@@ -56,5 +56,14 @@ namespace QuanLyQuanAo.DAO
             return result > 0;
         }
 
+        public bool DeleteProduct(int id)
+        {
+            string query = string.Format("EXEC USP_DeleteProduct @IDProduct = {0}", id);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
     }
 }
