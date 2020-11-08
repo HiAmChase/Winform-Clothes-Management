@@ -32,5 +32,6 @@ namespace QuanLyQuanAo
             productForm.ShowDialog();
             this.Show();
         }
+
     }
 }

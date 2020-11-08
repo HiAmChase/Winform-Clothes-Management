@@ -15,6 +15,8 @@ namespace QuanLyQuanAo
 {
     public partial class ProductForm : Form
     {
+        int addFlag = 0;
+        int editFlag = 0;
         BindingSource listProduct = new BindingSource();
         public ProductForm()
         {
@@ -29,6 +31,8 @@ namespace QuanLyQuanAo
             LoadBranchesIntoComboBox();
             LoadColorIntoComboBox();
             LoadTypeIntoComboBox();
+            DisableTextBoxAndComboBox();
+            TurnOffFlag();
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)
@@ -72,6 +76,23 @@ namespace QuanLyQuanAo
         {
             comboBoxType.DataSource = TypeDAO.Instance.GetTypeInfo();
             comboBoxType.DisplayMember = "Name";
+        }
+
+        private void DisableTextBoxAndComboBox()
+        {
+            textBoxProduct.Enabled = false;
+            numUpDownSize.Enabled = false;
+            numUpDownAmount.Enabled = false;
+            textBoxPrice.Enabled = false;
+            textBoxUnit.Enabled = false;
+            comboBoxBranch.Enabled = false;
+            comboBoxColor.Enabled = false;
+            comboBoxType.Enabled = false;
+
+            saveButton.Enabled = false;
+            cancelButton.Enabled = false;
+
+            labelNotify.Text = "";
         }
 
         private void AutoUpdateComboBoxBranch(int idProduct)
@@ -133,18 +154,37 @@ namespace QuanLyQuanAo
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            labelNotify.Text = "Điền thông tin: ";
+            addFlag = 1;
+            labelNotify.Text = "Điền thông tin";
+
             saveButton.Enabled = true;
+            cancelButton.Enabled = true;
 
             ClearDataBinding();
             EnableTextBoxAndComboBox();
             ReleaseInput();
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            editFlag = 1;
+            labelNotify.Text = "Sửa thông tin";
+
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearDataBinding();
+            EnableTextBoxAndComboBox();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
-            InsertProduct();
+            if (addFlag == 1)
+                InsertProduct();
+            if (editFlag == 1)
+                UpdateProduct();
         }
+
 
         private void ClearDataBinding()
         {
@@ -158,7 +198,6 @@ namespace QuanLyQuanAo
 
         private void EnableTextBoxAndComboBox()
         {
-            //textBoxID.Enabled = true;
             textBoxProduct.Enabled = true;
             numUpDownSize.Enabled = true;
             numUpDownAmount.Enabled = true;
@@ -193,7 +232,50 @@ namespace QuanLyQuanAo
             int amount = Convert.ToInt32(numUpDownAmount.Value);
             double price = Convert.ToDouble(textBoxPrice.Text);
 
+            if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, price))
+            {
+                MessageBox.Show("Thao tác thực hiện thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Không thể thực hiện thao tác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+        }
 
+        private void UpdateProduct()
+        {
+            int id = Convert.ToInt32(textBoxID.Text);
+            string name = textBoxProduct.Text;
+            string branch = comboBoxBranch.Text;
+            int size = Convert.ToInt32(numUpDownSize.Value);
+            string type = comboBoxType.Text;
+            string color = comboBoxColor.Text;
+            string unit = textBoxUnit.Text;
+            int amount = Convert.ToInt32(numUpDownAmount.Value);
+            double price = Convert.ToDouble(textBoxPrice.Text);
+
+            if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, price))
+            {
+                MessageBox.Show("Thao tác thực hiện thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Không thể thực hiện thao tác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+
+        }
+
+        private void TurnOffFlag()
+        {
+            addFlag = 0;
+            editFlag = 0;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

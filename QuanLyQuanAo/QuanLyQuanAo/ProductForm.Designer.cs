@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewProduct = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.numUpDownAmount = new System.Windows.Forms.NumericUpDown();
+            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
             this.labelNotify = new System.Windows.Forms.Label();
             this.textBoxUnit = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -56,14 +58,12 @@
             this.addButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownAmount = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,6 +114,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(872, 206);
             this.panel2.TabIndex = 1;
+            // 
+            // numUpDownAmount
+            // 
+            this.numUpDownAmount.Enabled = false;
+            this.numUpDownAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUpDownAmount.Location = new System.Drawing.Point(369, 149);
+            this.numUpDownAmount.Name = "numUpDownAmount";
+            this.numUpDownAmount.Size = new System.Drawing.Size(116, 35);
+            this.numUpDownAmount.TabIndex = 35;
+            this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numUpDownSize
+            // 
+            this.numUpDownSize.Enabled = false;
+            this.numUpDownSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUpDownSize.Location = new System.Drawing.Point(166, 96);
+            this.numUpDownSize.Name = "numUpDownSize";
+            this.numUpDownSize.Size = new System.Drawing.Size(60, 35);
+            this.numUpDownSize.TabIndex = 34;
+            this.numUpDownSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelNotify
             // 
@@ -322,6 +342,7 @@
             this.cancelButton.Text = "Hủy";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -357,6 +378,7 @@
             this.editButton.Text = "Sửa";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -392,26 +414,6 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // numUpDownSize
-            // 
-            this.numUpDownSize.Enabled = false;
-            this.numUpDownSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownSize.Location = new System.Drawing.Point(166, 96);
-            this.numUpDownSize.Name = "numUpDownSize";
-            this.numUpDownSize.Size = new System.Drawing.Size(60, 35);
-            this.numUpDownSize.TabIndex = 34;
-            this.numUpDownSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownAmount
-            // 
-            this.numUpDownAmount.Enabled = false;
-            this.numUpDownAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownAmount.Location = new System.Drawing.Point(369, 149);
-            this.numUpDownAmount.Name = "numUpDownAmount";
-            this.numUpDownAmount.Size = new System.Drawing.Size(116, 35);
-            this.numUpDownAmount.TabIndex = 35;
-            this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,9 +430,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
