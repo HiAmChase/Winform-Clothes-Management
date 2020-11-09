@@ -33,5 +33,12 @@ namespace QuanLyQuanAo
             this.Show();
         }
 
+        private void buttonClient_Click(object sender, EventArgs e)
+        {
+            ClientForm clientForm = new ClientForm();
+            this.Hide();
+            clientForm.ShowDialog();
+            this.Show();
+        }
     }
 }

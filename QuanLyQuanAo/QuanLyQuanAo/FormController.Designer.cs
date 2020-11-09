@@ -80,7 +80,7 @@
             this.buttonSupplier.Name = "buttonSupplier";
             this.buttonSupplier.Size = new System.Drawing.Size(122, 116);
             this.buttonSupplier.TabIndex = 2;
-            this.buttonSupplier.Text = "Quản lý khách hàng";
+            this.buttonSupplier.Text = "Quản lý nhà cung cấp";
             this.buttonSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonSupplier.UseVisualStyleBackColor = true;
             // 
@@ -95,6 +95,7 @@
             this.buttonClient.Text = "Quản lý khách hàng";
             this.buttonClient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonClient.UseVisualStyleBackColor = true;
+            this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
             // 
             // FormController
             // 

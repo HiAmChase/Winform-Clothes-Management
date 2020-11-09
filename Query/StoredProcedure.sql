@@ -131,3 +131,14 @@ AS
 BEGIN
 	DELETE FROM Product WHERE IDProduct = @IDProduct
 END
+
+GO
+
+CREATE PROC USP_InsertClient
+@Name NVARCHAR(50), @Phone NVARCHAR(50), @Email NVARCHAR(50), @Address NVARCHAR(100)
+AS
+BEGIN
+	INSERT INTO Client (Name, Address, Phone, Email)
+	VALUES
+	(@Name,@Address, @Phone, @Email)
+END

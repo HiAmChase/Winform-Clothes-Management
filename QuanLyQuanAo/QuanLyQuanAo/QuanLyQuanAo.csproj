@@ -46,12 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\BranchDAO.cs" />
+    <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\TypeDAO.cs" />
     <Compile Include="DTO\Branch.cs" />
+    <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\ColorInfo.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="DTO\TypeInfo.cs" />
@@ -69,6 +77,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormController.resx">
       <DependentUpon>FormController.cs</DependentUpon>
     </EmbeddedResource>

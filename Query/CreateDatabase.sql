@@ -70,16 +70,16 @@ CREATE TABLE Client
 	IDClient INT IDENTITY
 		CONSTRAINT PK_IDClient PRIMARY KEY,
 	Name NVARCHAR(50) NOT NULL,
-	Address NVARCHAR(50) NOT NULL,
+	Address NVARCHAR(100) NOT NULL,
 	Phone NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50)
 )
+
 
 INSERT INTO Client (Name, Address, Phone, Email)
 VALUES
 (N'Không', N'Không', N'Không', N'Không')
 
-SELECT * FROM Client
 
 CREATE TABLE BillExport
 (
@@ -203,6 +203,8 @@ SELECT * FROM Size
 SELECT * FROM Color
 
 SELECT * FROM Product
+
+SELECT * FROM Client
 
 INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
 VALUES
