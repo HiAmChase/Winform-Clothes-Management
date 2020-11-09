@@ -142,3 +142,25 @@ BEGIN
 	VALUES
 	(@Name,@Address, @Phone, @Email)
 END
+GO
+
+CREATE PROC USP_UpdateClient
+@IDClient INT, @Name NVARCHAR(50), @Phone NVARCHAR(50), @Email NVARCHAR(50), @Address NVARCHAR(100)
+AS
+BEGIN
+	UPDATE Client
+	SET Name = @Name,
+		Phone = @Phone,
+		Email = @Email,
+		Address = @Address
+	WHERE
+		IDClient = @IDClient
+END
+GO
+
+CREATE PROC USP_DeleteClient
+@IDClient INT
+AS
+BEGIN
+	DELETE FROM Client WHERE IDClient = @IDClient
+END

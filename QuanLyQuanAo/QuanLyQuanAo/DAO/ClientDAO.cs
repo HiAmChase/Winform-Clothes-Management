@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,6 +41,26 @@ namespace QuanLyQuanAo.DAO
             string query = string.Format("EXEC USP_InsertClient @Name = N'{0}', @Phone = '{1}', " +
                                          "@Email = '{2}', @Address = N'{3}'",
                                           name, phone, email, address);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateClient(int id, string name, string phone, string email, string address)
+        {
+            string query = string.Format("EXEC USP_UpdateClient @IDClient = {0}, @Name = N'{1}', @Phone = '{2}', " +
+                                         "@Email = '{3}', @Address = N'{4}'",
+                                          id, name, phone, email, address);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteClient(int id)
+        {
+            string query = string.Format("EXEC USP_DeleteClient @IDClient = {0}", id);
+
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;

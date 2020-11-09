@@ -78,9 +78,34 @@ namespace QuanLyQuanAo
             ReleaseInput();
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            editFlag = 1;
+            labelNotify.Text = "Sửa thông tin";
+
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearBinding();
+            EnableTextBox();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
-            InsertClient();
+            if (addFlag == 1)
+                InsertClient();
+            if (editFlag == 1)
+                UpdateClient();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
+            {
+                ClearBinding();
+                DeleteClient();
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -129,6 +154,40 @@ namespace QuanLyQuanAo
             if (ClientDAO.Instance.InsertClient(name, phone, email, address))
             {
                 MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateClient()
+        {
+            int id = Convert.ToInt32(textBoxID.Text);
+            string name = textBoxName.Text.ToString();
+            string phone = textBoxPhone.Text.ToString();
+            string email = textBoxEmail.Text.ToString();
+            string address = textBoxAddress.Text.ToString();
+
+            if (ClientDAO.Instance.UpdateClient(id, name, phone, email, address))
+            {
+                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteClient()
+        {
+            int idClient = Convert.ToInt32(textBoxID.Text);
+
+            if (ClientDAO.Instance.DeleteClient(idClient))
+            {
+                MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
             }
             else

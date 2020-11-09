@@ -288,7 +288,7 @@ namespace QuanLyQuanAo
 
             if (ProductDAO.Instance.DeleteProduct(idProduct))
             {
-                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xoá thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
             }
             else
