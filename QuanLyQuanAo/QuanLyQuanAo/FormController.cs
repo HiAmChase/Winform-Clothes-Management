@@ -40,5 +40,13 @@ namespace QuanLyQuanAo
             clientForm.ShowDialog();
             this.Show();
         }
+
+        private void buttonSupplier_Click(object sender, EventArgs e)
+        {
+            SupplierForm supplierForm = new SupplierForm();
+            this.Hide();
+            supplierForm.ShowDialog();
+            this.Show();
+        }
     }
 }

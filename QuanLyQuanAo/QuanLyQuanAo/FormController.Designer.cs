@@ -83,6 +83,7 @@
             this.buttonSupplier.Text = "Quản lý nhà cung cấp";
             this.buttonSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonSupplier.UseVisualStyleBackColor = true;
+            this.buttonSupplier.Click += new System.EventHandler(this.buttonSupplier_Click);
             // 
             // buttonClient
             // 

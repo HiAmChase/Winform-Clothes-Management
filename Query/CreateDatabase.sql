@@ -206,6 +206,8 @@ SELECT * FROM Product
 
 SELECT * FROM Client
 
+SELECT * FROM Supplier
+
 INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
 VALUES
 (N'Áo hoodie', 4, 3, 2, 2, 50, N'Cái', 750000),

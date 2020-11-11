@@ -10,3 +10,4 @@ C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.pdb
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormController.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ProductForm.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ClientForm.resources
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.SupplierForm.resources
