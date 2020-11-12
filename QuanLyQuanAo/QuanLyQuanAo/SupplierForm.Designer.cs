@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewSupplier = new System.Windows.Forms.DataGridView();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +79,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(574, 269);
             this.panel2.TabIndex = 5;
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.Enabled = false;
+            this.comboBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(428, 36);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(124, 29);
+            this.comboBoxBranch.TabIndex = 45;
+            this.comboBoxBranch.Tag = "";
             // 
             // label7
             // 
@@ -254,6 +265,7 @@
             this.cancelButton.Text = "Hủy";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -266,6 +278,7 @@
             this.saveButton.Text = "Lưu";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // deleteButton
             // 
@@ -277,6 +290,7 @@
             this.deleteButton.Text = "Xóa";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -288,6 +302,7 @@
             this.addButton.Text = "Thêm";
             this.addButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
@@ -299,6 +314,7 @@
             this.editButton.Text = "Sửa";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // label10
             // 
@@ -332,17 +348,6 @@
             this.dataViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewSupplier.Size = new System.Drawing.Size(806, 296);
             this.dataViewSupplier.TabIndex = 0;
-            // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.Enabled = false;
-            this.comboBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(428, 36);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(124, 29);
-            this.comboBoxBranch.TabIndex = 45;
-            this.comboBoxBranch.Tag = "";
             // 
             // SupplierForm
             // 

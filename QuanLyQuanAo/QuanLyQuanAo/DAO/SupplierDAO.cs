@@ -34,5 +34,37 @@ namespace QuanLyQuanAo.DAO
 
             return list;
         }
+
+        public bool InsertSupplier(string name, string nameBranch, string phone, string email, string address)
+        {
+            string query = string.Format("EXEC USP_InsertSupplier @Name = N'{0}', @NameBranch = N'{1}'," +
+                                    "@Phone = N'{2}', @Email = N'{3}', @Address = N'{4}'",
+                                            name, nameBranch, phone, email, address);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateSupplier(int id, string name, string nameBranch, 
+                                    string phone, string email, string address)
+        {
+            string query = string.Format("EXEC USP_UpdateSupplier @IDSupplier = {0}, @Name = N'{1}', @NameBranch = N'{2}'," +
+                                   "@Phone = N'{3}', @Email = N'{4}', @Address = N'{5}'",
+                                           id, name, nameBranch, phone, email, address);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteSupplier(int id)
+        {
+            string query = string.Format("EXEC USP_DeleteSupplier @IDSupplier = {0}", id);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
     }
 }

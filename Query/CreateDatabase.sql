@@ -38,12 +38,11 @@ CREATE TABLE Supplier
 	IDSupplier INT IDENTITY
 		CONSTRAINT PK_IDSupplier PRIMARY KEY,
 	Name NVARCHAR(50) NOT NULL,
-	Address NVARCHAR(50),
+	Address NVARCHAR(100),
 	Phone NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50),
 	IDBranch INT DEFAULT 1,
 )
-
 
 
 INSERT INTO Supplier(Name, Address , Phone, Email, IDBranch)

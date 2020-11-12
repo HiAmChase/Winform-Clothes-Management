@@ -193,3 +193,42 @@ BEGIN
 		Branch B
 	ON S.IDBranch = B.IDBranch
 END
+GO
+
+CREATE PROC USP_InsertSupplier
+@Name NVARCHAR(50), @Address NVARCHAR(100), @Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
+AS
+BEGIN
+	DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
+
+	INSERT INTO 
+		Supplier(Name, Address , Phone, Email, IDBranch)
+	VALUES
+		(@Name, @Address, @Phone, @Email, @IDBranch)
+END
+GO
+
+CREATE PROC USP_UpdateSupplier
+@IDSupplier INT, @Name NVARCHAR(50), @Address NVARCHAR(100), 
+@Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
+AS
+BEGIN
+	DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
+
+	UPDATE Supplier
+	SET 
+		Name = @Name,
+		Address = @Address,
+		Phone = @Phone,
+		Email = @Email,
+		IDBranch = @IDBranch
+	WHERE IDSupplier = @IDSupplier
+END
+GO
+
+CREATE PROC USP_DeleteSupplier
+@IDSupplier INT
+AS
+BEGIN
+	DELETE FROM Supplier WHERE IDSupplier = @IDSupplier
+END
