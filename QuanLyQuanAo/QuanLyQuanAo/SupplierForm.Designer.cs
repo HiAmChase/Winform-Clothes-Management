@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,16 +51,17 @@
             this.editButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataViewClient = new System.Windows.Forms.DataGridView();
+            this.dataViewSupplier = new System.Windows.Forms.DataGridView();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.comboBoxBranch);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.textBoxAddress);
             this.panel2.Controls.Add(this.label6);
@@ -79,16 +79,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(574, 269);
             this.panel2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(439, 37);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 27);
-            this.textBox1.TabIndex = 43;
             // 
             // label7
             // 
@@ -204,6 +194,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(98, 27);
             this.textBoxID.TabIndex = 31;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
             // label4
             // 
@@ -321,26 +312,37 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataViewClient);
+            this.panel1.Controls.Add(this.dataViewSupplier);
             this.panel1.Location = new System.Drawing.Point(49, 287);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(815, 330);
             this.panel1.TabIndex = 26;
             // 
-            // dataViewClient
+            // dataViewSupplier
             // 
-            this.dataViewClient.AllowUserToAddRows = false;
-            this.dataViewClient.AllowUserToDeleteRows = false;
-            this.dataViewClient.AllowUserToResizeColumns = false;
-            this.dataViewClient.AllowUserToResizeRows = false;
-            this.dataViewClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewClient.Location = new System.Drawing.Point(3, 3);
-            this.dataViewClient.Name = "dataViewClient";
-            this.dataViewClient.ReadOnly = true;
-            this.dataViewClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewClient.Size = new System.Drawing.Size(806, 296);
-            this.dataViewClient.TabIndex = 0;
+            this.dataViewSupplier.AllowUserToAddRows = false;
+            this.dataViewSupplier.AllowUserToDeleteRows = false;
+            this.dataViewSupplier.AllowUserToResizeColumns = false;
+            this.dataViewSupplier.AllowUserToResizeRows = false;
+            this.dataViewSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewSupplier.Location = new System.Drawing.Point(3, 3);
+            this.dataViewSupplier.Name = "dataViewSupplier";
+            this.dataViewSupplier.ReadOnly = true;
+            this.dataViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewSupplier.Size = new System.Drawing.Size(806, 296);
+            this.dataViewSupplier.TabIndex = 0;
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.Enabled = false;
+            this.comboBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(428, 36);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(124, 29);
+            this.comboBoxBranch.TabIndex = 45;
+            this.comboBoxBranch.Tag = "";
             // 
             // SupplierForm
             // 
@@ -357,7 +359,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,8 +388,8 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataViewClient;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataViewSupplier;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxBranch;
     }
 }

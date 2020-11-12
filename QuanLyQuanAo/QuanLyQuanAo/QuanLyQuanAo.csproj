@@ -57,6 +57,7 @@
     <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\SupplierDAO.cs" />
     <Compile Include="DAO\TypeDAO.cs" />
     <Compile Include="DTO\Branch.cs" />
     <Compile Include="DTO\Client.cs" />

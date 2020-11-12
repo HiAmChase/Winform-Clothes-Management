@@ -44,8 +44,13 @@ CREATE TABLE Supplier
 	IDBranch INT DEFAULT 1,
 )
 
-INSERT INTO Supplier(Name, Address , Phone, Email)
-VALUES (N'Không', N'Không', N'Không', N'Không')
+
+
+INSERT INTO Supplier(Name, Address , Phone, Email, IDBranch)
+VALUES
+(N'Không', N'Không', N'Không', N'Không', 1),
+(N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không', 2)
+
 
 CREATE TABLE BillImport
 (

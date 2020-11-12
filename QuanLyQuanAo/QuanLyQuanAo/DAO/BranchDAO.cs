@@ -36,13 +36,13 @@ namespace QuanLyQuanAo.DAO
             return listBranches;
         }
 
-        public Branch GetBranchByIDProduct(int idProduct)
+        public Branch GetBranchByID(int id, string storeProcName, string variable)
         {
             Branch branch = null;
 
-            string query = "EXEC USP_GetBranchByProductID @IDProduct";
+            string query = "EXEC " + storeProcName + " " + variable;
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[]{idProduct});
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[]{id});
 
             foreach(DataRow item in data.Rows)
             {
@@ -52,5 +52,6 @@ namespace QuanLyQuanAo.DAO
 
             return branch;
         }
+
     }
 }

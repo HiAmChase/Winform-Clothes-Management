@@ -44,7 +44,19 @@ BEGIN
 	WHERE 
 		P.IDBranch = B.IDBranch AND IDProduct = @IDProduct
 END
+GO
 
+CREATE PROC USP_GetBranchBySupplierID
+@IDSupplier INT
+AS
+BEGIN
+	SELECT 
+	B.*
+	FROM 
+		Supplier S, Branch B
+	WHERE 
+		S.IDBranch = B.IDBranch AND IDSupplier = @IDSupplier
+END
 GO
 
 CREATE PROC USP_GetColorByProductID
@@ -163,4 +175,21 @@ CREATE PROC USP_DeleteClient
 AS
 BEGIN
 	DELETE FROM Client WHERE IDClient = @IDClient
+END
+GO
+
+CREATE PROC USP_GetSupplier
+AS
+BEGIN
+	SELECT S.IDSupplier, 
+			S.Name, 
+			B.Name AS [Branch], 
+			S.Phone, 
+			S.Email, 
+			S.Address 
+	FROM
+		Supplier S
+	INNER JOIN 
+		Branch B
+	ON S.IDBranch = B.IDBranch
 END

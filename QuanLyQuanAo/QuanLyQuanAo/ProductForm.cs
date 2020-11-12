@@ -103,7 +103,9 @@ namespace QuanLyQuanAo
 
         private void AutoUpdateComboBoxBranch(int idProduct)
         {
-            Branch branch = BranchDAO.Instance.GetBranchByIDProduct(idProduct);
+            string query = "USP_GetBranchByProductID";
+            string variable = "@IDProduct";
+            Branch branch = BranchDAO.Instance.GetBranchByID(idProduct, query, variable);
 
             int index = -1;
             int i = 0;
