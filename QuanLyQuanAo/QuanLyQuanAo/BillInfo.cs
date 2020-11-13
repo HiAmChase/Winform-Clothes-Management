@@ -33,5 +33,11 @@ namespace QuanLyQuanAo
             textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
             textBoxType.DataBindings.Add("Text", dataViewProduct.DataSource, "Type");
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+
+        }
     }
 }

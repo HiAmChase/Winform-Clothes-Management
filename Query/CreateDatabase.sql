@@ -64,7 +64,7 @@ CREATE TABLE BillImportInfo
 (
 	IDBillImport INT NOT NULL,
 	IDProduct INT NOT NULL,
-	SoLuong INT DEFAULT 1,
+	Amount INT DEFAULT 1,
 	CONSTRAINT PK_IDImport_IDProduct PRIMARY KEY (IDBillImport, IDProduct)
 )
 GO
@@ -98,7 +98,7 @@ CREATE TABLE BillExportInfo
 (
 	IDBillExport INT NOT NULL,
 	IDProduct INT NOT NULL,
-	SoLuong INT DEFAULT 1,
+	Amount INT DEFAULT 1,
 	CONSTRAINT PK_IDBillExport_IDProduct PRIMARY KEY (IDBillExport, IDProduct)
 )
 
@@ -220,5 +220,13 @@ VALUES
 (N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000)
 
 
+SELECT B.* FROM BillExportInfo B
 
+SELECT P.Name, P.Price, B.Amount, P.Price * B.Amount AS [TotalPrice]
+FROM
+	BillExportInfo B
+INNER JOIN
+	Product P
+ON
+	B.IDProduct = P.IDProduct
 
