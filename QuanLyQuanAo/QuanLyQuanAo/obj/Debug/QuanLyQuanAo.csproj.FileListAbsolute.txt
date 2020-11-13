@@ -11,3 +11,4 @@ C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormCo
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ProductForm.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ClientForm.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.SupplierForm.resources
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.BillInfo.resources

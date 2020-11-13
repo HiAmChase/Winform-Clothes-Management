@@ -232,3 +232,4 @@ AS
 BEGIN
 	DELETE FROM Supplier WHERE IDSupplier = @IDSupplier
 END
+GO

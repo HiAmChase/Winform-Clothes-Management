@@ -46,6 +46,16 @@ namespace QuanLyQuanAo.DTO
             this.Amount = (int)row["Số Lượng"];
             this.Price = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
         }
+
+        public ProductInfo(DataRow row, int a)
+        {
+            this.Name = row["Tên"].ToString();
+            this.Type = row["Loại"].ToString();
+            this.Color = row["Màu Sắc"].ToString();
+            this.Size = (int)row["Kích Thước"];
+            this.Amount = (int)row["Số Lượng"];
+            this.Price = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
+        }
         public int IdProduct
         {
             get => idProduct;

@@ -48,5 +48,13 @@ namespace QuanLyQuanAo
             supplierForm.ShowDialog();
             this.Show();
         }
+
+        private void buttonBill_Click(object sender, EventArgs e)
+        {
+            BillInfo billInfo = new BillInfo();
+            this.Hide();
+            billInfo.ShowDialog();
+            this.Show();
+        }
     }
 }

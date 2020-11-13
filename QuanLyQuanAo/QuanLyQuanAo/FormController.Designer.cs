@@ -71,6 +71,7 @@
             this.buttonBill.Text = "Quản lý hóa đơn";
             this.buttonBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonBill.UseVisualStyleBackColor = true;
+            this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);
             // 
             // buttonSupplier
             // 
