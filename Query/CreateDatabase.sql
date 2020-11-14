@@ -65,7 +65,6 @@ CREATE TABLE BillImportInfo
 	IDBillImport INT NOT NULL,
 	IDProduct INT NOT NULL,
 	Amount INT DEFAULT 1,
-	CONSTRAINT PK_IDImport_IDProduct PRIMARY KEY (IDBillImport, IDProduct)
 )
 GO
 
@@ -99,7 +98,6 @@ CREATE TABLE BillExportInfo
 	IDBillExport INT NOT NULL,
 	IDProduct INT NOT NULL,
 	Amount INT DEFAULT 1,
-	CONSTRAINT PK_IDBillExport_IDProduct PRIMARY KEY (IDBillExport, IDProduct)
 )
 
 CREATE TABLE Size

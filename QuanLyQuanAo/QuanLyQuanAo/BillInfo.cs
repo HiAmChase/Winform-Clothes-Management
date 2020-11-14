@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,17 @@ namespace QuanLyQuanAo
 {
     public partial class BillInfo : Form
     {
+        List<BillProduct> products = new List<BillProduct>();
+        private double totalPrice = 0;
+        CultureInfo culture = new CultureInfo("vi-VN");
         public BillInfo()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             LoadProduct();
             AddBinding();
         }
@@ -24,6 +33,12 @@ namespace QuanLyQuanAo
         private void LoadProduct()
         {
             dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
+
+            InvisibleAttributes();
+        }
+
+        private void InvisibleAttributes()
+        {
             dataViewProduct.Columns["IDProduct"].Visible = false;
             dataViewProduct.Columns["Branch"].Visible = false;
             dataViewProduct.Columns["Unit"].Visible = false;
@@ -49,19 +64,26 @@ namespace QuanLyQuanAo
 
             BillProduct billInfo = BillInfoDAO.Instance.GetBillProduct(idProduct, amount);
 
+            int index = 0;
+
             foreach (ListViewItem item in listViewProduct.Items)
             {
-                if (item.Text.ToString() == billInfo.Name)
+                BillProduct preBillInfo = item.Tag as BillProduct;
+                if (preBillInfo.IdProduct == billInfo.IdProduct)
                 {
-                    int tempAmount = Convert.ToInt32(item.Tag);
+                    int tempAmount = Convert.ToInt32(preBillInfo.Amount.ToString());
                     billInfo.Amount += tempAmount;
+                    billInfo.TotalPrice = billInfo.Amount * billInfo.Price;
                     if (CheckAmount(billInfo))
                     {
                         break;
                     }
+                    products.RemoveAt(index);
                     listViewProduct.Items.Remove(item);
+                    totalPrice -= tempAmount * billInfo.Price;
                     break;
                 }
+                index++;
             }
 
             if (CheckAmount(billInfo))
@@ -72,7 +94,30 @@ namespace QuanLyQuanAo
 
             ListViewItem listView = CreateListViewItem(billInfo);
 
+            products.Add(billInfo);
+
             listViewProduct.Items.Add(listView);
+
+            PrintTotalPrice();
+        }
+
+        private void payButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn xác nhận thanh toán không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (BillInfoDAO.Instance.InsertBillExportInfo(2, products))
+                {
+                    MessageBox.Show("Xong");
+                    ClearBinding();
+                    LoadData();
+                }
+            } 
+        }
+
+        private void ClearBinding()
+        {
+            textBoxProduct.DataBindings.Clear();
+            textBoxType.DataBindings.Clear();
         }
 
         private bool CheckAmount(BillProduct billInfo)
@@ -84,12 +129,18 @@ namespace QuanLyQuanAo
 
         private ListViewItem CreateListViewItem(BillProduct billInfo)
         {
-            ListViewItem listView = new ListViewItem(billInfo.Name.ToString()) { Tag = billInfo.Amount.ToString() };
+            ListViewItem listView = new ListViewItem(billInfo.Name.ToString()) { Tag = billInfo };
             listView.SubItems.Add(billInfo.Amount.ToString());
             listView.SubItems.Add(billInfo.Price.ToString());
+            totalPrice += billInfo.TotalPrice;
             listView.SubItems.Add(billInfo.TotalPrice.ToString());
 
             return listView;
+        }
+
+        private void PrintTotalPrice()
+        {
+            textBoxTotalPrice.Text = totalPrice.ToString("c", culture);
         }
     }
 }

@@ -234,7 +234,7 @@ BEGIN
 END
 GO
 
-ALTER PROC USP_GetBillProduct
+CREATE PROC USP_GetBillProduct
 @IDProduct INT, @Amount INT
 AS
 BEGIN
@@ -248,5 +248,12 @@ BEGIN
 	WHERE
 		P.IDProduct = @IDProduct
 END
+GO
 
-EXEC USP_GetBillProduct @IDProduct = 3, @Amount = 5
+CREATE PROC USP_InsertBillExportInfo
+@IDBillExport INT, @IDProduct INT, @Amount INT
+AS
+BEGIN
+	INSERT INTO BillExportInfo
+	VALUES (@IDBillExport, @IDProduct, @Amount)
+END

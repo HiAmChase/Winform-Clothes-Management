@@ -33,9 +33,18 @@ namespace QuanLyQuanAo.DAO
             return bill;
         }
 
-        /*public bool InsertBillProduct(int idProduct, int amount)
+        public bool InsertBillExportInfo(int IDBill, List<BillProduct> products)
         {
-            DataProvider.Instance.ExecuteQuery();
-        } */
+            int result = 0;
+            foreach (BillProduct item in products)
+            {
+                string query = string.Format("EXEC USP_InsertBillExportInfo @IDBillExport = {0}, @IDProduct = {1}, @Amount = {2}",
+                                                IDBill, item.IdProduct, item.Amount);
+
+                result += DataProvider.Instance.ExecuteNonQuery(query);
+            }
+
+            return result > 0;
+        }
     }
 }

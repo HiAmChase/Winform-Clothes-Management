@@ -33,16 +33,16 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listViewProduct = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataViewProduct = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.payButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
             this.numericAmount = new System.Windows.Forms.NumericUpDown();
@@ -113,12 +113,13 @@
             // 
             // listViewProduct
             // 
-            this.listViewProduct.AutoArrange = false;
             this.listViewProduct.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listViewProduct.FullRowSelect = true;
+            this.listViewProduct.GridLines = true;
             this.listViewProduct.HideSelection = false;
             this.listViewProduct.Location = new System.Drawing.Point(755, 96);
             this.listViewProduct.Name = "listViewProduct";
@@ -130,22 +131,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Sản phẩm";
-            this.columnHeader1.Width = 146;
+            this.columnHeader1.Width = 145;
             // 
-            // columnHeader2
+            // columnHeader5
             // 
-            this.columnHeader2.Text = "Số lượng";
-            this.columnHeader2.Width = 89;
+            this.columnHeader5.Text = "Số lượng";
+            this.columnHeader5.Width = 82;
             // 
-            // columnHeader3
+            // columnHeader6
             // 
-            this.columnHeader3.Text = "Đơn giá";
-            this.columnHeader3.Width = 82;
+            this.columnHeader6.Text = "Đơn giá";
+            this.columnHeader6.Width = 97;
             // 
-            // columnHeader4
+            // columnHeader7
             // 
-            this.columnHeader4.Text = "Thành tiền";
-            this.columnHeader4.Width = 246;
+            this.columnHeader7.Text = "Thành tiền";
+            this.columnHeader7.Width = 100;
             // 
             // dataViewProduct
             // 
@@ -164,23 +165,24 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.textBoxTotalPrice);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.numericUpDown2);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.payButton);
             this.panel4.Location = new System.Drawing.Point(755, 598);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(431, 73);
             this.panel4.TabIndex = 12;
             // 
-            // textBox1
+            // textBoxTotalPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(182, 29);
-            this.textBox1.TabIndex = 15;
+            this.textBoxTotalPrice.Location = new System.Drawing.Point(158, 35);
+            this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.ReadOnly = true;
+            this.textBoxTotalPrice.Size = new System.Drawing.Size(182, 29);
+            this.textBoxTotalPrice.TabIndex = 15;
+            this.textBoxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -209,14 +211,15 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Giảm giá";
             // 
-            // button3
+            // payButton
             // 
-            this.button3.Location = new System.Drawing.Point(346, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 67);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Thanh toán";
-            this.button3.UseVisualStyleBackColor = true;
+            this.payButton.Location = new System.Drawing.Point(346, 3);
+            this.payButton.Name = "payButton";
+            this.payButton.Size = new System.Drawing.Size(82, 67);
+            this.payButton.TabIndex = 10;
+            this.payButton.Text = "Thanh toán";
+            this.payButton.UseVisualStyleBackColor = true;
+            this.payButton.Click += new System.EventHandler(this.payButton_Click);
             // 
             // panel3
             // 
@@ -482,17 +485,17 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button payButton;
         private System.Windows.Forms.DataGridView dataViewProduct;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTotalPrice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.ListView listViewProduct;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
