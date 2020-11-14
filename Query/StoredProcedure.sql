@@ -233,3 +233,20 @@ BEGIN
 	DELETE FROM Supplier WHERE IDSupplier = @IDSupplier
 END
 GO
+
+ALTER PROC USP_GetBillProduct
+@IDProduct INT, @Amount INT
+AS
+BEGIN
+	SELECT
+		P.IDProduct, P.Name, P.Price, 
+		@Amount AS [Amount], 
+		P.Amount AS [MaxAmount],
+		P.Price * @Amount AS [TotalPrice]
+	FROM
+		Product P
+	WHERE
+		P.IDProduct = @IDProduct
+END
+
+EXEC USP_GetBillProduct @IDProduct = 3, @Amount = 5

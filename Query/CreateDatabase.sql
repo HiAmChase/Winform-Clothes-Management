@@ -222,11 +222,19 @@ VALUES
 
 SELECT B.* FROM BillExportInfo B
 
-SELECT P.Name, P.Price, B.Amount, P.Price * B.Amount AS [TotalPrice]
+SELECT B.*
 FROM
 	BillExportInfo B
 INNER JOIN
 	Product P
 ON
 	B.IDProduct = P.IDProduct
+GO
+
+DECLARE @Amount INT = 3, @IDProduct INT = 3
+SELECT P.IDProduct, P.Name, P.Price, @Amount, P.Price * @Amount AS [TotalPrice]
+FROM
+	Product P
+WHERE P.IDProduct = @IDProduct
+GO
 
