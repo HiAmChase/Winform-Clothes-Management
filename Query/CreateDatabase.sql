@@ -235,4 +235,3 @@ FROM
 	Product P
 WHERE P.IDProduct = @IDProduct
 GO
-

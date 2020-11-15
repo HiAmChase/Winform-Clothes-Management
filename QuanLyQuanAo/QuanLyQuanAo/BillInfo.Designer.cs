@@ -31,6 +31,8 @@
             this.billImport = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.listViewProduct = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,9 +40,9 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataViewProduct = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
+            this.textBoxPayment = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericDiscount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.payButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -52,7 +54,7 @@
             this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelForm = new System.Windows.Forms.Panel();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -61,17 +63,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelNotify = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.formDisplay = new System.Windows.Forms.Button();
+            this.clientDisplay = new System.Windows.Forms.Button();
+            this.dataViewClient = new System.Windows.Forms.DataGridView();
             this.billImport.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDiscount)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericAmount)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).BeginInit();
             this.SuspendLayout();
             // 
             // billImport
@@ -82,7 +87,7 @@
             this.billImport.Location = new System.Drawing.Point(42, 12);
             this.billImport.Name = "billImport";
             this.billImport.SelectedIndex = 0;
-            this.billImport.Size = new System.Drawing.Size(1200, 711);
+            this.billImport.Size = new System.Drawing.Size(1200, 737);
             this.billImport.TabIndex = 0;
             // 
             // tabPage1
@@ -97,19 +102,43 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataViewClient);
+            this.tabPage2.Controls.Add(this.clientDisplay);
+            this.tabPage2.Controls.Add(this.formDisplay);
+            this.tabPage2.Controls.Add(this.textBoxTotalPrice);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.listViewProduct);
             this.tabPage2.Controls.Add(this.dataViewProduct);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Controls.Add(this.panelForm);
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1192, 677);
+            this.tabPage2.Size = new System.Drawing.Size(1192, 703);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Xuất hóa đơn";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxTotalPrice
+            // 
+            this.textBoxTotalPrice.Location = new System.Drawing.Point(1035, 575);
+            this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.ReadOnly = true;
+            this.textBoxTotalPrice.Size = new System.Drawing.Size(148, 29);
+            this.textBoxTotalPrice.TabIndex = 15;
+            this.textBoxTotalPrice.Text = "0";
+            this.textBoxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(979, 578);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 21);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Tổng";
             // 
             // listViewProduct
             // 
@@ -123,7 +152,7 @@
             this.listViewProduct.HideSelection = false;
             this.listViewProduct.Location = new System.Drawing.Point(755, 96);
             this.listViewProduct.Name = "listViewProduct";
-            this.listViewProduct.Size = new System.Drawing.Size(428, 496);
+            this.listViewProduct.Size = new System.Drawing.Size(428, 473);
             this.listViewProduct.TabIndex = 13;
             this.listViewProduct.UseCompatibleStateImageBehavior = false;
             this.listViewProduct.View = System.Windows.Forms.View.Details;
@@ -165,24 +194,25 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBoxTotalPrice);
+            this.panel4.Controls.Add(this.textBoxPayment);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.numericUpDown2);
+            this.panel4.Controls.Add(this.numericDiscount);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.payButton);
-            this.panel4.Location = new System.Drawing.Point(755, 598);
+            this.panel4.Location = new System.Drawing.Point(755, 610);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(431, 73);
             this.panel4.TabIndex = 12;
             // 
-            // textBoxTotalPrice
+            // textBoxPayment
             // 
-            this.textBoxTotalPrice.Location = new System.Drawing.Point(158, 35);
-            this.textBoxTotalPrice.Name = "textBoxTotalPrice";
-            this.textBoxTotalPrice.ReadOnly = true;
-            this.textBoxTotalPrice.Size = new System.Drawing.Size(182, 29);
-            this.textBoxTotalPrice.TabIndex = 15;
-            this.textBoxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxPayment.Location = new System.Drawing.Point(158, 35);
+            this.textBoxPayment.Name = "textBoxPayment";
+            this.textBoxPayment.ReadOnly = true;
+            this.textBoxPayment.Size = new System.Drawing.Size(182, 29);
+            this.textBoxPayment.TabIndex = 17;
+            this.textBoxPayment.Text = "0";
+            this.textBoxPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -193,13 +223,14 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Thành tiền";
             // 
-            // numericUpDown2
+            // numericDiscount
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(95, 36);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(41, 29);
-            this.numericUpDown2.TabIndex = 10;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericDiscount.Location = new System.Drawing.Point(95, 36);
+            this.numericDiscount.Name = "numericDiscount";
+            this.numericDiscount.Size = new System.Drawing.Size(41, 29);
+            this.numericDiscount.TabIndex = 10;
+            this.numericDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericDiscount.ValueChanged += new System.EventHandler(this.numericDiscount_ValueChanged);
             // 
             // label4
             // 
@@ -318,22 +349,21 @@
             this.label13.Text = "Tên sản phẩm";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // panelForm
             // 
-            this.panel2.Controls.Add(this.textBoxAddress);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBoxEmail);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBoxPhone);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBoxName);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.labelNotify);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(6, 443);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(612, 228);
-            this.panel2.TabIndex = 5;
+            this.panelForm.Controls.Add(this.textBoxAddress);
+            this.panelForm.Controls.Add(this.label6);
+            this.panelForm.Controls.Add(this.textBoxEmail);
+            this.panelForm.Controls.Add(this.label5);
+            this.panelForm.Controls.Add(this.textBoxPhone);
+            this.panelForm.Controls.Add(this.label3);
+            this.panelForm.Controls.Add(this.textBoxName);
+            this.panelForm.Controls.Add(this.label2);
+            this.panelForm.Controls.Add(this.label1);
+            this.panelForm.Location = new System.Drawing.Point(6, 465);
+            this.panelForm.Name = "panelForm";
+            this.panelForm.Size = new System.Drawing.Size(612, 232);
+            this.panelForm.TabIndex = 5;
             // 
             // textBoxAddress
             // 
@@ -415,25 +445,52 @@
             this.label2.Text = "Họ và tên";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelNotify
-            // 
-            this.labelNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotify.ForeColor = System.Drawing.Color.Red;
-            this.labelNotify.Location = new System.Drawing.Point(333, 3);
-            this.labelNotify.Name = "labelNotify";
-            this.labelNotify.Size = new System.Drawing.Size(196, 23);
-            this.labelNotify.TabIndex = 33;
-            this.labelNotify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-10, 3);
+            this.label1.Location = new System.Drawing.Point(-4, -7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 23);
+            this.label1.Size = new System.Drawing.Size(205, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "Thông tin khách hàng";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // formDisplay
+            // 
+            this.formDisplay.Location = new System.Drawing.Point(6, 431);
+            this.formDisplay.Name = "formDisplay";
+            this.formDisplay.Size = new System.Drawing.Size(134, 28);
+            this.formDisplay.TabIndex = 18;
+            this.formDisplay.Text = "Nhập thông tin";
+            this.formDisplay.UseVisualStyleBackColor = true;
+            this.formDisplay.Click += new System.EventHandler(this.formDisplay_Click);
+            // 
+            // clientDisplay
+            // 
+            this.clientDisplay.Location = new System.Drawing.Point(146, 431);
+            this.clientDisplay.Name = "clientDisplay";
+            this.clientDisplay.Size = new System.Drawing.Size(147, 28);
+            this.clientDisplay.TabIndex = 19;
+            this.clientDisplay.Text = "Chưa biết tên";
+            this.clientDisplay.UseVisualStyleBackColor = true;
+            this.clientDisplay.Click += new System.EventHandler(this.clientDisplay_Click);
+            // 
+            // dataViewClient
+            // 
+            this.dataViewClient.AllowUserToAddRows = false;
+            this.dataViewClient.AllowUserToDeleteRows = false;
+            this.dataViewClient.AllowUserToResizeColumns = false;
+            this.dataViewClient.AllowUserToResizeRows = false;
+            this.dataViewClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewClient.Location = new System.Drawing.Point(6, 465);
+            this.dataViewClient.Name = "dataViewClient";
+            this.dataViewClient.ReadOnly = true;
+            this.dataViewClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewClient.Size = new System.Drawing.Size(612, 218);
+            this.dataViewClient.TabIndex = 20;
+            this.dataViewClient.VirtualMode = true;
+            this.dataViewClient.Visible = false;
             // 
             // BillInfo
             // 
@@ -446,16 +503,18 @@
             this.Text = "Bill";
             this.billImport.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDiscount)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericAmount)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelForm.ResumeLayout(false);
+            this.panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,7 +524,7 @@
         private System.Windows.Forms.TabControl billImport;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxEmail;
@@ -474,7 +533,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelNotify;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxProduct;
@@ -489,7 +547,7 @@
         private System.Windows.Forms.DataGridView dataViewProduct;
         private System.Windows.Forms.TextBox textBoxTotalPrice;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericDiscount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.ListView listViewProduct;
@@ -497,5 +555,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxPayment;
+        private System.Windows.Forms.Button clientDisplay;
+        private System.Windows.Forms.Button formDisplay;
+        private System.Windows.Forms.DataGridView dataViewClient;
     }
 }
