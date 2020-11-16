@@ -33,13 +33,18 @@ namespace QuanLyQuanAo.DAO
             return bill;
         }
 
-        public bool InsertBillExportInfo(int IDBill, List<BillProduct> products)
+        public bool InsertBillExport(int idClient, List<BillProduct> products)
         {
             int result = 0;
+
+            result += DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertBillExport @IDClient", new object[] { idClient });
+
+            int idbill = (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(IDBillExport) FROM BillExport");
+
             foreach (BillProduct item in products)
             {
                 string query = string.Format("EXEC USP_InsertBillExportInfo @IDBillExport = {0}, @IDProduct = {1}, @Amount = {2}",
-                                                IDBill, item.IdProduct, item.Amount);
+                                                idbill, item.IdProduct, item.Amount);
 
                 result += DataProvider.Instance.ExecuteNonQuery(query);
             }

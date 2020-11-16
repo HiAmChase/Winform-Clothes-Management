@@ -13,12 +13,15 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanAo
 {
+    public enum State { GetInput, Available};
     public partial class BillInfo : Form
     {
         private const int PERCENT = 100;
+        private const int ID_CLIENT_DEFAULT = 1;
+        private const int ERROR = -100;
         List<BillProduct> products = new List<BillProduct>();
         private double totalPrice = 0;
-        private int inputClientFlag = 1;
+        private State state = State.GetInput;
         CultureInfo culture = new CultureInfo("vi-VN");
         public BillInfo()
         {
@@ -63,9 +66,35 @@ namespace QuanLyQuanAo
 
         private void payButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn xác nhận thanh toán không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            int idClient = ID_CLIENT_DEFAULT;
+
+            switch(state)
             {
-                if (BillInfoDAO.Instance.InsertBillExportInfo(2, products))
+                case State.GetInput:
+                    if (TextBoxIsEmpty())
+                    {
+                        //Không thay đổi IDClient
+                        if (MessageBox.Show("Dữ liệu khách hàng đang trống. Bạn có chắc muốn thực hiện thanh toán ?", "Thông báo",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Cancel)
+                            return;
+                    }
+                    //Có dữ liệu
+                    else
+                    {
+                        idClient = GetNewIDClient();
+                    }
+                    break;
+                case State.Available:
+                    idClient = (int)dataViewClient.SelectedCells[0].OwningRow.Cells["IDClient"].Value;
+                    break;
+                default:
+                    break;
+            }
+
+            if (MessageBox.Show("Bạn có chắc chắn xác nhận thanh toán không ?", "Thông báo",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (BillInfoDAO.Instance.InsertBillExport(idClient, products))
                 {
                     MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearBinding();
@@ -114,7 +143,7 @@ namespace QuanLyQuanAo
             ClearPriceAndPayment();
             SetAmountToDefault();
             SetDiscountToDefault();
-            VisibleForm();
+            VisibleForm();      
         }
 
         private void LoadProduct()
@@ -135,34 +164,6 @@ namespace QuanLyQuanAo
             dataViewProduct.Columns["IDProduct"].Visible = false;
             dataViewProduct.Columns["Branch"].Visible = false;
             dataViewProduct.Columns["Unit"].Visible = false;
-        }
-
-        private void ClearBinding()
-        {
-            textBoxProduct.DataBindings.Clear();
-            textBoxType.DataBindings.Clear();
-        }
-
-        private void ClearListView()
-        {
-            listViewProduct.Items.Clear();
-        }
-
-        private void ClearPriceAndPayment()
-        {
-            totalPrice = 0;
-            textBoxTotalPrice.Text = "0";
-            textBoxPayment.Text = "0";
-        }
-
-        private void SetAmountToDefault()
-        {
-            numericAmount.Value = 0;
-        }
-
-        private void SetDiscountToDefault()
-        {
-            numericDiscount.Value = 0;
         }
 
         private void CheckAvailable(ListView listView, BillProduct billInfo)
@@ -221,16 +222,70 @@ namespace QuanLyQuanAo
             textBoxPayment.Text = price.ToString("c", culture);
         }
 
+        private bool TextBoxIsEmpty()
+        {
+            bool checkName = textBoxName.Text.Equals("");
+            bool checkPhone = textBoxPhone.Text.Equals("");
+            bool checkEmail = textBoxEmail.Text.Equals("");
+            bool checkAddress= textBoxAddress.Text.Equals("");
+
+            return checkName || checkPhone || checkEmail || checkAddress;
+        }
+
+        private int GetNewIDClient()
+        {
+            int idClient = ERROR;
+            string name = textBoxName.Text;
+            string phone = textBoxPhone.Text;
+            string email = textBoxEmail.Text;
+            string address = textBoxAddress.Text;
+
+            if (ClientDAO.Instance.InsertClient(name, phone, email, address))
+            {
+                idClient = ClientDAO.Instance.GetIDClientMax();
+            }
+
+            return idClient;
+        }
+
+        private void ClearBinding()
+        {
+            textBoxProduct.DataBindings.Clear();
+            textBoxType.DataBindings.Clear();
+        }
+
+        private void ClearListView()
+        {
+            listViewProduct.Items.Clear();
+        }
+
+        private void ClearPriceAndPayment()
+        {
+            totalPrice = 0;
+            textBoxTotalPrice.Text = "0";
+            textBoxPayment.Text = "0";
+        }
+
+        private void SetAmountToDefault()
+        {
+            numericAmount.Value = 0;
+        }
+
+        private void SetDiscountToDefault()
+        {
+            numericDiscount.Value = 0;
+        }
+
         private void VisibleForm()
         {
-            inputClientFlag = 1;
+            state = State.GetInput;
             panelForm.Visible = true;
             dataViewClient.Visible = false;
         }
 
         private void VisibleClientData()
         {
-            inputClientFlag = 0;
+            state = State.Available;
             panelForm.Visible = false;
             dataViewClient.Visible = true;
         }

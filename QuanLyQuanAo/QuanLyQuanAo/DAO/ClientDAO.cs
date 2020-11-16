@@ -65,5 +65,14 @@ namespace QuanLyQuanAo.DAO
 
             return result > 0;
         }
+
+        public int GetIDClientMax()
+        {
+            string query = "SELECT MAX(IDClient) FROM Client";
+
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+
+            return result;
+        }
     }
 }

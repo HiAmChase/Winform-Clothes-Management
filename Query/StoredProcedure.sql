@@ -250,6 +250,16 @@ BEGIN
 END
 GO
 
+
+CREATE PROC USP_InsertBillExport
+@IDClient INT
+AS
+BEGIN
+	INSERT INTO BillExport(IDClient, DateOut)
+	VALUES (@IDClient, GETDATE())
+END
+GO
+
 CREATE PROC USP_InsertBillExportInfo
 @IDBillExport INT, @IDProduct INT, @Amount INT
 AS
@@ -257,3 +267,4 @@ BEGIN
 	INSERT INTO BillExportInfo
 	VALUES (@IDBillExport, @IDProduct, @Amount)
 END
+GO
