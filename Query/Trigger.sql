@@ -12,3 +12,5 @@ BEGIN
 	ELSE
 		UPDATE Product SET Amount = Amount - @AmountOut WHERE IDProduct = @IDProduct
 END
+
+--Example
