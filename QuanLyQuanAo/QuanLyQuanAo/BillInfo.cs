@@ -68,6 +68,12 @@ namespace QuanLyQuanAo
         {
             int idClient = ID_CLIENT_DEFAULT;
 
+            if (listViewProduct.Items.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin sản phẩm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             switch(state)
             {
                 case State.GetInput:
@@ -102,6 +108,27 @@ namespace QuanLyQuanAo
                     ClearBilDisplay();
                 }
             }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (listViewProduct.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin cần xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }          
+
+            ListViewItem item = listViewProduct.SelectedItems[0];
+
+            BillProduct billInfo = item.Tag as BillProduct;
+
+            totalPrice -= (billInfo.Price * billInfo.Amount);
+
+            products.Remove(billInfo);
+            listViewProduct.Items.Remove(item);
+
+            PrintTotalPrice();
+            Payment();
         }
 
         private void formDisplay_Click(object sender, EventArgs e)
@@ -291,5 +318,10 @@ namespace QuanLyQuanAo
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

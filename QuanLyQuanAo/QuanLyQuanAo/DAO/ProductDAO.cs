@@ -64,6 +64,5 @@ namespace QuanLyQuanAo.DAO
 
             return result > 0;
         }
-
     }
 }
