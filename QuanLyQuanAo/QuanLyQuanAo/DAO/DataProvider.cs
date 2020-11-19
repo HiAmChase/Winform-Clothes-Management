@@ -12,7 +12,8 @@ namespace QuanLyQuanAo.DAO
     {
         private static DataProvider instance;
 
-        private string sqlSource = @"Data Source=DESKTOP-RA9UVLD\SQLEXPRESS;Initial Catalog=QuanLyQuanAo;Integrated Security=True";
+        private string sqlSource = @"Data Source=DESKTOP-NLC0EVM\SQLEXPRESS;Initial Catalog=QuanLyQuanAo;Integrated Security=True";
+        //private string sqlSource = @"Data Source=DESKTOP-RA9UVLD\SQLEXPRESS;Initial Catalog=QuanLyQuanAo;Integrated Security=True";
 
         public static DataProvider Instance 
         { 
