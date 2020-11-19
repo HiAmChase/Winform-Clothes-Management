@@ -12,3 +12,17 @@ C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.Produc
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ClientForm.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.SupplierForm.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.BillInfo.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.exe.config
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.exe
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\bin\Debug\QuanLyQuanAo.pdb
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.BillInfo.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ClientForm.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormController.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.ProductForm.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.Properties.Resources.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.SupplierForm.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.exe
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.pdb
