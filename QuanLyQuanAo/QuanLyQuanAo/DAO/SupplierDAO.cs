@@ -66,5 +66,22 @@ namespace QuanLyQuanAo.DAO
 
             return result > 0;
         }
+
+        public SupplierInfo GetSupplierByName(string supplierName)
+        {
+            SupplierInfo supplierInfo = null;
+
+            string query = "EXEC USP_GetSupplierByName @Supplier = N'"+ supplierName + "'";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows) 
+            {
+                supplierInfo = new SupplierInfo(item);
+                return supplierInfo;
+            }
+
+            return supplierInfo;
+        }
     }
 }

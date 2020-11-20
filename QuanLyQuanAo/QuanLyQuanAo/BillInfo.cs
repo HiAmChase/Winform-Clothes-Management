@@ -28,6 +28,8 @@ namespace QuanLyQuanAo
             InitializeComponent();
             LoadData();
             LoadClientData();
+            LoadSupplierIntoComboBox();
+            LoadSupplierData();
         }
         #region Export
 
@@ -178,20 +180,13 @@ namespace QuanLyQuanAo
         {
             dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
 
-            InvisibleAttributes();
+            InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit" });
         }
 
         private void AddBinding()
         {
             textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
             textBoxType.DataBindings.Add("Text", dataViewProduct.DataSource, "Type");
-        }
-
-        private void InvisibleAttributes()
-        {
-            dataViewProduct.Columns["IDProduct"].Visible = false;
-            dataViewProduct.Columns["Branch"].Visible = false;
-            dataViewProduct.Columns["Unit"].Visible = false;
         }
 
         private void CheckAvailable(ListView listView, BillProduct billInfo)
@@ -322,6 +317,35 @@ namespace QuanLyQuanAo
 
         #endregion
 
+        #region Methods
+
+        private void LoadSupplierData()
+        {
+            string supplierName = comboBoxSupplier.Text;
+
+            dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplierName(supplierName);
+
+            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Branch", "Unit"});
+        }
+
+        private void LoadSupplierIntoComboBox()
+        {
+            comboBoxSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
+            comboBoxSupplier.DisplayMember = "Name";
+        }
+
+        private void AddBindingSupplier()
+        {
+            string supplierName = comboBoxSupplier.Text;
+            SupplierInfo supplier = SupplierDAO.Instance.GetSupplierByName(supplierName);
+
+            textBoxSupName.Text = supplier.Name.ToString();
+        }
+
+        #endregion
+
+        #region Events
+
         private void availableButton_Click(object sender, EventArgs e)
         {
             panelAvailable.Visible = false;
@@ -334,15 +358,42 @@ namespace QuanLyQuanAo
             panelUnvailable.Visible = false;
         }
 
+        private void supplierDisplay_Click(object sender, EventArgs e)
+        {
+            dataViewSupplier.Visible = true;
+            panelSupplier.Visible = false;
+        }
+
+        private void inputNewSupplier_Click(object sender, EventArgs e)
+        {
+            dataViewSupplier.Visible = false;
+            panelSupplier.Visible = true;
+        }
+
+        #endregion
+
+
+        private void InvisibleAttributes(DataGridView dataView, object[] parameters = null)
+        {
+            foreach (string item in parameters)
+            {
+                dataView.Columns[item].Visible = false;
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void comboBoxSupplier_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            string supplierName = comboBoxSupplier.Text;
 
+            labelState.Text = "Các sản phẩm của " + supplierName;
+
+            LoadSupplierData();
+            AddBindingSupplier();
         }
     }
 }

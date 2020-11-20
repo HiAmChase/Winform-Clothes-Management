@@ -39,6 +39,7 @@ namespace QuanLyQuanAo
         {
             dataViewProduct.DataSource = listProduct;
             listProduct.DataSource = ProductDAO.Instance.GetProduct();
+
         }
 
         private void AddProductBinding()
