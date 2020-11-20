@@ -343,5 +343,35 @@ namespace QuanLyQuanAo
         {
 
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numUpDownAmount_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxTotalPrice2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
