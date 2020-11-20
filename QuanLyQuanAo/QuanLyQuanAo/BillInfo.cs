@@ -29,6 +29,7 @@ namespace QuanLyQuanAo
             LoadData();
             LoadClientData();
         }
+        #region Export
 
         #region Events
 
@@ -319,57 +320,27 @@ namespace QuanLyQuanAo
 
         #endregion
 
+        #endregion
+
+        private void availableButton_Click(object sender, EventArgs e)
+        {
+            panelAvailable.Visible = false;
+            panelUnvailable.Visible = true;
+        }
+
+        private void unavailableButton_Click(object sender, EventArgs e)
+        {
+            panelAvailable.Visible = true;
+            panelUnvailable.Visible = false;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void BillInfo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxName2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numUpDownAmount_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxTotalPrice2_TextChanged(object sender, EventArgs e)
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }
