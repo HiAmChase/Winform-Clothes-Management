@@ -3,7 +3,19 @@ GO
 
 USE QuanLyQuanAo
 GO
-
+CREATE TABLE Account
+(
+	IDAccount INT IDENTITY
+		CONSTRAINT PK_IDAccount PRIMARY KEY,
+	Username NVARCHAR(100) NOT NULL,
+	Password NVARCHAR(1000) NOT NULL,
+	Status INT NOT NULL DEFAULT 0
+)
+GO
+INSERT INTO Account(Username,Password,Status)
+VALUES (N'Vinh',N'1',1),
+		(N'Thinh',N'1',0)
+GO
 
 
 CREATE TABLE Type
@@ -15,7 +27,15 @@ CREATE TABLE Type
 GO
 
 INSERT INTO Type(Name)
-VALUES (N'Không')
+VALUES (N'Không'),
+	(N'Áo sơ mi'),
+	(N'Quần dài'),
+	(N'Mũ'),
+	(N'Giày'),
+	(N'Váy'),
+	(N'Áo ấm'),
+	(N'Quần jean')
+
 
 SELECT * From Type
 
@@ -29,7 +49,12 @@ CREATE TABLE Branch
 GO
 
 INSERT INTO Branch(Name)
-VALUES (N'Không')
+VALUES (N'Không'),
+(N'NIKE'),
+(N'GUCCI'),
+(N'Adidas'),
+(N'North face'),
+(N'Lacoste')
 
 SELECT * From Branch
 
@@ -48,8 +73,8 @@ CREATE TABLE Supplier
 INSERT INTO Supplier(Name, Address , Phone, Email, IDBranch)
 VALUES
 (N'Không', N'Không', N'Không', N'Không', 1),
-(N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không', 2)
-
+(N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không', 2),
+(N'Văn Vĩnh',N'Lệ Bắc',N'0354175296',N'vanvinhqn2310@gmail.com',3)
 
 CREATE TABLE BillImport
 (
@@ -81,8 +106,9 @@ CREATE TABLE Client
 
 INSERT INTO Client (Name, Address, Phone, Email)
 VALUES
-(N'Không', N'Không', N'Không', N'Không')
-
+(N'Không', N'Không', N'Không', N'Không'),
+(N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không'),
+(N'Văn Vĩnh',N'Lệ Bắc',N'0354175296',N'vanvinhqn2310@gmail.com')
 
 CREATE TABLE BillExport
 (
@@ -108,7 +134,7 @@ CREATE TABLE Size
 )
 GO
 INSERT INTO Size(Size)
-VALUES (1)
+VALUES (1),(50),(40),(20),(30),(10)
 
 CREATE TABLE Color
 (
@@ -118,8 +144,14 @@ CREATE TABLE Color
 )
 GO
 INSERT INTO Color(Color)
-VALUES (N'Không')
-
+VALUES (N'Không'),
+(N'Đỏ'),
+(N'Vàng'),
+(N'Cam'),
+(N'Lục'),
+(N'Lam'),
+(N'Chàm'),
+(N'Tím')
 CREATE TABLE Product
 (
 	IDProduct INT IDENTITY
@@ -216,7 +248,8 @@ VALUES
 (N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000),
 (N'Giày thể thao', 6, 4, 4, 3, 10, N'Đôi', 350000),
 (N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000)
-
+GO
+SELECT * FROM Product
 
 SELECT B.* FROM BillExportInfo B
 
