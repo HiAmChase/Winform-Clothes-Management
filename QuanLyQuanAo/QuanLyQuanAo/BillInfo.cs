@@ -320,37 +320,52 @@ namespace QuanLyQuanAo
 
         private void LoadSupplierData()
         { 
-            dataViewProduct2.DataSource = SupplierDAO.Instance.GetSupplier();
+            dataViewSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
 
-            InvisibleAttributes(dataViewProduct2, new object[] { "IDSupplier", "Phone" });
+            InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier", "Phone" });
         }
 
         #endregion
 
         #region Events
 
-        private void availableButton_Click(object sender, EventArgs e)
+        private void enterSupplierButton_Click(object sender, EventArgs e)
         {
-            panelAvailable.Visible = false;
-            panelUnvailable.Visible = true;
+            dataViewSupplier.Enabled = false;
+            panelStateProduct.Visible = true;
+            panelAvailableProduct.Visible = true;
+
+            string supplierName = dataViewSupplier.SelectedCells[0].OwningRow.Cells["Name"].Value.ToString();
+            labelInfo.Text = "Các sản phẩm của " + supplierName;
         }
 
-        private void unavailableButton_Click(object sender, EventArgs e)
-        {
-            panelAvailable.Visible = true;
-            panelUnvailable.Visible = false;
-        }
-
-        private void supplierDisplay_Click(object sender, EventArgs e)
+        private void availableSupButton_Click(object sender, EventArgs e)
         {
             dataViewSupplier.Visible = true;
-            panelSupplier.Visible = false;
+            panelUnavailableSup.Visible = false;
         }
 
-        private void inputNewSupplier_Click(object sender, EventArgs e)
+        private void unavailableSupButton_Click(object sender, EventArgs e)
         {
             dataViewSupplier.Visible = false;
-            panelSupplier.Visible = true;
+            panelUnavailableSup.Visible = true;
+        }
+
+        private void unavailableProcButton_Click(object sender, EventArgs e)
+        {
+            panelAvailableProduct.Visible = true;
+        }
+
+        private void availableProcButton_Click(object sender, EventArgs e)
+        {
+            panelAvailableProduct.Visible = true;
+            panelUnavailableProduct.Visible = false;
+        }
+
+        private void unavailableProcButton_Click_1(object sender, EventArgs e)
+        {
+            panelUnavailableProduct.Visible = true;
+            panelAvailableProduct.Visible = false;
         }
 
         #endregion
