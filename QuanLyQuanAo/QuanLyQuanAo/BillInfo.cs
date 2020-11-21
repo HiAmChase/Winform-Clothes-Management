@@ -28,7 +28,6 @@ namespace QuanLyQuanAo
             InitializeComponent();
             LoadData();
             LoadClientData();
-            LoadSupplierIntoComboBox();
             LoadSupplierData();
         }
         #region Export
@@ -320,26 +319,10 @@ namespace QuanLyQuanAo
         #region Methods
 
         private void LoadSupplierData()
-        {
-            string supplierName = comboBoxSupplier.Text;
+        { 
+            dataViewProduct2.DataSource = SupplierDAO.Instance.GetSupplier();
 
-            dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplierName(supplierName);
-
-            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Branch", "Unit"});
-        }
-
-        private void LoadSupplierIntoComboBox()
-        {
-            comboBoxSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
-            comboBoxSupplier.DisplayMember = "Name";
-        }
-
-        private void AddBindingSupplier()
-        {
-            string supplierName = comboBoxSupplier.Text;
-            SupplierInfo supplier = SupplierDAO.Instance.GetSupplierByName(supplierName);
-
-            textBoxSupName.Text = supplier.Name.ToString();
+            InvisibleAttributes(dataViewProduct2, new object[] { "IDSupplier", "Phone" });
         }
 
         #endregion
@@ -384,16 +367,6 @@ namespace QuanLyQuanAo
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void comboBoxSupplier_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            string supplierName = comboBoxSupplier.Text;
-
-            labelState.Text = "Các sản phẩm của " + supplierName;
-
-            LoadSupplierData();
-            AddBindingSupplier();
         }
     }
 }

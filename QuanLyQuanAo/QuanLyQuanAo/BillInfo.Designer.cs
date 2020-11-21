@@ -29,6 +29,29 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.panelAvailable = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dataViewProduct2 = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBoxSupAddress = new System.Windows.Forms.TextBox();
+            this.textBoxSupEmail = new System.Windows.Forms.TextBox();
+            this.textBoxSupPhone = new System.Windows.Forms.TextBox();
+            this.textBoxSupName = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.availableButton = new System.Windows.Forms.Button();
+            this.unavailableButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelUnvailable = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.dataViewSupplier = new System.Windows.Forms.DataGridView();
@@ -60,32 +83,6 @@
             this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.panelAvailable = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.labelState = new System.Windows.Forms.Label();
-            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dataViewProduct2 = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBoxSupAddress = new System.Windows.Forms.TextBox();
-            this.textBoxSupEmail = new System.Windows.Forms.TextBox();
-            this.textBoxSupPhone = new System.Windows.Forms.TextBox();
-            this.textBoxSupName = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.availableButton = new System.Windows.Forms.Button();
-            this.unavailableButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.billImport = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataViewClient = new System.Windows.Forms.DataGridView();
@@ -125,18 +122,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
-            this.panelUnvailable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).BeginInit();
-            this.panelSupplier.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panelAvailable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).BeginInit();
             this.panel6.SuspendLayout();
+            this.panelUnvailable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).BeginInit();
+            this.panelSupplier.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
             this.billImport.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).BeginInit();
@@ -167,6 +165,241 @@
             tabPage1.Text = "Hóa đơn nhập";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Location = new System.Drawing.Point(673, 134);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(111, 66);
+            this.panel2.TabIndex = 28;
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label19.Location = new System.Drawing.Point(3, 6);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 22);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "Số lượng";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 32);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(102, 29);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelAvailable
+            // 
+            this.panelAvailable.Controls.Add(this.button2);
+            this.panelAvailable.Controls.Add(this.dataViewProduct2);
+            this.panelAvailable.Location = new System.Drawing.Point(16, 41);
+            this.panelAvailable.Name = "panelAvailable";
+            this.panelAvailable.Size = new System.Drawing.Size(651, 668);
+            this.panelAvailable.TabIndex = 27;
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(726, 817);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(128, 31);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Thông tin";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataViewProduct2
+            // 
+            this.dataViewProduct2.AllowUserToAddRows = false;
+            this.dataViewProduct2.AllowUserToDeleteRows = false;
+            this.dataViewProduct2.AllowUserToResizeColumns = false;
+            this.dataViewProduct2.AllowUserToResizeRows = false;
+            this.dataViewProduct2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewProduct2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewProduct2.Location = new System.Drawing.Point(11, 3);
+            this.dataViewProduct2.Name = "dataViewProduct2";
+            this.dataViewProduct2.ReadOnly = true;
+            this.dataViewProduct2.RowHeadersWidth = 51;
+            this.dataViewProduct2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewProduct2.Size = new System.Drawing.Size(629, 332);
+            this.dataViewProduct2.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.textBoxSupAddress);
+            this.panel6.Controls.Add(this.textBoxSupEmail);
+            this.panel6.Controls.Add(this.textBoxSupPhone);
+            this.panel6.Controls.Add(this.textBoxSupName);
+            this.panel6.Controls.Add(this.label15);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Location = new System.Drawing.Point(727, 850);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(641, 209);
+            this.panel6.TabIndex = 2;
+            // 
+            // textBoxSupAddress
+            // 
+            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupAddress.Location = new System.Drawing.Point(198, 134);
+            this.textBoxSupAddress.Multiline = true;
+            this.textBoxSupAddress.Name = "textBoxSupAddress";
+            this.textBoxSupAddress.Size = new System.Drawing.Size(431, 72);
+            this.textBoxSupAddress.TabIndex = 12;
+            // 
+            // textBoxSupEmail
+            // 
+            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupEmail.Location = new System.Drawing.Point(198, 95);
+            this.textBoxSupEmail.Name = "textBoxSupEmail";
+            this.textBoxSupEmail.Size = new System.Drawing.Size(431, 29);
+            this.textBoxSupEmail.TabIndex = 11;
+            // 
+            // textBoxSupPhone
+            // 
+            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupPhone.Location = new System.Drawing.Point(198, 54);
+            this.textBoxSupPhone.Name = "textBoxSupPhone";
+            this.textBoxSupPhone.Size = new System.Drawing.Size(431, 29);
+            this.textBoxSupPhone.TabIndex = 10;
+            // 
+            // textBoxSupName
+            // 
+            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupName.Location = new System.Drawing.Point(198, 8);
+            this.textBoxSupName.Name = "textBoxSupName";
+            this.textBoxSupName.Size = new System.Drawing.Size(431, 29);
+            this.textBoxSupName.TabIndex = 9;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label15.Location = new System.Drawing.Point(14, 135);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 22);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Địa chỉ: \r\n";
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label14.Location = new System.Drawing.Point(14, 55);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(137, 28);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Số điện thoại: \r\n";
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label11.Location = new System.Drawing.Point(14, 96);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 26);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Email:\r\n";
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label10.Location = new System.Drawing.Point(14, 12);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(179, 24);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Tên nhà cung cấp:\r\n";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(16, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 24);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Chọn nhà cung cấp: ";
+            // 
+            // availableButton
+            // 
+            this.availableButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.availableButton.Location = new System.Drawing.Point(281, 3);
+            this.availableButton.Name = "availableButton";
+            this.availableButton.Size = new System.Drawing.Size(71, 28);
+            this.availableButton.TabIndex = 24;
+            this.availableButton.Text = "Mới";
+            this.availableButton.UseVisualStyleBackColor = true;
+            this.availableButton.Click += new System.EventHandler(this.availableButton_Click);
+            // 
+            // unavailableButton
+            // 
+            this.unavailableButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unavailableButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.unavailableButton.Location = new System.Drawing.Point(204, 3);
+            this.unavailableButton.Name = "unavailableButton";
+            this.unavailableButton.Size = new System.Drawing.Size(71, 28);
+            this.unavailableButton.TabIndex = 23;
+            this.unavailableButton.Text = "Đã có ";
+            this.unavailableButton.UseVisualStyleBackColor = true;
+            this.unavailableButton.Click += new System.EventHandler(this.unavailableButton_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader8});
+            this.listView1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(790, 6);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(428, 473);
+            this.listView1.TabIndex = 14;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Sản phẩm";
+            this.columnHeader2.Width = 145;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Số lượng";
+            this.columnHeader3.Width = 82;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Đơn giá";
+            this.columnHeader4.Width = 97;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Thành tiền";
+            this.columnHeader8.Width = 100;
+            // 
             // panelUnvailable
             // 
             this.panelUnvailable.Controls.Add(this.label20);
@@ -177,7 +410,7 @@
             this.panelUnvailable.Controls.Add(this.supplierDisplay);
             this.panelUnvailable.Controls.Add(this.panel10);
             this.panelUnvailable.Controls.Add(this.label33);
-            this.panelUnvailable.Location = new System.Drawing.Point(192, 792);
+            this.panelUnvailable.Location = new System.Drawing.Point(69, 801);
             this.panelUnvailable.Name = "panelUnvailable";
             this.panelUnvailable.Size = new System.Drawing.Size(651, 668);
             this.panelUnvailable.TabIndex = 29;
@@ -526,277 +759,6 @@
             this.label33.TabIndex = 25;
             this.label33.Text = "Nhập các thông tin sản phẩm";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Location = new System.Drawing.Point(673, 134);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(111, 66);
-            this.panel2.TabIndex = 28;
-            // 
-            // label19
-            // 
-            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(3, 6);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(100, 22);
-            this.label19.TabIndex = 26;
-            this.label19.Text = "Số lượng";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 32);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(102, 29);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelAvailable
-            // 
-            this.panelAvailable.Controls.Add(this.label18);
-            this.panelAvailable.Controls.Add(this.labelState);
-            this.panelAvailable.Controls.Add(this.comboBoxSupplier);
-            this.panelAvailable.Controls.Add(this.label16);
-            this.panelAvailable.Controls.Add(this.dataViewProduct2);
-            this.panelAvailable.Controls.Add(this.panel6);
-            this.panelAvailable.Location = new System.Drawing.Point(16, 41);
-            this.panelAvailable.Name = "panelAvailable";
-            this.panelAvailable.Size = new System.Drawing.Size(651, 668);
-            this.panelAvailable.TabIndex = 27;
-            // 
-            // label18
-            // 
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(3, 415);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(128, 31);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Thông tin";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelState
-            // 
-            this.labelState.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelState.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelState.Location = new System.Drawing.Point(174, 45);
-            this.labelState.Name = "labelState";
-            this.labelState.Size = new System.Drawing.Size(281, 32);
-            this.labelState.TabIndex = 25;
-            this.labelState.Text = "Các sản phẩm của ";
-            this.labelState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxSupplier
-            // 
-            this.comboBoxSupplier.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSupplier.FormattingEnabled = true;
-            this.comboBoxSupplier.Location = new System.Drawing.Point(188, 9);
-            this.comboBoxSupplier.Name = "comboBoxSupplier";
-            this.comboBoxSupplier.Size = new System.Drawing.Size(313, 31);
-            this.comboBoxSupplier.TabIndex = 24;
-            this.comboBoxSupplier.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSupplier_SelectionChangeCommitted);
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(3, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(155, 22);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Chọn nhà cung cấp";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataViewProduct2
-            // 
-            this.dataViewProduct2.AllowUserToAddRows = false;
-            this.dataViewProduct2.AllowUserToDeleteRows = false;
-            this.dataViewProduct2.AllowUserToResizeColumns = false;
-            this.dataViewProduct2.AllowUserToResizeRows = false;
-            this.dataViewProduct2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewProduct2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewProduct2.Location = new System.Drawing.Point(4, 80);
-            this.dataViewProduct2.Name = "dataViewProduct2";
-            this.dataViewProduct2.ReadOnly = true;
-            this.dataViewProduct2.RowHeadersWidth = 51;
-            this.dataViewProduct2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewProduct2.Size = new System.Drawing.Size(629, 332);
-            this.dataViewProduct2.TabIndex = 22;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.textBoxSupAddress);
-            this.panel6.Controls.Add(this.textBoxSupEmail);
-            this.panel6.Controls.Add(this.textBoxSupPhone);
-            this.panel6.Controls.Add(this.textBoxSupName);
-            this.panel6.Controls.Add(this.label15);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Location = new System.Drawing.Point(4, 448);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(641, 209);
-            this.panel6.TabIndex = 2;
-            // 
-            // textBoxSupAddress
-            // 
-            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupAddress.Location = new System.Drawing.Point(198, 134);
-            this.textBoxSupAddress.Multiline = true;
-            this.textBoxSupAddress.Name = "textBoxSupAddress";
-            this.textBoxSupAddress.Size = new System.Drawing.Size(431, 72);
-            this.textBoxSupAddress.TabIndex = 12;
-            // 
-            // textBoxSupEmail
-            // 
-            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupEmail.Location = new System.Drawing.Point(198, 95);
-            this.textBoxSupEmail.Name = "textBoxSupEmail";
-            this.textBoxSupEmail.Size = new System.Drawing.Size(431, 29);
-            this.textBoxSupEmail.TabIndex = 11;
-            // 
-            // textBoxSupPhone
-            // 
-            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupPhone.Location = new System.Drawing.Point(198, 54);
-            this.textBoxSupPhone.Name = "textBoxSupPhone";
-            this.textBoxSupPhone.Size = new System.Drawing.Size(431, 29);
-            this.textBoxSupPhone.TabIndex = 10;
-            // 
-            // textBoxSupName
-            // 
-            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupName.Location = new System.Drawing.Point(198, 8);
-            this.textBoxSupName.Name = "textBoxSupName";
-            this.textBoxSupName.Size = new System.Drawing.Size(431, 29);
-            this.textBoxSupName.TabIndex = 9;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label15.Location = new System.Drawing.Point(14, 135);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 22);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Địa chỉ: \r\n";
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label14.Location = new System.Drawing.Point(14, 55);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 28);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Số điện thoại: \r\n";
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label11.Location = new System.Drawing.Point(14, 96);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 26);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Email:\r\n";
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label10.Location = new System.Drawing.Point(14, 12);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 24);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Tên nhà cung cấp:\r\n";
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(16, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(146, 28);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Thêm sản phẩm:";
-            // 
-            // availableButton
-            // 
-            this.availableButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.availableButton.Location = new System.Drawing.Point(245, 3);
-            this.availableButton.Name = "availableButton";
-            this.availableButton.Size = new System.Drawing.Size(71, 28);
-            this.availableButton.TabIndex = 24;
-            this.availableButton.Text = "Mới";
-            this.availableButton.UseVisualStyleBackColor = true;
-            this.availableButton.Click += new System.EventHandler(this.availableButton_Click);
-            // 
-            // unavailableButton
-            // 
-            this.unavailableButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unavailableButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.unavailableButton.Location = new System.Drawing.Point(168, 3);
-            this.unavailableButton.Name = "unavailableButton";
-            this.unavailableButton.Size = new System.Drawing.Size(71, 28);
-            this.unavailableButton.TabIndex = 23;
-            this.unavailableButton.Text = "Đã có ";
-            this.unavailableButton.UseVisualStyleBackColor = true;
-            this.unavailableButton.Click += new System.EventHandler(this.unavailableButton_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader8});
-            this.listView1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(790, 6);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(428, 473);
-            this.listView1.TabIndex = 14;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Sản phẩm";
-            this.columnHeader2.Width = 145;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 82;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Đơn giá";
-            this.columnHeader4.Width = 97;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Thành tiền";
-            this.columnHeader8.Width = 100;
             // 
             // billImport
             // 
@@ -1215,18 +1177,37 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(569, 341);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(71, 28);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Chọn";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1494, 1061);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.panelUnvailable);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.billImport);
+            this.Controls.Add(this.panel6);
             this.Name = "BillInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill";
             tabPage1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panelAvailable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panelUnvailable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).EndInit();
             this.panelSupplier.ResumeLayout(false);
@@ -1234,12 +1215,6 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panelAvailable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.billImport.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -1315,8 +1290,6 @@
         private System.Windows.Forms.DataGridView dataViewProduct2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panelAvailable;
-        private System.Windows.Forms.Label labelState;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label19;
@@ -1355,6 +1328,6 @@
         private System.Windows.Forms.ComboBox comboBoxBranch;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.ComboBox comboBoxSupplier;
+        private System.Windows.Forms.Button button2;
     }
 }
