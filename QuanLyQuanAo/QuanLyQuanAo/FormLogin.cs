@@ -56,17 +56,17 @@ namespace QuanLyQuanAo
             }
             else
             {
-                MessageBox.Show("sai tên đăng nhập hoặc mật khẩu !");
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu !");
             }    
 
         }
 
-        bool Login(string Username, string Password)
+        private bool Login(string Username, string Password)
         {
             return AccountDAO.Instance.Login(Username, Password);
         }
 
-        bool Testadmin(string Username, string Password)
+        private bool Testadmin(string Username, string Password)
         {
             return AccountDAO.Instance.Testadmin(Username, Password);
         }

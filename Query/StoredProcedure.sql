@@ -269,6 +269,30 @@ BEGIN
 END
 GO
 
+--new query
+CREATE PROC USP_GetProductBySupplier
+@IDSupplier INT
+AS
+	SELECT 
+	P.IDProduct AS [ID],
+	P.Name AS [Tên],
+	T.Name AS [Loại],
+	B.Name AS [Thương Hiệu],
+	C.Color AS [Màu Sắc],
+	P.Unit AS [Đơn Vị Tính],
+	S.Size AS [Kích Thước],
+	P.Amount AS [Số Lượng],
+	P.Price AS [Đơn Giá]
+	FROM Product P
+	INNER JOIN Type T ON T.IDType = P.IDType
+	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
+	INNER JOIN Size S ON S.IDSize = P.IDSize
+	INNER JOIN Color C ON C.IDColor = P.IDColor
+	INNER JOIN Supplier SUP ON SUP.IDBranch = B.IDBranch
+	WHERE SUP.IDSupplier = @IDSupplier
+GO
+
+
 CREATE PROC USP_Login
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
