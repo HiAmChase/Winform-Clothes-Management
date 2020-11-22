@@ -18,11 +18,6 @@ namespace QuanLyQuanAo
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -41,16 +36,16 @@ namespace QuanLyQuanAo
             string Username = textBoxUsername.Text;
             string Password = textBoxPassword.Text;
             if(Login(Username,Password))
-                {
+            {
 
-                    if(Testadmin(Username,Password))
+                if(Testadmin(Username,Password))
                 {
                     FormController f = new FormController();
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
                 }    
-                    else
+                else
                 {
                     BillInfo f = new BillInfo();
                     this.Hide();
@@ -58,7 +53,7 @@ namespace QuanLyQuanAo
                     this.Show();
                 }    
                                     
-                }
+            }
             else
             {
                 MessageBox.Show("sai tên đăng nhập hoặc mật khẩu !");
@@ -75,6 +70,5 @@ namespace QuanLyQuanAo
         {
             return AccountDAO.Instance.Testadmin(Username, Password);
         }
-
     }
 }

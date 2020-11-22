@@ -268,6 +268,7 @@ BEGIN
 	VALUES (@IDBillExport, @IDProduct, @Amount)
 END
 GO
+
 CREATE PROC USP_Login
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
@@ -275,6 +276,7 @@ BEGIN
 	SELECT * From dbo.Account WHERE Username= @Username AND Password=@Password
 END
 GO
+
 -- vì lúc đầu t làm testadmin lỗi nên chuyển sang test admin, nếu m chạy lại query thì sửa lại
 CREATE PROC USP_Testadmin1
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
