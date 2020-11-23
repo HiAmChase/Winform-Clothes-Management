@@ -33,6 +33,18 @@ namespace QuanLyQuanAo
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            //MessageBox.Show("Alo");
+            string username = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
+
+            int getStatus = Testadmin(username, password);
+            
+            switch(getStatus)
+            {
+                case 1:
+                    FormController form = new FormController();
+=======
             string Username = textBoxUsername.Text;
             string Password = textBoxPassword.Text;
             if(Login(Username,Password))
@@ -41,16 +53,33 @@ namespace QuanLyQuanAo
                 if(Testadmin(Username,Password))
                 {
                     FormController f = new FormController();
+>>>>>>> 806519d34c54b7834fbe03cbe508f3d0483c2beb
                     this.Hide();
-                    f.ShowDialog();
+                    form.ShowDialog();
                     this.Show();
+<<<<<<< HEAD
+                    break;
+                case 0:
+                    BillInfo formBill = new BillInfo();
+=======
                 }    
                 else
                 {
                     BillInfo f = new BillInfo();
+>>>>>>> 806519d34c54b7834fbe03cbe508f3d0483c2beb
                     this.Hide();
-                    f.ShowDialog();
+                    formBill.ShowDialog();
                     this.Show();
+<<<<<<< HEAD
+                    break;
+                default:
+                    MessageBox.Show("Đéo có pass cũng đòi vào ?", "Thông báo", MessageBoxButtons.OK);
+                    break;
+            }
+        }
+
+        int Testadmin(string Username, string Password)
+=======
                 }    
                                     
             }
@@ -67,6 +96,7 @@ namespace QuanLyQuanAo
         }
 
         private bool Testadmin(string Username, string Password)
+>>>>>>> 806519d34c54b7834fbe03cbe508f3d0483c2beb
         {
             return AccountDAO.Instance.Testadmin(Username, Password);
         }
