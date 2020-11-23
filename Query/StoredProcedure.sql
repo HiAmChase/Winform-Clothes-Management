@@ -286,3 +286,12 @@ BEGIN
 END
 end
 GO
+CREATE PROC USP_Testadmin2
+@Username NVARCHAR(100) , @Password NVARCHAR(1000)
+AS
+BEGIN
+	SELECT Status From dbo.Account WHERE Username= @Username AND Password=@Password
+END
+GO
+
+SELECT Status From dbo.Account WHERE Username= N'vinh'

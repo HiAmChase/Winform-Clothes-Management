@@ -38,40 +38,33 @@ namespace QuanLyQuanAo
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string Username = textBoxUsername.Text;
-            string Password = textBoxPassword.Text;
-            if(Login(Username,Password))
-                {
+            //MessageBox.Show("Alo");
+            string username = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
 
-                    if(Testadmin(Username,Password))
-                {
-                    FormController f = new FormController();
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }    
-                    else
-                {
-                    BillInfo f = new BillInfo();
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }    
-                                    
-                }
-            else
+            int getStatus = Testadmin(username, password);
+            
+            switch(getStatus)
             {
-                MessageBox.Show("sai tên đăng nhập hoặc mật khẩu !");
-            }    
-
+                case 1:
+                    FormController form = new FormController();
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Show();
+                    break;
+                case 0:
+                    BillInfo formBill = new BillInfo();
+                    this.Hide();
+                    formBill.ShowDialog();
+                    this.Show();
+                    break;
+                default:
+                    MessageBox.Show("Đéo có pass cũng đòi vào ?", "Thông báo", MessageBoxButtons.OK);
+                    break;
+            }
         }
 
-        bool Login(string Username, string Password)
-        {
-            return AccountDAO.Instance.Login(Username, Password);
-        }
-
-        bool Testadmin(string Username, string Password)
+        int Testadmin(string Username, string Password)
         {
             return AccountDAO.Instance.Testadmin(Username, Password);
         }
