@@ -21,7 +21,6 @@ namespace QuanLyQuanAo.DAO
 
         public int Testadmin(string username, string password)
         {
-<<<<<<< HEAD
             int ERROR = -100;
             int result = -ERROR;
 
@@ -34,23 +33,8 @@ namespace QuanLyQuanAo.DAO
             }
 
             return result;
-=======
-            string query = "USP_Login @Username , @Password";
-
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { Username, Password });
-
-            return result.Rows.Count > 0;
         }
 
-        public bool Testadmin(string Username, string Password)
-        {
-            string query = "USP_Testadmin1 @Username , @Password";
-
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { Username, Password });
-
-            return result.Rows.Count > 0;
->>>>>>> 806519d34c54b7834fbe03cbe508f3d0483c2beb
-        }
 
 
     }
