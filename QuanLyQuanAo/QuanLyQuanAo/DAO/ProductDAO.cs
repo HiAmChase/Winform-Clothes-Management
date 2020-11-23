@@ -65,11 +65,11 @@ namespace QuanLyQuanAo.DAO
             return result > 0;
         }
 
-        public List<ProductInfo> GetProductBySupplierName(string supplierName)
+        public List<ProductInfo> GetProductBySupplierName(int idSupplier)
         {
             List<ProductInfo> listProduct = new List<ProductInfo>();
 
-            string query = string.Format("EXEC USP_GetProductBySupplierName @Supplier = N'{0}'", supplierName);
+            string query = string.Format("EXEC USP_GetProductBySupplier @IDSupplier = {0}", idSupplier);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

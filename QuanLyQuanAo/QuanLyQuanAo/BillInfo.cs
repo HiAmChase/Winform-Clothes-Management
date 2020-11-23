@@ -13,15 +13,17 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanAo
 {
-    public enum State { GetInput, Available};
+    public enum State { Unavailable, Available};
     public partial class BillInfo : Form
     {
         private const int PERCENT = 100;
+        //************************Lưu ý: ID_CLIENT_DEFAULT******************
         private const int ID_CLIENT_DEFAULT = 1;
         private const int ERROR = -100;
         List<BillProduct> products = new List<BillProduct>();
         private double totalPrice = 0;
-        private State state = State.GetInput;
+        private State stateClient = State.Unavailable;
+        private State stateSupplier = State.Unavailable;
         CultureInfo culture = new CultureInfo("vi-VN");
         public BillInfo()
         {
@@ -76,9 +78,9 @@ namespace QuanLyQuanAo
                 return;
             }
 
-            switch(state)
+            switch(stateClient)
             {
-                case State.GetInput:
+                case State.Unavailable:
                     if (TextBoxIsEmpty())
                     {
                         //Không thay đổi IDClient
@@ -300,14 +302,14 @@ namespace QuanLyQuanAo
 
         private void VisibleForm()
         {
-            state = State.GetInput;
+            stateClient = State.Unavailable;
             panelForm.Visible = true;
             dataViewClient.Visible = false;
         }
 
         private void VisibleClientData()
         {
-            state = State.Available;
+            stateClient = State.Available;
             panelForm.Visible = false;
             dataViewClient.Visible = true;
         }
@@ -325,28 +327,44 @@ namespace QuanLyQuanAo
             InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier", "Phone" });
         }
 
+        private void LoadProductBySupplier(int idSupplier)
+        {
+            dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplierName(idSupplier);
+
+            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Type", "Branch", "Unit" });
+        }
+
         #endregion
 
         #region Events
 
         private void enterSupplierButton_Click(object sender, EventArgs e)
         {
+
+            availableSupButton.Enabled = false;
+            unavailableSupButton.Enabled = false;
+
             dataViewSupplier.Enabled = false;
             panelStateProduct.Visible = true;
             panelAvailableProduct.Visible = true;
 
             string supplierName = dataViewSupplier.SelectedCells[0].OwningRow.Cells["Name"].Value.ToString();
+            int idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
+
+            LoadProductBySupplier(idSupplier);
             labelInfo.Text = "Các sản phẩm của " + supplierName;
         }
 
         private void availableSupButton_Click(object sender, EventArgs e)
         {
+            stateSupplier = State.Available;
             dataViewSupplier.Visible = true;
             panelUnavailableSup.Visible = false;
         }
 
         private void unavailableSupButton_Click(object sender, EventArgs e)
         {
+            stateSupplier = State.Unavailable;
             dataViewSupplier.Visible = false;
             panelUnavailableSup.Visible = true;
         }

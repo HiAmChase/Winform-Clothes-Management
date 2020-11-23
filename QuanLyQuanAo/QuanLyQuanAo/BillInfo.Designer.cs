@@ -29,11 +29,44 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
+            this.panelUnavailableSup = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxSupAddress = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxSupEmail = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBoxSupPhone = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxSupName = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panelUnavailableProduct = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
+            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panelStateProduct = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.availableProcButton = new System.Windows.Forms.Button();
+            this.unavailableProcButton = new System.Windows.Forms.Button();
+            this.enterSupplierButton = new System.Windows.Forms.Button();
+            this.panelAvailableProduct = new System.Windows.Forms.Panel();
+            this.labelInfo = new System.Windows.Forms.Label();
+            this.dataViewProduct2 = new System.Windows.Forms.DataGridView();
+            this.dataViewSupplier = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.enterSupplierButton = new System.Windows.Forms.Button();
-            this.dataViewSupplier = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.unavailableSupButton = new System.Windows.Forms.Button();
             this.availableSupButton = new System.Windows.Forms.Button();
@@ -81,44 +114,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.panelAvailableProduct = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.unavailableProcButton = new System.Windows.Forms.Button();
-            this.availableProcButton = new System.Windows.Forms.Button();
-            this.panelStateProduct = new System.Windows.Forms.Panel();
-            this.labelInfo = new System.Windows.Forms.Label();
-            this.dataViewProduct2 = new System.Windows.Forms.DataGridView();
-            this.panelUnavailableProduct = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
-            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panelUnavailableSup = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxSupAddress = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxSupEmail = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBoxSupPhone = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBoxSupName = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
+            this.panelUnavailableSup.SuspendLayout();
+            this.panelUnavailableProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
+            this.panelStateProduct.SuspendLayout();
+            this.panelAvailableProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).BeginInit();
             this.billImport.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).BeginInit();
@@ -129,12 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericAmount)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelForm.SuspendLayout();
-            this.panelAvailableProduct.SuspendLayout();
-            this.panelStateProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).BeginInit();
-            this.panelUnavailableProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
-            this.panelUnavailableSup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -159,6 +159,414 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Hóa đơn nhập";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panelUnavailableSup
+            // 
+            this.panelUnavailableSup.Controls.Add(this.label15);
+            this.panelUnavailableSup.Controls.Add(this.textBoxSupAddress);
+            this.panelUnavailableSup.Controls.Add(this.label17);
+            this.panelUnavailableSup.Controls.Add(this.textBoxSupEmail);
+            this.panelUnavailableSup.Controls.Add(this.label23);
+            this.panelUnavailableSup.Controls.Add(this.textBoxSupPhone);
+            this.panelUnavailableSup.Controls.Add(this.label25);
+            this.panelUnavailableSup.Controls.Add(this.textBoxSupName);
+            this.panelUnavailableSup.Controls.Add(this.label26);
+            this.panelUnavailableSup.Location = new System.Drawing.Point(27, 51);
+            this.panelUnavailableSup.Margin = new System.Windows.Forms.Padding(2);
+            this.panelUnavailableSup.Name = "panelUnavailableSup";
+            this.panelUnavailableSup.Size = new System.Drawing.Size(638, 332);
+            this.panelUnavailableSup.TabIndex = 5;
+            this.panelUnavailableSup.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(18, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(106, 31);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Thông tin";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxSupAddress
+            // 
+            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupAddress.Location = new System.Drawing.Point(203, 197);
+            this.textBoxSupAddress.Multiline = true;
+            this.textBoxSupAddress.Name = "textBoxSupAddress";
+            this.textBoxSupAddress.Size = new System.Drawing.Size(418, 109);
+            this.textBoxSupAddress.TabIndex = 12;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label17.Location = new System.Drawing.Point(19, 56);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(179, 24);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Tên nhà cung cấp:\r\n";
+            // 
+            // textBoxSupEmail
+            // 
+            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupEmail.Location = new System.Drawing.Point(203, 146);
+            this.textBoxSupEmail.Name = "textBoxSupEmail";
+            this.textBoxSupEmail.Size = new System.Drawing.Size(418, 29);
+            this.textBoxSupEmail.TabIndex = 11;
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label23.Location = new System.Drawing.Point(19, 147);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 26);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Email:\r\n";
+            // 
+            // textBoxSupPhone
+            // 
+            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupPhone.Location = new System.Drawing.Point(203, 98);
+            this.textBoxSupPhone.Name = "textBoxSupPhone";
+            this.textBoxSupPhone.Size = new System.Drawing.Size(418, 29);
+            this.textBoxSupPhone.TabIndex = 10;
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label25.Location = new System.Drawing.Point(19, 99);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(137, 28);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "Số điện thoại: \r\n";
+            // 
+            // textBoxSupName
+            // 
+            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupName.Location = new System.Drawing.Point(203, 52);
+            this.textBoxSupName.Name = "textBoxSupName";
+            this.textBoxSupName.Size = new System.Drawing.Size(418, 29);
+            this.textBoxSupName.TabIndex = 9;
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label26.Location = new System.Drawing.Point(19, 198);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(82, 22);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Địa chỉ: \r\n";
+            // 
+            // panelUnavailableProduct
+            // 
+            this.panelUnavailableProduct.Controls.Add(this.textBox2);
+            this.panelUnavailableProduct.Controls.Add(this.comboBoxBranch);
+            this.panelUnavailableProduct.Controls.Add(this.label20);
+            this.panelUnavailableProduct.Controls.Add(this.label24);
+            this.panelUnavailableProduct.Controls.Add(this.textBox1);
+            this.panelUnavailableProduct.Controls.Add(this.label22);
+            this.panelUnavailableProduct.Controls.Add(this.comboBoxType);
+            this.panelUnavailableProduct.Controls.Add(this.label11);
+            this.panelUnavailableProduct.Controls.Add(this.comboBoxColor);
+            this.panelUnavailableProduct.Controls.Add(this.label16);
+            this.panelUnavailableProduct.Controls.Add(this.label21);
+            this.panelUnavailableProduct.Controls.Add(this.label18);
+            this.panelUnavailableProduct.Controls.Add(this.comboBoxUnit);
+            this.panelUnavailableProduct.Controls.Add(this.numUpDownSize);
+            this.panelUnavailableProduct.Controls.Add(this.label14);
+            this.panelUnavailableProduct.Location = new System.Drawing.Point(30, 439);
+            this.panelUnavailableProduct.Name = "panelUnavailableProduct";
+            this.panelUnavailableProduct.Size = new System.Drawing.Size(635, 270);
+            this.panelUnavailableProduct.TabIndex = 34;
+            this.panelUnavailableProduct.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(477, 216);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(148, 29);
+            this.textBox2.TabIndex = 26;
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(152, 106);
+            this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(181, 32);
+            this.comboBoxBranch.TabIndex = 20;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label20.Location = new System.Drawing.Point(370, 114);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(63, 24);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "Loại: \r\n";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label24.Location = new System.Drawing.Point(370, 220);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(92, 24);
+            this.label24.TabIndex = 18;
+            this.label24.Text = "Đơn giá: \r\n";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(152, 48);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(473, 29);
+            this.textBox1.TabIndex = 25;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label22.Location = new System.Drawing.Point(17, 221);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(81, 24);
+            this.label22.TabIndex = 16;
+            this.label22.Text = "Đơn vị: \r\n";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(477, 105);
+            this.comboBoxType.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(148, 32);
+            this.comboBoxType.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(181, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(281, 32);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Nhập các thông tin sản phẩm";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxColor
+            // 
+            this.comboBoxColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Location = new System.Drawing.Point(477, 160);
+            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(148, 32);
+            this.comboBoxColor.TabIndex = 21;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label16.Location = new System.Drawing.Point(13, 113);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(135, 24);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Thương hiệu: \r\n";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label21.Location = new System.Drawing.Point(370, 169);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(63, 24);
+            this.label21.TabIndex = 15;
+            this.label21.Text = "Màu: \r\n";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label18.Location = new System.Drawing.Point(11, 52);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(134, 24);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "Tên sản phẩm\r\n";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxUnit
+            // 
+            this.comboBoxUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Location = new System.Drawing.Point(152, 218);
+            this.comboBoxUnit.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxUnit.Name = "comboBoxUnit";
+            this.comboBoxUnit.Size = new System.Drawing.Size(181, 32);
+            this.comboBoxUnit.TabIndex = 23;
+            // 
+            // numUpDownSize
+            // 
+            this.numUpDownSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUpDownSize.Location = new System.Drawing.Point(152, 164);
+            this.numUpDownSize.Margin = new System.Windows.Forms.Padding(2);
+            this.numUpDownSize.Name = "numUpDownSize";
+            this.numUpDownSize.Size = new System.Drawing.Size(181, 29);
+            this.numUpDownSize.TabIndex = 24;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label14.Location = new System.Drawing.Point(13, 169);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(123, 24);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Kích thước: \r\n";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelStateProduct
+            // 
+            this.panelStateProduct.Controls.Add(this.label10);
+            this.panelStateProduct.Controls.Add(this.availableProcButton);
+            this.panelStateProduct.Controls.Add(this.unavailableProcButton);
+            this.panelStateProduct.Location = new System.Drawing.Point(30, 389);
+            this.panelStateProduct.Name = "panelStateProduct";
+            this.panelStateProduct.Size = new System.Drawing.Size(336, 44);
+            this.panelStateProduct.TabIndex = 33;
+            this.panelStateProduct.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(3, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(168, 24);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Chọn loại sản phẩm:";
+            // 
+            // availableProcButton
+            // 
+            this.availableProcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableProcButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.availableProcButton.Location = new System.Drawing.Point(177, 8);
+            this.availableProcButton.Name = "availableProcButton";
+            this.availableProcButton.Size = new System.Drawing.Size(71, 28);
+            this.availableProcButton.TabIndex = 30;
+            this.availableProcButton.Text = "Đã có ";
+            this.availableProcButton.UseVisualStyleBackColor = true;
+            this.availableProcButton.Click += new System.EventHandler(this.availableProcButton_Click);
+            // 
+            // unavailableProcButton
+            // 
+            this.unavailableProcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unavailableProcButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.unavailableProcButton.Location = new System.Drawing.Point(254, 8);
+            this.unavailableProcButton.Name = "unavailableProcButton";
+            this.unavailableProcButton.Size = new System.Drawing.Size(71, 28);
+            this.unavailableProcButton.TabIndex = 31;
+            this.unavailableProcButton.Text = "Mới";
+            this.unavailableProcButton.UseVisualStyleBackColor = true;
+            this.unavailableProcButton.Click += new System.EventHandler(this.unavailableProcButton_Click_1);
+            // 
+            // enterSupplierButton
+            // 
+            this.enterSupplierButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterSupplierButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.enterSupplierButton.Location = new System.Drawing.Point(585, 389);
+            this.enterSupplierButton.Name = "enterSupplierButton";
+            this.enterSupplierButton.Size = new System.Drawing.Size(71, 28);
+            this.enterSupplierButton.TabIndex = 29;
+            this.enterSupplierButton.Text = "Chọn";
+            this.enterSupplierButton.UseVisualStyleBackColor = true;
+            this.enterSupplierButton.Click += new System.EventHandler(this.enterSupplierButton_Click);
+            // 
+            // panelAvailableProduct
+            // 
+            this.panelAvailableProduct.Controls.Add(this.labelInfo);
+            this.panelAvailableProduct.Controls.Add(this.dataViewProduct2);
+            this.panelAvailableProduct.Location = new System.Drawing.Point(30, 439);
+            this.panelAvailableProduct.Name = "panelAvailableProduct";
+            this.panelAvailableProduct.Size = new System.Drawing.Size(635, 270);
+            this.panelAvailableProduct.TabIndex = 29;
+            this.panelAvailableProduct.Visible = false;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelInfo.Location = new System.Drawing.Point(162, 0);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(281, 32);
+            this.labelInfo.TabIndex = 33;
+            this.labelInfo.Text = "Các sản phẩm của";
+            this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataViewProduct2
+            // 
+            this.dataViewProduct2.AllowUserToAddRows = false;
+            this.dataViewProduct2.AllowUserToDeleteRows = false;
+            this.dataViewProduct2.AllowUserToResizeColumns = false;
+            this.dataViewProduct2.AllowUserToResizeRows = false;
+            this.dataViewProduct2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewProduct2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewProduct2.Location = new System.Drawing.Point(3, 35);
+            this.dataViewProduct2.Name = "dataViewProduct2";
+            this.dataViewProduct2.ReadOnly = true;
+            this.dataViewProduct2.RowHeadersWidth = 51;
+            this.dataViewProduct2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewProduct2.Size = new System.Drawing.Size(623, 232);
+            this.dataViewProduct2.TabIndex = 32;
+            this.dataViewProduct2.VirtualMode = true;
+            // 
+            // dataViewSupplier
+            // 
+            this.dataViewSupplier.AllowUserToAddRows = false;
+            this.dataViewSupplier.AllowUserToDeleteRows = false;
+            this.dataViewSupplier.AllowUserToResizeColumns = false;
+            this.dataViewSupplier.AllowUserToResizeRows = false;
+            this.dataViewSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewSupplier.EnableHeadersVisualStyles = false;
+            this.dataViewSupplier.Location = new System.Drawing.Point(27, 51);
+            this.dataViewSupplier.Name = "dataViewSupplier";
+            this.dataViewSupplier.ReadOnly = true;
+            this.dataViewSupplier.RowHeadersWidth = 51;
+            this.dataViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewSupplier.Size = new System.Drawing.Size(629, 332);
+            this.dataViewSupplier.TabIndex = 22;
             // 
             // panel2
             // 
@@ -193,35 +601,6 @@
             this.numericUpDown1.Size = new System.Drawing.Size(102, 29);
             this.numericUpDown1.TabIndex = 10;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // enterSupplierButton
-            // 
-            this.enterSupplierButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterSupplierButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.enterSupplierButton.Location = new System.Drawing.Point(585, 389);
-            this.enterSupplierButton.Name = "enterSupplierButton";
-            this.enterSupplierButton.Size = new System.Drawing.Size(71, 28);
-            this.enterSupplierButton.TabIndex = 29;
-            this.enterSupplierButton.Text = "Chọn";
-            this.enterSupplierButton.UseVisualStyleBackColor = true;
-            this.enterSupplierButton.Click += new System.EventHandler(this.enterSupplierButton_Click);
-            // 
-            // dataViewSupplier
-            // 
-            this.dataViewSupplier.AllowUserToAddRows = false;
-            this.dataViewSupplier.AllowUserToDeleteRows = false;
-            this.dataViewSupplier.AllowUserToResizeColumns = false;
-            this.dataViewSupplier.AllowUserToResizeRows = false;
-            this.dataViewSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewSupplier.EnableHeadersVisualStyles = false;
-            this.dataViewSupplier.Location = new System.Drawing.Point(27, 51);
-            this.dataViewSupplier.Name = "dataViewSupplier";
-            this.dataViewSupplier.ReadOnly = true;
-            this.dataViewSupplier.RowHeadersWidth = 51;
-            this.dataViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewSupplier.Size = new System.Drawing.Size(629, 332);
-            this.dataViewSupplier.TabIndex = 22;
             // 
             // label9
             // 
@@ -712,385 +1091,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panelAvailableProduct
-            // 
-            this.panelAvailableProduct.Controls.Add(this.labelInfo);
-            this.panelAvailableProduct.Controls.Add(this.dataViewProduct2);
-            this.panelAvailableProduct.Location = new System.Drawing.Point(30, 439);
-            this.panelAvailableProduct.Name = "panelAvailableProduct";
-            this.panelAvailableProduct.Size = new System.Drawing.Size(635, 270);
-            this.panelAvailableProduct.TabIndex = 29;
-            this.panelAvailableProduct.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(3, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(168, 24);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "Chọn loại sản phẩm:";
-            // 
-            // unavailableProcButton
-            // 
-            this.unavailableProcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unavailableProcButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.unavailableProcButton.Location = new System.Drawing.Point(254, 8);
-            this.unavailableProcButton.Name = "unavailableProcButton";
-            this.unavailableProcButton.Size = new System.Drawing.Size(71, 28);
-            this.unavailableProcButton.TabIndex = 31;
-            this.unavailableProcButton.Text = "Mới";
-            this.unavailableProcButton.UseVisualStyleBackColor = true;
-            this.unavailableProcButton.Click += new System.EventHandler(this.unavailableProcButton_Click_1);
-            // 
-            // availableProcButton
-            // 
-            this.availableProcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableProcButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.availableProcButton.Location = new System.Drawing.Point(177, 8);
-            this.availableProcButton.Name = "availableProcButton";
-            this.availableProcButton.Size = new System.Drawing.Size(71, 28);
-            this.availableProcButton.TabIndex = 30;
-            this.availableProcButton.Text = "Đã có ";
-            this.availableProcButton.UseVisualStyleBackColor = true;
-            this.availableProcButton.Click += new System.EventHandler(this.availableProcButton_Click);
-            // 
-            // panelStateProduct
-            // 
-            this.panelStateProduct.Controls.Add(this.label10);
-            this.panelStateProduct.Controls.Add(this.availableProcButton);
-            this.panelStateProduct.Controls.Add(this.unavailableProcButton);
-            this.panelStateProduct.Location = new System.Drawing.Point(30, 389);
-            this.panelStateProduct.Name = "panelStateProduct";
-            this.panelStateProduct.Size = new System.Drawing.Size(336, 44);
-            this.panelStateProduct.TabIndex = 33;
-            this.panelStateProduct.Visible = false;
-            // 
-            // labelInfo
-            // 
-            this.labelInfo.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelInfo.Location = new System.Drawing.Point(162, 0);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(281, 32);
-            this.labelInfo.TabIndex = 33;
-            this.labelInfo.Text = "Các sản phẩm của";
-            this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataViewProduct2
-            // 
-            this.dataViewProduct2.AllowUserToAddRows = false;
-            this.dataViewProduct2.AllowUserToDeleteRows = false;
-            this.dataViewProduct2.AllowUserToResizeColumns = false;
-            this.dataViewProduct2.AllowUserToResizeRows = false;
-            this.dataViewProduct2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewProduct2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewProduct2.Location = new System.Drawing.Point(3, 35);
-            this.dataViewProduct2.Name = "dataViewProduct2";
-            this.dataViewProduct2.ReadOnly = true;
-            this.dataViewProduct2.RowHeadersWidth = 51;
-            this.dataViewProduct2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewProduct2.Size = new System.Drawing.Size(623, 232);
-            this.dataViewProduct2.TabIndex = 32;
-            this.dataViewProduct2.VirtualMode = true;
-            // 
-            // panelUnavailableProduct
-            // 
-            this.panelUnavailableProduct.Controls.Add(this.textBox2);
-            this.panelUnavailableProduct.Controls.Add(this.comboBoxBranch);
-            this.panelUnavailableProduct.Controls.Add(this.label20);
-            this.panelUnavailableProduct.Controls.Add(this.label24);
-            this.panelUnavailableProduct.Controls.Add(this.textBox1);
-            this.panelUnavailableProduct.Controls.Add(this.label22);
-            this.panelUnavailableProduct.Controls.Add(this.comboBoxType);
-            this.panelUnavailableProduct.Controls.Add(this.label11);
-            this.panelUnavailableProduct.Controls.Add(this.comboBoxColor);
-            this.panelUnavailableProduct.Controls.Add(this.label16);
-            this.panelUnavailableProduct.Controls.Add(this.label21);
-            this.panelUnavailableProduct.Controls.Add(this.label18);
-            this.panelUnavailableProduct.Controls.Add(this.comboBoxUnit);
-            this.panelUnavailableProduct.Controls.Add(this.numUpDownSize);
-            this.panelUnavailableProduct.Controls.Add(this.label14);
-            this.panelUnavailableProduct.Location = new System.Drawing.Point(30, 439);
-            this.panelUnavailableProduct.Name = "panelUnavailableProduct";
-            this.panelUnavailableProduct.Size = new System.Drawing.Size(635, 270);
-            this.panelUnavailableProduct.TabIndex = 34;
-            this.panelUnavailableProduct.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(477, 216);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 29);
-            this.textBox2.TabIndex = 26;
-            // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(152, 106);
-            this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(181, 32);
-            this.comboBoxBranch.TabIndex = 20;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label20.Location = new System.Drawing.Point(370, 114);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 24);
-            this.label20.TabIndex = 14;
-            this.label20.Text = "Loại: \r\n";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label24.Location = new System.Drawing.Point(370, 220);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(92, 24);
-            this.label24.TabIndex = 18;
-            this.label24.Text = "Đơn giá: \r\n";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(152, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(473, 29);
-            this.textBox1.TabIndex = 25;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label22.Location = new System.Drawing.Point(17, 221);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 24);
-            this.label22.TabIndex = 16;
-            this.label22.Text = "Đơn vị: \r\n";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(477, 105);
-            this.comboBoxType.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(148, 32);
-            this.comboBoxType.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(181, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(281, 32);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Nhập các thông tin sản phẩm";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxColor
-            // 
-            this.comboBoxColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(477, 160);
-            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(148, 32);
-            this.comboBoxColor.TabIndex = 21;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label16.Location = new System.Drawing.Point(13, 113);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(135, 24);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Thương hiệu: \r\n";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label21.Location = new System.Drawing.Point(370, 169);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(63, 24);
-            this.label21.TabIndex = 15;
-            this.label21.Text = "Màu: \r\n";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label18.Location = new System.Drawing.Point(11, 52);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(134, 24);
-            this.label18.TabIndex = 12;
-            this.label18.Text = "Tên sản phẩm\r\n";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxUnit
-            // 
-            this.comboBoxUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(152, 218);
-            this.comboBoxUnit.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxUnit.Name = "comboBoxUnit";
-            this.comboBoxUnit.Size = new System.Drawing.Size(181, 32);
-            this.comboBoxUnit.TabIndex = 23;
-            // 
-            // numUpDownSize
-            // 
-            this.numUpDownSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownSize.Location = new System.Drawing.Point(152, 164);
-            this.numUpDownSize.Margin = new System.Windows.Forms.Padding(2);
-            this.numUpDownSize.Name = "numUpDownSize";
-            this.numUpDownSize.Size = new System.Drawing.Size(181, 29);
-            this.numUpDownSize.TabIndex = 24;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label14.Location = new System.Drawing.Point(13, 169);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 24);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Kích thước: \r\n";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelUnavailableSup
-            // 
-            this.panelUnavailableSup.Controls.Add(this.label15);
-            this.panelUnavailableSup.Controls.Add(this.textBoxSupAddress);
-            this.panelUnavailableSup.Controls.Add(this.label17);
-            this.panelUnavailableSup.Controls.Add(this.textBoxSupEmail);
-            this.panelUnavailableSup.Controls.Add(this.label23);
-            this.panelUnavailableSup.Controls.Add(this.textBoxSupPhone);
-            this.panelUnavailableSup.Controls.Add(this.label25);
-            this.panelUnavailableSup.Controls.Add(this.textBoxSupName);
-            this.panelUnavailableSup.Controls.Add(this.label26);
-            this.panelUnavailableSup.Location = new System.Drawing.Point(27, 51);
-            this.panelUnavailableSup.Margin = new System.Windows.Forms.Padding(2);
-            this.panelUnavailableSup.Name = "panelUnavailableSup";
-            this.panelUnavailableSup.Size = new System.Drawing.Size(638, 332);
-            this.panelUnavailableSup.TabIndex = 5;
-            this.panelUnavailableSup.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(18, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(106, 31);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Thông tin";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxSupAddress
-            // 
-            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupAddress.Location = new System.Drawing.Point(203, 197);
-            this.textBoxSupAddress.Multiline = true;
-            this.textBoxSupAddress.Name = "textBoxSupAddress";
-            this.textBoxSupAddress.Size = new System.Drawing.Size(418, 109);
-            this.textBoxSupAddress.TabIndex = 12;
-            // 
-            // label17
-            // 
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label17.Location = new System.Drawing.Point(19, 56);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(179, 24);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Tên nhà cung cấp:\r\n";
-            // 
-            // textBoxSupEmail
-            // 
-            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupEmail.Location = new System.Drawing.Point(203, 146);
-            this.textBoxSupEmail.Name = "textBoxSupEmail";
-            this.textBoxSupEmail.Size = new System.Drawing.Size(418, 29);
-            this.textBoxSupEmail.TabIndex = 11;
-            // 
-            // label23
-            // 
-            this.label23.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label23.Location = new System.Drawing.Point(19, 147);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 26);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Email:\r\n";
-            // 
-            // textBoxSupPhone
-            // 
-            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupPhone.Location = new System.Drawing.Point(203, 98);
-            this.textBoxSupPhone.Name = "textBoxSupPhone";
-            this.textBoxSupPhone.Size = new System.Drawing.Size(418, 29);
-            this.textBoxSupPhone.TabIndex = 10;
-            // 
-            // label25
-            // 
-            this.label25.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label25.Location = new System.Drawing.Point(19, 99);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(137, 28);
-            this.label25.TabIndex = 3;
-            this.label25.Text = "Số điện thoại: \r\n";
-            // 
-            // textBoxSupName
-            // 
-            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupName.Location = new System.Drawing.Point(203, 52);
-            this.textBoxSupName.Name = "textBoxSupName";
-            this.textBoxSupName.Size = new System.Drawing.Size(418, 29);
-            this.textBoxSupName.TabIndex = 9;
-            // 
-            // label26
-            // 
-            this.label26.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label26.Location = new System.Drawing.Point(19, 198);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(82, 22);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "Địa chỉ: \r\n";
-            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,9 +1102,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill";
             tabPage1.ResumeLayout(false);
+            this.panelUnavailableSup.ResumeLayout(false);
+            this.panelUnavailableSup.PerformLayout();
+            this.panelUnavailableProduct.ResumeLayout(false);
+            this.panelUnavailableProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
+            this.panelStateProduct.ResumeLayout(false);
+            this.panelAvailableProduct.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewSupplier)).EndInit();
             this.billImport.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -1119,14 +1127,6 @@
             this.panel1.PerformLayout();
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
-            this.panelAvailableProduct.ResumeLayout(false);
-            this.panelStateProduct.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).EndInit();
-            this.panelUnavailableProduct.ResumeLayout(false);
-            this.panelUnavailableProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
-            this.panelUnavailableSup.ResumeLayout(false);
-            this.panelUnavailableSup.PerformLayout();
             this.ResumeLayout(false);
 
         }
