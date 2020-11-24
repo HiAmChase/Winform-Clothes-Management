@@ -302,4 +302,3 @@ BEGIN
 END
 GO
 
-SELECT Status From dbo.Account WHERE Username= N'vinh'
