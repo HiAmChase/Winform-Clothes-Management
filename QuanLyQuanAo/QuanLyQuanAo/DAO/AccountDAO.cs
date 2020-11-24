@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace QuanLyQuanAo.DAO
 {
@@ -21,11 +22,18 @@ namespace QuanLyQuanAo.DAO
 
         public int Testadmin(string username, string password)
         {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
+            byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string haspass = "";
+            foreach(byte item in hasdata)
+            {
+                haspass += item;
+
+            }
             int ERROR = -100;
-            int result = -ERROR;
+            int result = ERROR;
 
-            string query = string.Format("EXEC USP_Testadmin2 @Username = '{0}', @Password = '{1}'", username, password);
-
+            string query = string.Format("EXEC USP_Testadmin2 @Username = '{0}', @Password = '{1}'", username, haspass);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {

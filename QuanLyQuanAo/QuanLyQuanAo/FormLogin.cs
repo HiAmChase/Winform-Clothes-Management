@@ -53,7 +53,7 @@ namespace QuanLyQuanAo
                     this.Show();
                     break;
                 default:
-                    MessageBox.Show("Đéo có pass cũng đòi vào ?", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu, vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK);
                     break;
             }
         }
