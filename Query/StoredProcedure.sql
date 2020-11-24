@@ -292,11 +292,8 @@ AS
 	WHERE SUP.IDSupplier = @IDSupplier
 GO
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> f2e772c2b6cc5b8f403c0c4be51bf235f921631d
 CREATE PROC USP_Testadmin2
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
@@ -305,5 +302,3 @@ BEGIN
 END
 GO
 
-
-SELECT Status From dbo.Account WHERE Username= N'vinh'

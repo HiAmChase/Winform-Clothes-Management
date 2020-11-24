@@ -114,6 +114,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.panelUnavailableSup.SuspendLayout();
@@ -139,6 +140,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(this.cancelButton);
             tabPage1.Controls.Add(this.panelUnavailableSup);
             tabPage1.Controls.Add(this.panelUnavailableProduct);
             tabPage1.Controls.Add(this.panelStateProduct);
@@ -505,7 +507,7 @@
             // 
             this.enterSupplierButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enterSupplierButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.enterSupplierButton.Location = new System.Drawing.Point(585, 389);
+            this.enterSupplierButton.Location = new System.Drawing.Point(508, 397);
             this.enterSupplierButton.Name = "enterSupplierButton";
             this.enterSupplierButton.Size = new System.Drawing.Size(71, 28);
             this.enterSupplierButton.TabIndex = 29;
@@ -1091,6 +1093,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cancelButton.Location = new System.Drawing.Point(585, 397);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(71, 28);
+            this.cancelButton.TabIndex = 35;
+            this.cancelButton.Text = "Hủy";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1218,5 +1232,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBoxSupName;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

@@ -23,7 +23,7 @@ namespace QuanLyQuanAo
         List<BillProduct> products = new List<BillProduct>();
         private double totalPrice = 0;
         private State stateClient = State.Unavailable;
-        private State stateSupplier = State.Unavailable;
+        private State stateSupplier = State.Available;
         CultureInfo culture = new CultureInfo("vi-VN");
         public BillInfo()
         {
@@ -319,12 +319,33 @@ namespace QuanLyQuanAo
         #endregion
 
         #region Methods
+        private void SetBillInfoToDefault()
+        {
+            availableSupButton.Enabled = true;
+            unavailableSupButton.Enabled = true;
+            dataViewSupplier.Enabled = true;
+            availableProcButton.Enabled = true;
+
+            panelAvailableProduct.Visible = false;
+            panelUnavailableProduct.Visible = false;
+            panelStateProduct.Visible = false;
+        }
 
         private void LoadSupplierData()
         { 
             dataViewSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
 
             InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier", "Phone" });
+        }
+
+        private void GetSupplierAndLoadProduct()
+        {
+            string supplierName = dataViewSupplier.SelectedCells[0].OwningRow.Cells["Name"].Value.ToString();
+            int idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
+
+            labelInfo.Text = "Các sản phẩm của " + supplierName;
+
+            LoadProductBySupplier(idSupplier);
         }
 
         private void LoadProductBySupplier(int idSupplier)
@@ -340,19 +361,28 @@ namespace QuanLyQuanAo
 
         private void enterSupplierButton_Click(object sender, EventArgs e)
         {
-
             availableSupButton.Enabled = false;
             unavailableSupButton.Enabled = false;
-
             dataViewSupplier.Enabled = false;
+
             panelStateProduct.Visible = true;
-            panelAvailableProduct.Visible = true;
 
-            string supplierName = dataViewSupplier.SelectedCells[0].OwningRow.Cells["Name"].Value.ToString();
-            int idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
+            switch(stateSupplier)
+            {
+                case State.Available:
+                    panelAvailableProduct.Visible = true;
+                    GetSupplierAndLoadProduct();
+                    break;
+                case State.Unavailable:
+                    panelUnavailableProduct.Visible = true;
+                    availableProcButton.Enabled = false;
+                    break;
+            }
+        }
 
-            LoadProductBySupplier(idSupplier);
-            labelInfo.Text = "Các sản phẩm của " + supplierName;
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            SetBillInfoToDefault();
         }
 
         private void availableSupButton_Click(object sender, EventArgs e)
@@ -367,11 +397,6 @@ namespace QuanLyQuanAo
             stateSupplier = State.Unavailable;
             dataViewSupplier.Visible = false;
             panelUnavailableSup.Visible = true;
-        }
-
-        private void unavailableProcButton_Click(object sender, EventArgs e)
-        {
-            panelAvailableProduct.Visible = true;
         }
 
         private void availableProcButton_Click(object sender, EventArgs e)
