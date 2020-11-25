@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxPriceEntry = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.listViewProductEntry = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,6 +76,7 @@
             this.dataViewProduct2 = new System.Windows.Forms.DataGridView();
             this.dataViewSupplier = new System.Windows.Forms.DataGridView();
             this.panelAmount = new System.Windows.Forms.Panel();
+            this.addButton2 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.numericAmountEntry = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -120,7 +121,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.addButton2 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.panelUnavailableSup.SuspendLayout();
@@ -146,7 +146,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(this.textBox5);
+            tabPage1.Controls.Add(this.textBoxPriceEntry);
             tabPage1.Controls.Add(this.label29);
             tabPage1.Controls.Add(this.listViewProductEntry);
             tabPage1.Controls.Add(this.button2);
@@ -171,15 +171,15 @@
             tabPage1.Text = "Hóa đơn nhập";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // textBoxPriceEntry
             // 
-            this.textBox5.Location = new System.Drawing.Point(956, 653);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(148, 29);
-            this.textBox5.TabIndex = 17;
-            this.textBox5.Text = "0";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxPriceEntry.Location = new System.Drawing.Point(956, 653);
+            this.textBoxPriceEntry.Name = "textBoxPriceEntry";
+            this.textBoxPriceEntry.ReadOnly = true;
+            this.textBoxPriceEntry.Size = new System.Drawing.Size(148, 29);
+            this.textBoxPriceEntry.TabIndex = 17;
+            this.textBoxPriceEntry.Text = "0";
+            this.textBoxPriceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label29
             // 
@@ -688,6 +688,16 @@
             this.panelAmount.TabIndex = 28;
             this.panelAmount.Visible = false;
             // 
+            // addButton2
+            // 
+            this.addButton2.Location = new System.Drawing.Point(9, 3);
+            this.addButton2.Name = "addButton2";
+            this.addButton2.Size = new System.Drawing.Size(102, 45);
+            this.addButton2.TabIndex = 8;
+            this.addButton2.Text = "Thêm";
+            this.addButton2.UseVisualStyleBackColor = true;
+            this.addButton2.Click += new System.EventHandler(this.addButton2_Click);
+            // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1169,16 +1179,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // addButton2
-            // 
-            this.addButton2.Location = new System.Drawing.Point(9, 3);
-            this.addButton2.Name = "addButton2";
-            this.addButton2.Size = new System.Drawing.Size(102, 45);
-            this.addButton2.TabIndex = 8;
-            this.addButton2.Text = "Thêm";
-            this.addButton2.UseVisualStyleBackColor = true;
-            this.addButton2.Click += new System.EventHandler(this.addButton2_Click);
-            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1311,7 +1311,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxPriceEntry;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button addButton2;
     }
