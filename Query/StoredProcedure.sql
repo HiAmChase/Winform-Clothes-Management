@@ -25,7 +25,8 @@ AS
 	P.Unit AS [Đơn Vị Tính],
 	S.Size AS [Kích Thước],
 	P.Amount AS [Số Lượng],
-	P.Price AS [Đơn Giá]
+	P.PriceOut AS [Đơn Giá],
+	P.PriceIn AS [Đơn Giá]
 	FROM Product P
 	INNER JOIN Type T ON T.IDType = P.IDType
 	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
@@ -85,10 +86,10 @@ BEGIN
 		P.IDType = T.IDType AND IDProduct = @IDProduct
 END
 GO
-
 CREATE PROC USP_InsertProduct
 @Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
-@Amount INT, @Unit NVARCHAR(50), @Price DECIMAL(19, 4)
+
+@Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19,4)
 AS
 BEGIN
 	DECLARE @IDType INT = (SELECT IDType FROM Type WHERE Name = @Type),
@@ -96,28 +97,30 @@ BEGIN
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
 
-	INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
+	
+	INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceIn, PriceOut)
 	VALUES
-	(@Name, @IDType, @IDBranch, @IDSize, @IDColor, @Amount, @Unit, @Price)
+	
+	(@Name, @IDType, @IDBranch, @IDSize, @IDColor, @Amount, @Unit, @PriceIn, @PriceOut)
 
 END
 
 --Example
 EXEC USP_InsertProduct @Name = N'Test', @Type = N'Giày', @Branch = N'Không', @Size = 1,
-				@Color = N'Trắng', @Amount = 5, @Unit = N'Đôi', @Price = 10000
+				
+				@Color = N'Trắng', @Amount = 5, @Unit = N'Đôi', @PriceOut = 10000
 
 GO
-
 CREATE PROC USP_UpdateProduct
 @IDProduct INT,@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
-@Amount INT, @Unit NVARCHAR(50), @Price DECIMAL(19, 4)
+
+@Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19, 4)
 AS
 BEGIN
 	DECLARE @IDType INT = (SELECT IDType FROM Type WHERE Name = @Type),
 	@IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @Branch),
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
-
 	UPDATE 
 		Product 
 	SET Name = @Name, 
@@ -127,16 +130,18 @@ BEGIN
 		IDColor = @IDColor,
 		Amount = @Amount,
 		Unit = @Unit,
-		Price = Price
+	
+		PriceOut = @PriceOut,
+		PriceIn = @PriceIn
 	WHERE
 		IDProduct = @IDProduct
 END
 
 --Example
 EXEC USP_UpdateProduct @IDProduct = 13, @Name = N'NewTest', @Type = N'Giày', @Branch = N'Balenciaga', @Size = 1,
-				@Color = N'Đen', @Amount = 10, @Unit = N'Cái', @Price = 1000000
+			
+				@Color = N'Đen', @Amount = 10, @Unit = N'Cái', @PriceOut = 1000000
 GO
-
 CREATE PROC USP_DeleteProduct
 @IDProduct INT
 AS
@@ -234,21 +239,24 @@ BEGIN
 END
 GO
 
-CREATE PROC USP_GetBillProduct
+
+
+CREATE PROC USP_GetBillProductOut
 @IDProduct INT, @Amount INT
 AS
 BEGIN
 	SELECT
-		P.IDProduct, P.Name, P.Price, 
+		
+		P.IDProduct, P.Name, P.PriceOut, 
 		@Amount AS [Amount], 
 		P.Amount AS [MaxAmount],
-		P.Price * @Amount AS [TotalPrice]
+		
+		P.PriceOut * @Amount AS [TotalPrice]
 	FROM
 		Product P
 	WHERE
 		P.IDProduct = @IDProduct
 END
-GO
 
 
 CREATE PROC USP_InsertBillExport
@@ -270,6 +278,8 @@ END
 GO
 
 --new query
+
+--new query
 CREATE PROC USP_GetProductBySupplier
 @IDSupplier INT
 AS
@@ -282,7 +292,8 @@ AS
 	P.Unit AS [Đơn Vị Tính],
 	S.Size AS [Kích Thước],
 	P.Amount AS [Số Lượng],
-	P.Price AS [Đơn Giá]
+	P.PriceIn,
+	P.PriceOut AS [Đơn Giá]
 	FROM Product P
 	INNER JOIN Type T ON T.IDType = P.IDType
 	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
@@ -294,11 +305,11 @@ GO
 
 
 
-CREATE PROC USP_Testadmin2
+
+CREATE PROC USP_Testadmin
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
 BEGIN
-	SELECT Status From dbo.Account WHERE Username= @Username AND Password=@Password
+	SELECT Status From dbo.Staff WHERE Username= @Username AND Password=@Password
 END
 GO
-

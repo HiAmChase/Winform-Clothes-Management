@@ -3,19 +3,29 @@ GO
 
 USE QuanLyQuanAo
 GO
-CREATE TABLE Account
+CREATE TABLE Staff
 (
 	IDAccount INT IDENTITY
 		CONSTRAINT PK_IDAccount PRIMARY KEY,
 	Username NVARCHAR(100) NOT NULL,
 	Password NVARCHAR(1000) NOT NULL,
-	Status INT NOT NULL DEFAULT 0
+	Status INT NOT NULL DEFAULT 0,
+	Name NVARCHAR(50) NOT NULL,
+	Address NVARCHAR(100),
+	Phone NVARCHAR(50) NOT NULL,
+	Email NVARCHAR(50)
 )
 GO
-INSERT INTO Account(Username,Password,Status)
+INSERT INTO Staff(Username,Password,Status)
 VALUES (N'Vinh',N'1',1),
 		(N'Thinh',N'1',0)
 GO
+ALTER TABLE Staff
+ADD Name NVARCHAR(50) ,
+	Address NVARCHAR(100),
+	Phone NVARCHAR(50) ,
+	Email NVARCHAR(50);
+
 
 
 CREATE TABLE Type

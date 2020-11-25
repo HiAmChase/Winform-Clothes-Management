@@ -33,7 +33,7 @@ namespace QuanLyQuanAo.DAO
             int ERROR = -100;
             int result = ERROR;
 
-            string query = string.Format("EXEC USP_Testadmin2 @Username = '{0}', @Password = '{1}'", username, haspass);
+            string query = string.Format("EXEC USP_Testadmin @Username = '{0}', @Password = '{1}'", username, haspass);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {
