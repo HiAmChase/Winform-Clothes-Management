@@ -20,20 +20,34 @@ namespace QuanLyQuanAo.DAO
 
         private BillInfoDAO() { }
 
-        public BillProduct GetBillProduct(int idProduct, int amount)
+        public BillProductOut GetBillProductOut(int idProduct, int amount)
         {
-            BillProduct bill = null;
+            BillProductOut bill = null;
 
-            string query = "EXEC USP_GetBillProduct @IDProduct , @Amount";
+            string query = "EXEC USP_GetBillProductOut @IDProduct , @Amount";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idProduct, amount });
 
-            bill = new BillProduct(data.Rows[0]);
+            bill = new BillProductOut(data.Rows[0]);
 
             return bill;
         }
 
-        public bool InsertBillExport(int idClient, List<BillProduct> products)
+        public BillProductEntry GetBillProductEntry(int idProduct, int amount)
+        {
+            BillProductEntry bill = null;
+
+            string query = "EXEC USP_GetBillProductEntry @IDProduct , @Amount";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idProduct, amount });
+
+            bill = new BillProductEntry(data.Rows[0]);
+
+            return bill;
+        }
+
+
+        public bool InsertBillExport(int idClient, List<BillProductOut> products)
         {
             int result = 0;
 
@@ -41,7 +55,7 @@ namespace QuanLyQuanAo.DAO
 
             int idbill = (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(IDBillExport) FROM BillExport");
 
-            foreach (BillProduct item in products)
+            foreach (BillProductOut item in products)
             {
                 string query = string.Format("EXEC USP_InsertBillExportInfo @IDBillExport = {0}, @IDProduct = {1}, @Amount = {2}",
                                                 idbill, item.IdProduct, item.Amount);

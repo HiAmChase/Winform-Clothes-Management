@@ -18,10 +18,11 @@ namespace QuanLyQuanAo.DTO
         private string unit;
         private int size;
         private int amount;
-        private double price;
+        private double priceOut;
+        private double priceIn;
 
         public ProductInfo(int idProduct, string name, string type, string branch, string color,
-                        string unit, int size, int amount, double price)
+                        string unit, int size, int amount, double priceIn ,double priceOut)
         {
             this.IdProduct = idProduct;
             this.Name = name;
@@ -31,7 +32,8 @@ namespace QuanLyQuanAo.DTO
             this.Unit = unit;
             this.Size = size;
             this.Amount = amount;
-            this.Price = price;
+            this.PriceIn = priceIn;
+            this.PriceOut = priceOut;
         }
 
         public ProductInfo(DataRow row)
@@ -44,17 +46,8 @@ namespace QuanLyQuanAo.DTO
             this.Unit = row["Đơn Vị Tính"].ToString();
             this.Size = (int)row["Kích Thước"];
             this.Amount = (int)row["Số Lượng"];
-            this.Price = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
-        }
-
-        public ProductInfo(DataRow row, int a)
-        {
-            this.Name = row["Tên"].ToString();
-            this.Type = row["Loại"].ToString();
-            this.Color = row["Màu Sắc"].ToString();
-            this.Size = (int)row["Kích Thước"];
-            this.Amount = (int)row["Số Lượng"];
-            this.Price = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
+            this.PriceIn = Math.Round(Convert.ToDouble(row["PriceIn"]), 1);
+            this.PriceOut = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
         }
         public int IdProduct
         {
@@ -96,11 +89,17 @@ namespace QuanLyQuanAo.DTO
             get => amount; 
             set => amount = value; 
         }
-        public double Price 
+        public double PriceIn 
         { 
-            get => price;
-            set => price = value; 
+            get => priceIn; 
+            set => priceIn = value; 
         }
-        
+
+        public double PriceOut 
+        { 
+            get => priceOut; 
+            set => priceOut = value; 
+        }
+
     }
 }

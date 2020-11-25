@@ -74,10 +74,12 @@
       <DependentUpon>TrashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\TypeDAO.cs" />
-    <Compile Include="DTO\BillProduct.cs" />
+    <Compile Include="DTO\BillProductEntry.cs" />
+    <Compile Include="DTO\BillProductOut.cs" />
     <Compile Include="DTO\Branch.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\ColorInfo.cs" />
+    <Compile Include="DTO\DisplayDetails.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="DTO\SupplierInfo.cs" />
     <Compile Include="DTO\TypeInfo.cs" />

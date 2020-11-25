@@ -48,7 +48,8 @@ namespace QuanLyQuanAo
             textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
             numUpDownSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
             numUpDownAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
-            textBoxPrice.DataBindings.Add("Text", dataViewProduct.DataSource, "Price");
+            textBoxPriceIn.DataBindings.Add("Text", dataViewProduct.DataSource, "PriceIn");
+            textBoxPriceOut.DataBindings.Add("Text", dataViewProduct.DataSource, "PriceOut");
             textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
         }
 
@@ -75,7 +76,8 @@ namespace QuanLyQuanAo
             textBoxProduct.Enabled = false;
             numUpDownSize.Enabled = false;
             numUpDownAmount.Enabled = false;
-            textBoxPrice.Enabled = false;
+            textBoxPriceIn.Enabled = false;
+            textBoxPriceOut.Enabled = false;
             textBoxUnit.Enabled = false;
             comboBoxBranch.Enabled = false;
             comboBoxColor.Enabled = false;
@@ -210,7 +212,8 @@ namespace QuanLyQuanAo
             textBoxProduct.DataBindings.Clear();
             numUpDownSize.DataBindings.Clear();
             numUpDownAmount.DataBindings.Clear();
-            textBoxPrice.DataBindings.Clear();
+            textBoxPriceIn.DataBindings.Clear();
+            textBoxPriceOut.DataBindings.Clear();
             textBoxUnit.DataBindings.Clear();
         }
 
@@ -219,7 +222,8 @@ namespace QuanLyQuanAo
             textBoxProduct.Enabled = true;
             numUpDownSize.Enabled = true;
             numUpDownAmount.Enabled = true;
-            textBoxPrice.Enabled = true;
+            textBoxPriceIn.Enabled = true;
+            textBoxPriceOut.Enabled = true;
             textBoxUnit.Enabled = true;
             comboBoxBranch.Enabled = true;
             comboBoxColor.Enabled = true;
@@ -232,7 +236,8 @@ namespace QuanLyQuanAo
             textBoxProduct.Text = "";
             numUpDownSize.Text = "";
             numUpDownAmount.Text = "";
-            textBoxPrice.Text = "";
+            textBoxPriceIn.Text = "";
+            textBoxPriceOut.Text = "";
             textBoxUnit.Text = "";
             comboBoxBranch.SelectedIndex = 0;
             comboBoxColor.SelectedIndex = 0;
@@ -248,9 +253,10 @@ namespace QuanLyQuanAo
             string color = comboBoxColor.Text;
             string unit = textBoxUnit.Text;
             int amount = Convert.ToInt32(numUpDownAmount.Value);
-            double price = Convert.ToDouble(textBoxPrice.Text);
+            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
 
-            if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, price))
+            if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, priceIn, priceOut))
             {
                 MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
@@ -271,9 +277,10 @@ namespace QuanLyQuanAo
             string color = comboBoxColor.Text;
             string unit = textBoxUnit.Text;
             int amount = Convert.ToInt32(numUpDownAmount.Value);
-            double price = Convert.ToDouble(textBoxPrice.Text);
+            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
 
-            if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, price))
+            if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, priceIn, priceOut))
             {
                 MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
