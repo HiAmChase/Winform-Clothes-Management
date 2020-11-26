@@ -38,8 +38,7 @@ namespace QuanLyQuanAo.DAO
 
         public bool InsertClient(string name, string phone, string email, string address)
         {
-            string query = string.Format("EXEC USP_InsertClient @Name = N'{0}', @Phone = '{1}', " +
-                                         "@Email = '{2}', @Address = N'{3}'",
+            string query = string.Format("EXEC USP_InsertClient @Name = N'{0}', @Phone = '{1}', @Email = '{2}', @Address = N'{3}'",
                                           name, phone, email, address);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 

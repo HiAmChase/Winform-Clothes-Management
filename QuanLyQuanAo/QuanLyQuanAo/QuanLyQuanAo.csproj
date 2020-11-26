@@ -59,7 +59,7 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\BranchDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
@@ -74,10 +74,13 @@
       <DependentUpon>TrashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\TypeDAO.cs" />
-    <Compile Include="DTO\BillProduct.cs" />
+    <Compile Include="DTO\Staff.cs" />
+    <Compile Include="DTO\BillProductEntry.cs" />
+    <Compile Include="DTO\BillProductOut.cs" />
     <Compile Include="DTO\Branch.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\ColorInfo.cs" />
+    <Compile Include="DTO\DisplayDetails.cs" />
     <Compile Include="DTO\ProductInfo.cs" />
     <Compile Include="DTO\SupplierInfo.cs" />
     <Compile Include="DTO\TypeInfo.cs" />
@@ -92,6 +95,12 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff.Designer.cs">
+      <DependentUpon>FormStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff.resx">
+      <DependentUpon>FormStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>

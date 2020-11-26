@@ -16,17 +16,10 @@ CREATE TABLE Staff
 	Email NVARCHAR(50)
 )
 GO
-INSERT INTO Staff(Username,Password,Status)
-VALUES (N'Vinh',N'1',1),
-		(N'Thinh',N'1',0)
+INSERT INTO Staff(Username,Password,Status,Name,Address,Phone,Email)
+VALUES (N'Vinh',N'1',1,N'Vĩnh',N'Wellington city',N'0354175296',N'typhuso1thegioi@gmail.com'),
+		(N'Thinh',N'1',0,N'Thịnh',N'Newyork city',N'0359999999',N'seplonkhotinh@gmail.com')
 GO
-ALTER TABLE Staff
-ADD Name NVARCHAR(50) ,
-	Address NVARCHAR(100),
-	Phone NVARCHAR(50) ,
-	Email NVARCHAR(50);
-
-
 
 CREATE TABLE Type
 (
@@ -173,8 +166,14 @@ CREATE TABLE Product
 	IDColor INT NOT NULL DEFAULT 1,
 	Amount INT DEFAULT 1,
 	Unit NVARCHAR(50) NOT NULL DEFAULT N'Cái',
-	Price DECIMAL(19, 4) DEFAULT 1000
+	PriceOut DECIMAL(19, 4) DEFAULT 1000,
+	PriceIn DECIMAL(19, 4) DEFAULT 1000
 )
+GO
+
+
+
+
 GO
 
 ALTER TABLE Supplier
@@ -252,12 +251,12 @@ SELECT * FROM Client
 
 SELECT * FROM Supplier
 
-INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, Price)
+INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceOut, PriceIn)
 VALUES
-(N'Áo hoodie', 4, 3, 2, 2, 50, N'Cái', 750000),
-(N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000),
-(N'Giày thể thao', 6, 4, 4, 3, 10, N'Đôi', 350000),
-(N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000)
+(N'Áo hoodie', 4, 3, 2, 2, 50, N'Cái', 750000,12000),
+(N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000,10000),
+(N'Giày thể thao', 6, 4, 4, 3, 10, N'Đôi', 350000,20000),
+(N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000,20000)
 GO
 SELECT * FROM Product
 
@@ -272,9 +271,13 @@ ON
 	B.IDProduct = P.IDProduct
 GO
 
-DECLARE @Amount INT = 3, @IDProduct INT = 3
-SELECT P.IDProduct, P.Name, P.Price, @Amount, P.Price * @Amount AS [TotalPrice]
-FROM
-	Product P
-WHERE P.IDProduct = @IDProduct
+--DECLARE @Amount INT = 3, @IDProduct INT = 3
+--SELECT P.IDProduct, P.Name, P.Price, @Amount, P.Price * @Amount AS [TotalPrice]
+--FROM
+--	Product P
+--WHERE P.IDProduct = @IDProduct
 GO
+
+SELECT * FROM staff
+go
+Select Name,Status,Phone,Email ,Address From dbo.Staff

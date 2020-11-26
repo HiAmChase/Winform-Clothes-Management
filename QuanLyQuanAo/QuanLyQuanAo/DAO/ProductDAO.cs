@@ -33,24 +33,24 @@ namespace QuanLyQuanAo.DAO
         }
 
         public bool InsertProduct(string name, string type, string branch, int size,
-                                    string color, int amount, string unit, double price)
+                                    string color, int amount, string unit, double priceIn, double priceOut)
         {
             string query = string.Format("EXEC USP_InsertProduct @Name = N'{0}', @Type = N'{1}'," +
                                     " @Branch = N'{2}', @Size = {3}, @Color = N'{4}', " +
-                                    " @Amount = {5}, @Unit = N'{6}', @Price = {7}",
-                                        name, type, branch, size, color, amount, unit, price);
+                                    " @Amount = {5}, @Unit = N'{6}', @PriceIn = {7}, @PriceOut = {8}",
+                                        name, type, branch, size, color, amount, unit, priceIn, priceOut);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
         }
 
         public bool UpdateProduct(int id, string name, string type, string branch, int size,
-                                    string color, int amount, string unit, double price)
+                                    string color, int amount, string unit, double priceIn, double priceOut)
         {
             string query = string.Format("EXEC USP_UpdateProduct @IDProduct = {0},@Name = N'{1}', @Type = N'{2}'," +
                                     " @Branch = N'{3}', @Size = {4}, @Color = N'{5}', " +
-                                    " @Amount = {6}, @Unit = N'{7}', @Price = {8}",
-                                        id, name, type, branch, size, color, amount, unit, price);
+                                    " @Amount = {6}, @Unit = N'{7}', @PriceIn = {8}, @PriceOut = {9}",
+                                        id, name, type, branch, size, color, amount, unit, priceIn ,priceOut);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -65,7 +65,7 @@ namespace QuanLyQuanAo.DAO
             return result > 0;
         }
 
-        public List<ProductInfo> GetProductBySupplierName(int idSupplier)
+        public List<ProductInfo> GetProductBySupplier(int idSupplier)
         {
             List<ProductInfo> listProduct = new List<ProductInfo>();
 

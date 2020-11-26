@@ -60,7 +60,7 @@ namespace QuanLyQuanAo
 
         int Testadmin(string Username, string Password)
         {
-            return AccountDAO.Instance.Testadmin(Username, Password);
+            return StaffDAO.Instance.Testadmin(Username, Password);
         }
     }
 }

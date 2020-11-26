@@ -20,10 +20,15 @@ namespace QuanLyQuanAo
         //************************Lưu ý: ID_CLIENT_DEFAULT******************
         private const int ID_CLIENT_DEFAULT = 1;
         private const int ERROR = -100;
-        List<BillProduct> products = new List<BillProduct>();
-        private double totalPrice = 0;
+        List<BillProductOut> products = new List<BillProductOut>();
+
+        private double paymentPriceOut = 0;
+
         private State stateClient = State.Unavailable;
         private State stateSupplier = State.Available;
+        private State stateProduct = State.Available;
+
+
         CultureInfo culture = new CultureInfo("vi-VN");
         public BillInfo()
         {
@@ -40,7 +45,7 @@ namespace QuanLyQuanAo
         {
             int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
 
-            int amount = Convert.ToInt32(numericAmount.Value);
+            int amount = Convert.ToInt32(numericAmountOut.Value);
 
             if (amount == 0)
             {
@@ -48,9 +53,9 @@ namespace QuanLyQuanAo
                 return;
             }
 
-            BillProduct billInfo = BillInfoDAO.Instance.GetBillProduct(idProduct, amount);
+            BillProductOut billInfo = BillInfoDAO.Instance.GetBillProductOut(idProduct, amount);
 
-            CheckAvailable(listViewProduct, billInfo);
+            CheckAvailable(listViewProductOut, billInfo);
 
             if (CheckAmount(billInfo))
             {
@@ -60,7 +65,7 @@ namespace QuanLyQuanAo
 
             ListViewItem listView = CreateListViewItem(billInfo);
 
-            listViewProduct.Items.Add(listView);
+            listViewProductOut.Items.Add(listView);
 
             products.Add(billInfo);
 
@@ -72,7 +77,7 @@ namespace QuanLyQuanAo
         {
             int idClient = ID_CLIENT_DEFAULT;
 
-            if (listViewProduct.Items.Count == 0)
+            if (listViewProductOut.Items.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn thông tin sản phẩm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -116,20 +121,20 @@ namespace QuanLyQuanAo
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (listViewProduct.SelectedItems.Count == 0)
+            if (listViewProductOut.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn thông tin cần xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }          
 
-            ListViewItem item = listViewProduct.SelectedItems[0];
+            ListViewItem item = listViewProductOut.SelectedItems[0];
 
-            BillProduct billInfo = item.Tag as BillProduct;
+            BillProductOut billInfo = item.Tag as BillProductOut;
 
-            totalPrice -= (billInfo.Price * billInfo.Amount);
+            paymentPriceOut -= (billInfo.PriceOut * billInfo.Amount);
 
             products.Remove(billInfo);
-            listViewProduct.Items.Remove(item);
+            listViewProductOut.Items.Remove(item);
 
             PrintTotalPrice();
             Payment();
@@ -181,7 +186,7 @@ namespace QuanLyQuanAo
         {
             dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
 
-            InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit" });
+            InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit", "PriceIn" });
         }
 
         private void AddBinding()
@@ -190,44 +195,46 @@ namespace QuanLyQuanAo
             textBoxType.DataBindings.Add("Text", dataViewProduct.DataSource, "Type");
         }
 
-        private void CheckAvailable(ListView listView, BillProduct billInfo)
+        private void CheckAvailable(ListView listView, BillProductOut billInfo)
         {
             int index = 0;
 
             foreach (ListViewItem item in listView.Items)
             {
-                BillProduct preBillInfo = item.Tag as BillProduct;
+                BillProductOut preBillInfo = item.Tag as BillProductOut;
                 if (preBillInfo.IdProduct == billInfo.IdProduct)
                 {
-                    int tempAmount = Convert.ToInt32(preBillInfo.Amount.ToString());
+                    int tempAmount = preBillInfo.Amount;
                     billInfo.Amount += tempAmount;
-                    billInfo.TotalPrice = billInfo.Amount * billInfo.Price;
+                    billInfo.TotalPrice = billInfo.Amount * billInfo.PriceOut;
                     if (CheckAmount(billInfo))
                     {
                         break;
                     }
                     products.RemoveAt(index);
-                    listViewProduct.Items.Remove(item);
-                    totalPrice -= tempAmount * billInfo.Price;
+                    listView.Items.Remove(item);
+                    paymentPriceOut -= tempAmount * billInfo.PriceOut;
                     break;
                 }
                 index++;
             }
         }
 
-        private bool CheckAmount(BillProduct billInfo)
+
+        private bool CheckAmount(BillProductOut billInfo)
         {
             bool overflow = billInfo.Amount > billInfo.MaxAmount;
             bool underflow = billInfo.Amount < 1;
             return overflow || underflow;
         }
 
-        private ListViewItem CreateListViewItem(BillProduct billInfo)
+
+        private ListViewItem CreateListViewItem(BillProductOut billInfo)
         {
             ListViewItem listView = new ListViewItem(billInfo.Name.ToString()) { Tag = billInfo };
             listView.SubItems.Add(billInfo.Amount.ToString());
-            listView.SubItems.Add(billInfo.Price.ToString());
-            totalPrice += billInfo.TotalPrice;
+            listView.SubItems.Add(billInfo.PriceOut.ToString());
+            paymentPriceOut += billInfo.TotalPrice;
             listView.SubItems.Add(billInfo.TotalPrice.ToString());
 
             return listView;
@@ -235,13 +242,13 @@ namespace QuanLyQuanAo
 
         private void PrintTotalPrice()
         {
-            textBoxTotalPrice.Text = totalPrice.ToString("c", culture);
+            textBoxTotalPrice.Text = paymentPriceOut.ToString("c", culture);
         }
 
         private void Payment()
         {
             int discount = Convert.ToInt32(numericDiscount.Value);
-            double price = totalPrice * (PERCENT - discount) / PERCENT;
+            double price = paymentPriceOut * (PERCENT - discount) / PERCENT;
 
             textBoxPayment.Text = price.ToString("c", culture);
         }
@@ -280,19 +287,19 @@ namespace QuanLyQuanAo
 
         private void ClearListView()
         {
-            listViewProduct.Items.Clear();
+            listViewProductOut.Items.Clear();
         }
 
         private void ClearPriceAndPayment()
         {
-            totalPrice = 0;
+            paymentPriceOut = 0;
             textBoxTotalPrice.Text = "0";
             textBoxPayment.Text = "0";
         }
 
         private void SetAmountToDefault()
         {
-            numericAmount.Value = 0;
+            numericAmountOut.Value = 0;
         }
 
         private void SetDiscountToDefault()
@@ -321,6 +328,8 @@ namespace QuanLyQuanAo
         #region Methods
         private void SetBillInfoToDefault()
         {
+            stateProduct = State.Available;
+
             availableSupButton.Enabled = true;
             unavailableSupButton.Enabled = true;
             dataViewSupplier.Enabled = true;
@@ -329,6 +338,7 @@ namespace QuanLyQuanAo
             panelAvailableProduct.Visible = false;
             panelUnavailableProduct.Visible = false;
             panelStateProduct.Visible = false;
+            panelAmount.Visible = false;
         }
 
         private void LoadSupplierData()
@@ -350,9 +360,71 @@ namespace QuanLyQuanAo
 
         private void LoadProductBySupplier(int idSupplier)
         {
-            dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplierName(idSupplier);
+            dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplier(idSupplier);
 
-            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Type", "Branch", "Unit" });
+            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Type", "Branch", "Unit", "PriceOut" });
+        }
+
+        private void AddProductIntoListView()
+        {
+            int idProduct = (int)dataViewProduct2.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+
+            int amount = Convert.ToInt32(numericAmountEntry.Value);
+
+            BillProductEntry productEntry = BillInfoDAO.Instance.GetBillProductEntry(idProduct, amount);
+
+            CheckAvailable(listViewProductEntry, productEntry);
+
+            if (CheckAmount(productEntry))
+            {
+                MessageBox.Show("Không hợp lệ !", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListViewItem listView = CreateListViewItem(productEntry);
+
+            listViewProductEntry.Items.Add(listView);
+
+        }
+
+        private ListViewItem CreateListViewItem(BillProductEntry billInfo)
+        {
+            ListViewItem listView = new ListViewItem(billInfo.Name.ToString()) { Tag = billInfo };
+            listView.SubItems.Add(billInfo.Amount.ToString());
+            listView.SubItems.Add(billInfo.PriceIn.ToString());
+            //paymentPriceOut += billInfo.TotalPrice;
+            listView.SubItems.Add(billInfo.TotalPrice.ToString());
+
+            return listView;
+        }
+
+        private void CheckAvailable(ListView listView, BillProductEntry productEntry)
+        {
+            int index = 0;
+
+            foreach (ListViewItem item in listView.Items)
+            {
+                BillProductEntry preProductEntry = item.Tag as BillProductEntry;
+                if (preProductEntry.IdProduct == productEntry.IdProduct)
+                {
+                    int tempAmout = preProductEntry.Amount;
+                    productEntry.Amount += tempAmout;
+                    productEntry.TotalPrice = productEntry.Amount * productEntry.PriceIn;
+                    if (CheckAmount(productEntry))
+                    {
+                        break;
+                    }
+                    listView.Items.Remove(item);
+                    break;
+                }
+                index++;
+            }
+
+        }
+
+        private bool CheckAmount(BillProductEntry productEntry)
+        {
+            return productEntry.Amount < 1;
         }
 
         #endregion
@@ -365,17 +437,32 @@ namespace QuanLyQuanAo
             unavailableSupButton.Enabled = false;
             dataViewSupplier.Enabled = false;
 
+            panelAmount.Visible = true;
             panelStateProduct.Visible = true;
 
             switch(stateSupplier)
             {
                 case State.Available:
+                    stateProduct = State.Available;
                     panelAvailableProduct.Visible = true;
                     GetSupplierAndLoadProduct();
                     break;
                 case State.Unavailable:
+                    stateProduct = State.Unavailable;
                     panelUnavailableProduct.Visible = true;
                     availableProcButton.Enabled = false;
+                    break;
+            }
+        }
+
+        private void addButton2_Click(object sender, EventArgs e)
+        {
+            switch (stateProduct)
+            {
+                case State.Available:
+                    AddProductIntoListView();
+                    break;
+                case State.Unavailable:
                     break;
             }
         }
@@ -401,12 +488,14 @@ namespace QuanLyQuanAo
 
         private void availableProcButton_Click(object sender, EventArgs e)
         {
+            stateProduct = State.Available;
             panelAvailableProduct.Visible = true;
             panelUnavailableProduct.Visible = false;
         }
 
         private void unavailableProcButton_Click_1(object sender, EventArgs e)
         {
+            stateProduct = State.Unavailable;
             panelUnavailableProduct.Visible = true;
             panelAvailableProduct.Visible = false;
         }
@@ -421,6 +510,7 @@ namespace QuanLyQuanAo
                 dataView.Columns[item].Visible = false;
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
