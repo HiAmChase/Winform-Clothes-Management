@@ -217,7 +217,10 @@ namespace QuanLyQuanAo
             if (StaffDAO.Instance.UpdatePassword(username,password,newpassword))
             {
                 MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                FormLogin login = new FormLogin();
+                this.Hide();
+                login.ShowDialog();
+                login.ShowDialog();
             }
             else
             {
@@ -247,6 +250,8 @@ namespace QuanLyQuanAo
         {
                 
                 UpdatePassword();
+                
+                
         }
 
         private void cancleButton2_Click(object sender, EventArgs e)
