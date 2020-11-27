@@ -108,9 +108,9 @@ BEGIN
 		P.IDType = T.IDType AND IDProduct = @IDProduct
 END
 GO
-
 CREATE PROC USP_InsertProduct
 @Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
+
 @Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19,4)
 AS
 BEGIN
@@ -119,18 +119,19 @@ BEGIN
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
 
-	INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceIn, PriceOut)
+INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceIn, PriceOut)
 	VALUES
+
 	(@Name, @IDType, @IDBranch, @IDSize, @IDColor, @Amount, @Unit, @PriceIn, @PriceOut)
 
 END
 
 --Example
 EXEC USP_InsertProduct @Name = N'Test', @Type = N'Giày', @Branch = N'Không', @Size = 1,
+
 				@Color = N'Trắng', @Amount = 5, @Unit = N'Đôi', @PriceOut = 10000
 
 GO
-
 CREATE PROC USP_UpdateProduct
 @IDProduct INT,@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
 @Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19, 4)
@@ -140,7 +141,6 @@ BEGIN
 	@IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @Branch),
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
-
 	UPDATE 
 		Product 
 	SET Name = @Name, 
@@ -158,9 +158,9 @@ END
 
 --Example
 EXEC USP_UpdateProduct @IDProduct = 13, @Name = N'NewTest', @Type = N'Giày', @Branch = N'Balenciaga', @Size = 1,
+
 				@Color = N'Đen', @Amount = 10, @Unit = N'Cái', @PriceOut = 1000000
 GO
-
 CREATE PROC USP_DeleteProduct
 @IDProduct INT
 AS
@@ -263,6 +263,7 @@ CREATE PROC USP_GetBillProductOut
 AS
 BEGIN
 	SELECT
+
 		P.IDProduct, P.Name, P.PriceOut, 
 		@Amount AS [Amount], 
 		P.Amount AS [MaxAmount],
@@ -274,7 +275,7 @@ BEGIN
 END
 GO
 
-ALTER PROC USP_GetBillProductEntry
+CREATE PROC USP_GetBillProductIn
 @IDProduct INT, @Amount INT
 AS
 BEGIN
@@ -288,7 +289,6 @@ BEGIN
 		P.IDProduct = @IDProduct
 END
 GO
-
 
 CREATE PROC USP_InsertBillExport
 @IDClient INT
@@ -307,6 +307,8 @@ BEGIN
 	VALUES (@IDBillExport, @IDProduct, @Amount)
 END
 GO
+
+--new query
 
 --new query
 CREATE PROC USP_GetProductBySupplier
@@ -334,10 +336,71 @@ GO
 
 
 
-CREATE PROC USP_Testadmin2
+
+CREATE PROC USP_Testadmin
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
 BEGIN
-	SELECT Status From dbo.Account WHERE Username= @Username AND Password=@Password
+	SELECT Status From dbo.Staff WHERE Username= @Username AND Password=@Password
 END
 GO
+
+GO
+
+CREATE PROC USP_InsertStaff
+@Username NVARCHAR(100), @Name NVARCHAR(50), @Status INT,@Phone NVARCHAR(50), @Email NVARCHAR(50), @Address NVARCHAR(100)
+AS
+BEGIN
+	INSERT INTO Staff ( Username,Password ,Name,Status,Phone,Email,Address)
+	VALUES
+	(@Username,N'1',@Name,@Status,@Phone,@Email,@Address)
+END
+GO
+
+CREATE PROC USP_UpdateStaff
+@IDAccount INT,@Status INT ,@Phone NVARCHAR(50), @Email NVARCHAR(50), @Address NVARCHAR(100)
+AS
+BEGIN
+	UPDATE Staff
+	SET 
+		Status=@Status,
+		Phone = @Phone,
+		Email = @Email,
+		Address = @Address
+	WHERE
+		IDAccount = @IDAccount
+END
+GO
+<<<<<<< HEAD
+=======
+
+CREATE PROC USP_DeleteStaff
+@IDAccount INT
+AS
+BEGIN
+	DELETE FROM Staff WHERE IDAccount = @IDAccount
+END
+
+GO
+CREATE PROC USP_CheckUser
+@Username NVARCHAR(100) 
+AS
+BEGIN
+	SELECT * From dbo.Staff WHERE Username= @Username 
+END
+GO
+
+
+
+CREATE PROC USP_UpdatePassword
+@Username NVARCHAR(100) , @Password NVARCHAR(1000),@newPassword NVARCHAR(1000)
+as
+Begin
+	UPDATE Staff
+	SET 
+		Password=@newPassword
+	WHERE
+		Username =@Username AND Password =@Password
+
+end
+>>>>>>> 3706dee03a77cb80054c23319e14c28e5685a2a6
