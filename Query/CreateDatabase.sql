@@ -133,11 +133,13 @@ CREATE TABLE Size
 (
 	IDSize INT IDENTITY
 		CONSTRAINT PK_IDSize PRIMARY KEY,
-	Size INT NOT NULL DEFAULT 1
+	Size NVARCHAR(10) NOT NULL DEFAULT 'Không'
 )
 GO
+
 INSERT INTO Size(Size)
-VALUES (1),(50),(40),(20),(30),(10)
+VALUES ('Không'), ('S'), ('M'), ('L'), ('XL'), ('XXL')
+
 
 CREATE TABLE Color
 (
@@ -155,13 +157,14 @@ VALUES (N'Không'),
 (N'Lam'),
 (N'Chàm'),
 (N'Tím')
+
 CREATE TABLE Product
 (
 	IDProduct INT IDENTITY
 		CONSTRAINT PK_IDProduct PRIMARY KEY,
 	Name NVARCHAR(50) NOT NULL DEFAULT N'Chưa đặt tên',
 	IDType INT NOT NULL DEFAULT 1,
-	IDBranch INT NOT NULL DEFAULT 1,
+	IDSupplier INT NOT NULL DEFAULT 1,
 	IDSize INT NOT NULL DEFAULT 1,
 	IDColor INT NOT NULL DEFAULT 1,
 	Amount INT DEFAULT 1,
@@ -169,11 +172,6 @@ CREATE TABLE Product
 	PriceOut DECIMAL(19, 4) DEFAULT 1000,
 	PriceIn DECIMAL(19, 4) DEFAULT 1000
 )
-GO
-
-
-
-
 GO
 
 ALTER TABLE Supplier
@@ -194,6 +192,7 @@ ADD CONSTRAINT FK_BillExport_IDClient
 	FOREIGN KEY (IDClient)
 	REFERENCES Client(IDClient)
 	ON UPDATE CASCADE
+
 
 ALTER TABLE BillImportInfo
 ADD CONSTRAINT FK_BillImportInfo_IDBillImport
@@ -217,15 +216,16 @@ ADD CONSTRAINT FK_BillExportInfo_IDBillExport
 	REFERENCES Product(IDProduct)
 	ON UPDATE CASCADE
 
+
 ALTER TABLE Product
-ADD CONSTRAINT FK_Product_IDType
+ADD CONSTRAINT FK_Product_IDSupplier
+	FOREIGN KEY (IDSupplier)
+	REFERENCES Supplier(IDSupplier),
+	
+	CONSTRAINT FK_Product_IDType
 	FOREIGN KEY (IDType)
 	REFERENCES Type(IDType)
 	ON UPDATE CASCADE ON DELETE SET DEFAULT,
-
-	CONSTRAINT FK_Product_IDBranch
-	FOREIGN KEY (IDBranch)
-	REFERENCES Branch(IDBranch),
 
 	CONSTRAINT FK_Product_IDColor
 	FOREIGN KEY (IDColor)
@@ -251,13 +251,15 @@ SELECT * FROM Client
 
 SELECT * FROM Supplier
 
-INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceOut, PriceIn)
+INSERT INTO Product (Name, IDType, IDSupplier, IDSize, IDColor, Amount, Unit, PriceOut, PriceIn)
 VALUES
-(N'Áo hoodie', 4, 3, 2, 2, 50, N'Cái', 750000,12000),
+(N'Áo hoodie', 4, 1, 2, 2, 50, N'Cái', 750000,12000),
 (N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000,10000),
-(N'Giày thể thao', 6, 4, 4, 3, 10, N'Đôi', 350000,20000),
-(N'Mũ', 1, 1, 1, 4, 25, N'Cái', 50000,20000)
+(N'Giày thể thao', 6, 1, 4, 3, 10, N'Đôi', 350000,20000),
+(N'Mũ', 1, 2, 1, 4, 25, N'Cái', 50000,20000)
 GO
+
+
 SELECT * FROM Product
 
 SELECT B.* FROM BillExportInfo B
@@ -280,4 +282,3 @@ GO
 
 SELECT * FROM staff
 go
-Select Name,Status,Phone,Email ,Address From dbo.Staff

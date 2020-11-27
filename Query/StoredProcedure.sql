@@ -2,59 +2,63 @@
 GO
 
 --Example
-CREATE PROC USP_GetProductByProductID
-@productID NVARCHAR(10)
-AS
-BEGIN
-	SELECT * FROM MatHang WHERE MaMatHang = @productID
-END
+--CREATE PROC USP_GetProductByProductID
+--@productID NVARCHAR(10)
+--AS
+--BEGIN
+--	SELECT * FROM MatHang WHERE MaMatHang = @productID
+--END
+--GO
+
+----Example
+--EXEC USP_GetProductByProductID @productID = '2'
 GO
 
---Example
-EXEC USP_GetProductByProductID @productID = '2'
-GO
 
 CREATE PROC USP_GetProduct
 AS
 	SELECT 
-	P.IDProduct AS [ID],
-	P.Name AS [Tên],
-	T.Name AS [Loại],
-	B.Name AS [Thương Hiệu],
-	C.Color AS [Màu Sắc],
-	P.Unit AS [Đơn Vị Tính],
-	S.Size AS [Kích Thước],
-	P.Amount AS [Số Lượng],
-	P.PriceOut AS [Đơn Giá],
+	P.IDProduct,
+	P.Name,
+	T.Name AS [Type],
+	B.Name AS [Branch],
+	C.Color,
+	P.Unit,
+	S.Size,
+	P.Amount,
+	P.PriceOut,
 	P.PriceIn
 	FROM Product P
 	INNER JOIN Type T ON T.IDType = P.IDType
-	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
-	INNER JOIN Size S ON S.IDSize = P.IDSize
 	INNER JOIN Color C ON C.IDColor = P.IDColor
+	INNER JOIN Size S ON S.IDSize = P.IDSize
+	INNER JOIN Supplier SUP ON SUP.IDSupplier = P.IDSupplier
+	INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch
 GO
 
 CREATE PROC USP_GetProductByIDAndAmount
 @IDProduct INT, @Amount INT
 AS
 	SELECT 
-	P.IDProduct AS [ID],
-	P.Name AS [Tên],
-	T.Name AS [Loại],
-	B.Name AS [Thương Hiệu],
-	C.Color AS [Màu Sắc],
-	P.Unit AS [Đơn Vị Tính],
-	S.Size AS [Kích Thước],
-	@Amount AS [Số Lượng],
-	P.PriceOut AS [Đơn Giá],
+	P.IDProduct,
+	P.Name AS [Name,
+	T.Name AS [Type],
+	B.Name AS [Branch],
+	C.Color,
+	P.Unit,
+	S.Size,
+	@Amount,
+	P.PriceOut,
 	P.PriceIn
 	FROM Product P
 	INNER JOIN Type T ON T.IDType = P.IDType
-	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
+	INNER JOIN Supplier SUP ON SUP.IDSupplier = P.IDSupplier
+	INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch
 	INNER JOIN Size S ON S.IDSize = P.IDSize
 	INNER JOIN Color C ON C.IDColor = P.IDColor
 	WHERE IDProduct = @IDProduct
 GO
+
 
 CREATE PROC USP_GetBranchByProductID
 @IDProduct INT
@@ -63,9 +67,11 @@ BEGIN
 	SELECT 
 	B.*
 	FROM 
-		Product P, Branch B
+		Product P
+	INNER JOIN Supplier SUP ON SUP.IDSupplier = P.IDSupplier
+	INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch
 	WHERE 
-		P.IDBranch = B.IDBranch AND IDProduct = @IDProduct
+		P.IDProduct = @IDProduct
 END
 GO
 
@@ -93,6 +99,19 @@ BEGIN
 	WHERE 
 		P.IDColor = C.IDColor AND IDProduct = @IDProduct
 END
+GO
+
+CREATE PROC USP_GetSizeByProductID
+@IDProduct INT
+AS
+BEGIN 
+	SELECT 
+	S.*
+	FROM 
+		Product P, Size S
+	WHERE 
+		P.IDSize = S.IDSize AND IDProduct = @IDProduct
+END
 
 GO
 
@@ -108,44 +127,47 @@ BEGIN
 		P.IDType = T.IDType AND IDProduct = @IDProduct
 END
 GO
-CREATE PROC USP_InsertProduct
-@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
 
-@Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19,4)
+SELECT * FROM Size
+
+CREATE PROC USP_InsertProduct
+@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size NVARCHAR(50), @Color NVARCHAR(50),
+@Amount INT, @Unit NVARCHAR(50), @PriceIn DECIMAL(19,4), @PriceOut DECIMAL(19, 4)
 AS
 BEGIN
 	DECLARE @IDType INT = (SELECT IDType FROM Type WHERE Name = @Type),
-	@IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @Branch),
+	@IDSupplier INT = (SELECT IDSupplier FROM Supplier WHERE Supplier.IDBranch = (SELECT IDBranch FROM Branch WHERE Name = @Branch)),
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
 
-INSERT INTO Product (Name, IDType, IDBranch, IDSize, IDColor, Amount, Unit, PriceIn, PriceOut)
+INSERT INTO Product (Name, IDType, IDSupplier, IDSize, IDColor, Amount, Unit, PriceIn, PriceOut)
 	VALUES
 
-	(@Name, @IDType, @IDBranch, @IDSize, @IDColor, @Amount, @Unit, @PriceIn, @PriceOut)
+	(@Name, @IDType, @IDSupplier, @IDSize, @IDColor, @Amount, @Unit, @PriceIn, @PriceOut)
 
 END
 
 --Example
-EXEC USP_InsertProduct @Name = N'Test', @Type = N'Giày', @Branch = N'Không', @Size = 1,
+EXEC USP_InsertProduct @Name = N'Giày thể thao', @Type = N'Giày', @Branch = N'GUCCI', @Size = 'XL',
 
-				@Color = N'Trắng', @Amount = 5, @Unit = N'Đôi', @PriceOut = 10000
+				@Color = N'Lục', @Amount = 5, @Unit = N'Đôi', @PriceIn = 500000, @PriceOut = 2000000
 
 GO
-CREATE PROC USP_UpdateProduct
-@IDProduct INT,@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size INT, @Color NVARCHAR(50),
+
+ALTER PROC USP_UpdateProduct
+@IDProduct INT,@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size NVARCHAR(50), @Color NVARCHAR(50),
 @Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19, 4)
 AS
 BEGIN
 	DECLARE @IDType INT = (SELECT IDType FROM Type WHERE Name = @Type),
-	@IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @Branch),
+	@IDSupplier INT = (SELECT IDSupplier FROM Supplier WHERE Supplier.IDBranch = (SELECT IDBranch FROM Branch WHERE Name = @Branch)),
 	@IDSize INT = (SELECT IDSize FROM Size WHERE Size = @Size),
 	@IDColor INT = (SELECT IDColor FROM Color WHERE Color = @Color)
 	UPDATE 
 		Product 
 	SET Name = @Name, 
 		IDType = @IDType, 
-		IDBranch = @IDBranch,
+		IDSupplier = @IDSupplier,
 		IDSize = @IDSize,
 		IDColor = @IDColor,
 		Amount = @Amount,
@@ -157,10 +179,11 @@ BEGIN
 END
 
 --Example
-EXEC USP_UpdateProduct @IDProduct = 13, @Name = N'NewTest', @Type = N'Giày', @Branch = N'Balenciaga', @Size = 1,
+EXEC USP_UpdateProduct @IDProduct = 13, @Name = N'NewTest', @Type = N'Giày', @Branch = N'Balenciaga', @Size = 'XL',
 
 				@Color = N'Đen', @Amount = 10, @Unit = N'Cái', @PriceOut = 1000000
 GO
+
 CREATE PROC USP_DeleteProduct
 @IDProduct INT
 AS
@@ -219,45 +242,81 @@ BEGIN
 END
 GO
 
-CREATE PROC USP_InsertSupplier
+ALTER PROC USP_InsertSupplier
 @Name NVARCHAR(50), @Address NVARCHAR(100), @Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
 AS
 BEGIN
-	DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
-
-	INSERT INTO 
-		Supplier(Name, Address , Phone, Email, IDBranch)
-	VALUES
-		(@Name, @Address, @Phone, @Email, @IDBranch)
+	DECLARE @Check BIT = (SELECT COUNT(*) FROM Branch WHERE Name = @NameBranch)
+	IF (@Check = 0)
+	BEGIN
+		INSERT INTO Branch(Name) 
+		VALUES 
+			(@NameBranch)
+		DECLARE @NewIDBranch INT = (SELECT MAX(IDBranch) FROM Branch)
+		INSERT INTO 
+			Supplier(Name, Address , Phone, Email, IDBranch)
+		VALUES (@Name, @Address, @Phone, @Email, @NewIDBranch)
+	END
+	ELSE
+	BEGIN
+		DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
+		INSERT INTO 
+			Supplier(Name, Address , Phone, Email, IDBranch)
+		VALUES
+			(@Name, @Address, @Phone, @Email, @IDBranch)
+	END
 END
 GO
 
-CREATE PROC USP_UpdateSupplier
+--Example
+EXEC USP_InsertSupplier @Name = N'Balenciaga', @Address = '2332 ABC', @Phone = '121212121', @Email = 'adidas@gmail.com',
+							@NameBranch = 'Humor'
+GO
+
+ALTER PROC USP_UpdateSupplier
 @IDSupplier INT, @Name NVARCHAR(50), @Address NVARCHAR(100), 
 @Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
 AS
 BEGIN
-	DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
-
-	UPDATE Supplier
-	SET 
-		Name = @Name,
-		Address = @Address,
-		Phone = @Phone,
-		Email = @Email,
-		IDBranch = @IDBranch
-	WHERE IDSupplier = @IDSupplier
+	DECLARE @Check BIT = (SELECT COUNT(*) FROM Branch WHERE Name = @NameBranch)
+	IF (@Check = 0)
+	BEGIN
+		INSERT INTO Branch(Name) 
+		VALUES 
+			(@NameBranch)
+		DECLARE @NewIDBranch INT = (SELECT MAX(IDBranch) FROM Branch)
+		UPDATE Supplier
+		SET 
+			Name = @Name,
+			Address = @Address,
+			Phone = @Phone,
+			Email = @Email,
+			IDBranch = @NewIDBranch
+		WHERE IDSupplier = @IDSupplier
+	END
+	ELSE
+	BEGIN
+		DECLARE @IDBranch INT = (SELECT IDBranch FROM Branch WHERE Name = @NameBranch)
+		UPDATE Supplier
+		SET 
+			Name = @Name,
+			Address = @Address,
+			Phone = @Phone,
+			Email = @Email,
+			IDBranch = @IDBranch
+		WHERE IDSupplier = @IDSupplier
+	END
 END
 GO
 
-CREATE PROC USP_DeleteSupplier
-@IDSupplier INT
-AS
-BEGIN
-	DELETE FROM Supplier WHERE IDSupplier = @IDSupplier
-END
+SELECT * FROM Supplier
+
+--Example
+EXEC USP_UpdateSupplier @IDSupplier = 13, @Name = 'Balfsiaga', @Address = '1234231', @Phone = '1234231',
+								@Email = 'newemail@gmail.com', @NameBranch = 'NIKE'
 GO
 
+--Chưa sửa
 CREATE PROC USP_GetBillProductOut
 @IDProduct INT, @Amount INT
 AS
@@ -308,40 +367,47 @@ BEGIN
 END
 GO
 
---new query
+CREATE PROC USP_InsertBillImport
+@IDSupplier INT
+AS
+BEGIN
+	INSERT INTO BillImport(IDSupplier, DateIn)
+	VALUES (@IDSupplier, GETDATE())
+END
+GO
 
 --new query
-CREATE PROC USP_GetProductBySupplier
+ALTER PROC USP_GetProductBySupplier
 @IDSupplier INT
 AS
 	SELECT 
-	P.IDProduct AS [ID],
-	P.Name AS [Tên],
-	T.Name AS [Loại],
-	B.Name AS [Thương Hiệu],
-	C.Color AS [Màu Sắc],
-	P.Unit AS [Đơn Vị Tính],
-	S.Size AS [Kích Thước],
-	P.Amount AS [Số Lượng],
+	P.IDProduct,
+	P.Name AS [Name],
+	T.Name AS [Type],
+	B.Name AS [Branch],
+	C.Color,
+	P.Unit,
+	S.Size,
+	P.Amount,
 	P.PriceIn,
-	P.PriceOut AS [Đơn Giá]
+	P.PriceOut
 	FROM Product P
 	INNER JOIN Type T ON T.IDType = P.IDType
-	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
+	INNER JOIN Supplier SUP ON SUP.IDSupplier = P.IDSupplier
+	INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch
 	INNER JOIN Size S ON S.IDSize = P.IDSize
 	INNER JOIN Color C ON C.IDColor = P.IDColor
-	INNER JOIN Supplier SUP ON SUP.IDBranch = B.IDBranch
 	WHERE SUP.IDSupplier = @IDSupplier
 GO
 
 
 
 
-CREATE PROC USP_Testadmin
+CREATE PROC USP_Login
 @Username NVARCHAR(100) , @Password NVARCHAR(1000)
 AS
 BEGIN
-	SELECT Status From dbo.Staff WHERE Username= @Username AND Password=@Password
+	SELECT Status From dbo.Staff WHERE Username= @Username AND Password= @Password
 END
 GO
 
@@ -399,5 +465,5 @@ Begin
 		Password=@newPassword
 	WHERE
 		Username =@Username AND Password =@Password
-
 end
+

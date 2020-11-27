@@ -18,7 +18,7 @@ namespace QuanLyQuanAo
     {
         private const int PERCENT = 100;
         //************************Lưu ý: ID_CLIENT_DEFAULT******************
-        private const int ID_CLIENT_DEFAULT = 1;
+        private const int ID_DEFAULT = 1;
         private const int ERROR = -100;
 
 
@@ -79,7 +79,7 @@ namespace QuanLyQuanAo
 
         private void payButton_Click(object sender, EventArgs e)
         {
-            int idClient = ID_CLIENT_DEFAULT;
+            int idClient = ID_DEFAULT;
 
             if (listViewProductOut.Items.Count == 0)
             {
@@ -334,6 +334,7 @@ namespace QuanLyQuanAo
         {
             stateProduct = State.Available;
 
+            confirmButton.Enabled = false;
             availableSupButton.Enabled = true;
             unavailableSupButton.Enabled = true;
             dataViewSupplier.Enabled = true;
@@ -343,6 +344,8 @@ namespace QuanLyQuanAo
             panelUnavailableProduct.Visible = false;
             panelStateProduct.Visible = false;
             panelAmount.Visible = false;
+
+            SwitchSupplierInfo(true);
         }
 
         private void LoadSupplierData()
@@ -403,9 +406,9 @@ namespace QuanLyQuanAo
         {
             string name = textBoxNewName.Text;
             string type = comboBoxType.Text;
-            string branch = comboBoxBranch.Text;
+            string branch = textBoxBranch.Text;
             string color = comboBoxColor.Text;
-            int size = (int)numUpDownSize.Value;
+            string size = comboBoxSize.Text;
             string unit = textBoxUnit.Text;
             double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
             double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
@@ -467,6 +470,16 @@ namespace QuanLyQuanAo
 
         }
 
+        private void GetNewSupplier()
+        {
+            string name = textBoxSupName.Text;
+            string phone = textBoxSupPhone.Text;
+            string email = textBoxSupEmail.Text;
+            string address = textBoxAddress.Text;
+
+            //if (SupplierDAO.Instance.InsertSupplier(name, ))
+        }
+
         private bool CheckAmount(ProductInfo productEntry)
         {
             return productEntry.Amount < 1;
@@ -476,12 +489,22 @@ namespace QuanLyQuanAo
         {
             textBoxPriceEntry.Text = paymentPriceEntry.ToString("c", culture);
         }
+
+        private void SwitchSupplierInfo(bool status)
+        {
+            textBoxSupName.Enabled = status;
+            textBoxSupPhone.Enabled = status;
+            textBoxSupEmail.Enabled = status;
+            textBoxSupAddress.Enabled = status;
+            textBoxBranch.Enabled = status;
+        }
         #endregion
 
         #region Events
 
         private void enterSupplierButton_Click(object sender, EventArgs e)
         {
+            confirmButton.Enabled = true;
             availableSupButton.Enabled = false;
             unavailableSupButton.Enabled = false;
             dataViewSupplier.Enabled = false;
@@ -500,6 +523,7 @@ namespace QuanLyQuanAo
                     stateProduct = State.Unavailable;
                     panelUnavailableProduct.Visible = true;
                     availableProcButton.Enabled = false;
+                    SwitchSupplierInfo(false);
                     break;
             }
         }
@@ -513,6 +537,27 @@ namespace QuanLyQuanAo
                     break;
                 case State.Unavailable:
                     AddNewProduct();
+                    break;
+            }
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            if (listViewProductEntry.Items.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin sản phẩm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idSupplier = ID_DEFAULT;
+
+            switch (stateSupplier)
+            {
+                case State.Available:
+                    idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
+                    break;
+                case State.Unavailable:
+                    GetNewSupplier();
                     break;
             }
         }

@@ -36,9 +36,11 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button2 = new System.Windows.Forms.Button();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.panelUnavailableSup = new System.Windows.Forms.Panel();
+            this.textBoxBranch = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxSupAddress = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -53,7 +55,6 @@
             this.textBoxPriceIn = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.textBoxPriceOut = new System.Windows.Forms.TextBox();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.textBoxNewName = new System.Windows.Forms.TextBox();
@@ -61,10 +62,8 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.panelStateProduct = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -121,11 +120,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.panelUnavailableSup.SuspendLayout();
             this.panelUnavailableProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
             this.panelStateProduct.SuspendLayout();
             this.panelAvailableProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).BeginInit();
@@ -149,7 +148,7 @@
             tabPage1.Controls.Add(this.textBoxPriceEntry);
             tabPage1.Controls.Add(this.label29);
             tabPage1.Controls.Add(this.listViewProductEntry);
-            tabPage1.Controls.Add(this.button2);
+            tabPage1.Controls.Add(this.confirmButton);
             tabPage1.Controls.Add(this.cancelButton);
             tabPage1.Controls.Add(this.panelUnavailableSup);
             tabPage1.Controls.Add(this.panelUnavailableProduct);
@@ -227,14 +226,17 @@
             this.columnHeader8.Text = "Thành tiền";
             this.columnHeader8.Width = 100;
             // 
-            // button2
+            // confirmButton
             // 
-            this.button2.Location = new System.Drawing.Point(1110, 617);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 67);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Xác nhận";
-            this.button2.UseVisualStyleBackColor = true;
+            this.confirmButton.Enabled = false;
+            this.confirmButton.Location = new System.Drawing.Point(1110, 617);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(82, 67);
+            this.confirmButton.TabIndex = 36;
+            this.confirmButton.TabStop = false;
+            this.confirmButton.Text = "Xác nhận";
+            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // cancelButton
             // 
@@ -250,6 +252,8 @@
             // 
             // panelUnavailableSup
             // 
+            this.panelUnavailableSup.Controls.Add(this.textBoxBranch);
+            this.panelUnavailableSup.Controls.Add(this.label28);
             this.panelUnavailableSup.Controls.Add(this.label15);
             this.panelUnavailableSup.Controls.Add(this.textBoxSupAddress);
             this.panelUnavailableSup.Controls.Add(this.label17);
@@ -266,6 +270,27 @@
             this.panelUnavailableSup.TabIndex = 5;
             this.panelUnavailableSup.Visible = false;
             // 
+            // textBoxBranch
+            // 
+            this.textBoxBranch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBranch.Location = new System.Drawing.Point(203, 90);
+            this.textBoxBranch.Name = "textBoxBranch";
+            this.textBoxBranch.Size = new System.Drawing.Size(396, 29);
+            this.textBoxBranch.TabIndex = 35;
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label28.Location = new System.Drawing.Point(19, 91);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(137, 28);
+            this.label28.TabIndex = 34;
+            this.label28.Text = "Thương hiệu: ";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,28 +304,30 @@
             // 
             // textBoxSupAddress
             // 
+            this.textBoxSupAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupAddress.Location = new System.Drawing.Point(203, 197);
+            this.textBoxSupAddress.Location = new System.Drawing.Point(203, 224);
             this.textBoxSupAddress.Multiline = true;
             this.textBoxSupAddress.Name = "textBoxSupAddress";
-            this.textBoxSupAddress.Size = new System.Drawing.Size(396, 109);
+            this.textBoxSupAddress.Size = new System.Drawing.Size(396, 82);
             this.textBoxSupAddress.TabIndex = 12;
             // 
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label17.Location = new System.Drawing.Point(19, 56);
+            this.label17.Location = new System.Drawing.Point(16, 47);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(179, 24);
+            this.label17.Size = new System.Drawing.Size(178, 24);
             this.label17.TabIndex = 1;
             this.label17.Text = "Tên nhà cung cấp:\r\n";
             // 
             // textBoxSupEmail
             // 
+            this.textBoxSupEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupEmail.Location = new System.Drawing.Point(203, 146);
+            this.textBoxSupEmail.Location = new System.Drawing.Point(203, 183);
             this.textBoxSupEmail.Name = "textBoxSupEmail";
             this.textBoxSupEmail.Size = new System.Drawing.Size(396, 29);
             this.textBoxSupEmail.TabIndex = 11;
@@ -309,7 +336,7 @@
             // 
             this.label23.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label23.Location = new System.Drawing.Point(19, 147);
+            this.label23.Location = new System.Drawing.Point(20, 183);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(73, 26);
@@ -318,8 +345,9 @@
             // 
             // textBoxSupPhone
             // 
+            this.textBoxSupPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupPhone.Location = new System.Drawing.Point(203, 98);
+            this.textBoxSupPhone.Location = new System.Drawing.Point(203, 135);
             this.textBoxSupPhone.Name = "textBoxSupPhone";
             this.textBoxSupPhone.Size = new System.Drawing.Size(396, 29);
             this.textBoxSupPhone.TabIndex = 10;
@@ -328,7 +356,7 @@
             // 
             this.label25.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label25.Location = new System.Drawing.Point(19, 99);
+            this.label25.Location = new System.Drawing.Point(20, 135);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(137, 28);
@@ -337,8 +365,9 @@
             // 
             // textBoxSupName
             // 
+            this.textBoxSupName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupName.Location = new System.Drawing.Point(203, 52);
+            this.textBoxSupName.Location = new System.Drawing.Point(203, 42);
             this.textBoxSupName.Name = "textBoxSupName";
             this.textBoxSupName.Size = new System.Drawing.Size(396, 29);
             this.textBoxSupName.TabIndex = 9;
@@ -347,7 +376,7 @@
             // 
             this.label26.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label26.Location = new System.Drawing.Point(19, 198);
+            this.label26.Location = new System.Drawing.Point(19, 223);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(82, 22);
@@ -356,11 +385,11 @@
             // 
             // panelUnavailableProduct
             // 
+            this.panelUnavailableProduct.Controls.Add(this.comboBoxSize);
             this.panelUnavailableProduct.Controls.Add(this.textBoxUnit);
             this.panelUnavailableProduct.Controls.Add(this.textBoxPriceIn);
             this.panelUnavailableProduct.Controls.Add(this.label27);
             this.panelUnavailableProduct.Controls.Add(this.textBoxPriceOut);
-            this.panelUnavailableProduct.Controls.Add(this.comboBoxBranch);
             this.panelUnavailableProduct.Controls.Add(this.label20);
             this.panelUnavailableProduct.Controls.Add(this.label24);
             this.panelUnavailableProduct.Controls.Add(this.textBoxNewName);
@@ -368,10 +397,8 @@
             this.panelUnavailableProduct.Controls.Add(this.comboBoxType);
             this.panelUnavailableProduct.Controls.Add(this.label11);
             this.panelUnavailableProduct.Controls.Add(this.comboBoxColor);
-            this.panelUnavailableProduct.Controls.Add(this.label16);
             this.panelUnavailableProduct.Controls.Add(this.label21);
             this.panelUnavailableProduct.Controls.Add(this.label18);
-            this.panelUnavailableProduct.Controls.Add(this.numUpDownSize);
             this.panelUnavailableProduct.Controls.Add(this.label14);
             this.panelUnavailableProduct.Location = new System.Drawing.Point(30, 439);
             this.panelUnavailableProduct.Name = "panelUnavailableProduct";
@@ -416,22 +443,12 @@
             this.textBoxPriceOut.Size = new System.Drawing.Size(182, 29);
             this.textBoxPriceOut.TabIndex = 26;
             // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(152, 106);
-            this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(159, 32);
-            this.comboBoxBranch.TabIndex = 20;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label20.Location = new System.Drawing.Point(326, 48);
+            this.label20.Location = new System.Drawing.Point(11, 109);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(63, 24);
@@ -457,7 +474,7 @@
             this.textBoxNewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNewName.Location = new System.Drawing.Point(152, 48);
             this.textBoxNewName.Name = "textBoxNewName";
-            this.textBoxNewName.Size = new System.Drawing.Size(159, 29);
+            this.textBoxNewName.Size = new System.Drawing.Size(448, 29);
             this.textBoxNewName.TabIndex = 25;
             // 
             // label22
@@ -477,10 +494,10 @@
             // 
             this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(419, 41);
+            this.comboBoxType.Location = new System.Drawing.Point(152, 101);
             this.comboBoxType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(182, 32);
+            this.comboBoxType.Size = new System.Drawing.Size(159, 32);
             this.comboBoxType.TabIndex = 19;
             // 
             // label11
@@ -503,19 +520,6 @@
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(182, 32);
             this.comboBoxColor.TabIndex = 21;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label16.Location = new System.Drawing.Point(13, 113);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(135, 24);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Thương hiệu: \r\n";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
             // 
@@ -542,15 +546,6 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "Tên sản phẩm\r\n";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numUpDownSize
-            // 
-            this.numUpDownSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownSize.Location = new System.Drawing.Point(152, 164);
-            this.numUpDownSize.Margin = new System.Windows.Forms.Padding(2);
-            this.numUpDownSize.Name = "numUpDownSize";
-            this.numUpDownSize.Size = new System.Drawing.Size(159, 29);
-            this.numUpDownSize.TabIndex = 24;
             // 
             // label14
             // 
@@ -1179,6 +1174,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Location = new System.Drawing.Point(152, 159);
+            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(159, 32);
+            this.comboBoxSize.TabIndex = 30;
+            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1195,7 +1200,6 @@
             this.panelUnavailableSup.PerformLayout();
             this.panelUnavailableProduct.ResumeLayout(false);
             this.panelUnavailableProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
             this.panelStateProduct.ResumeLayout(false);
             this.panelAvailableProduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct2)).EndInit();
@@ -1278,7 +1282,6 @@
         private System.Windows.Forms.DataGridView dataViewProduct2;
         private System.Windows.Forms.Panel panelUnavailableProduct;
         private System.Windows.Forms.TextBox textBoxPriceOut;
-        private System.Windows.Forms.ComboBox comboBoxBranch;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBoxNewName;
@@ -1286,10 +1289,8 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numUpDownSize;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panelUnavailableSup;
         private System.Windows.Forms.Label label15;
@@ -1310,9 +1311,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.TextBox textBoxPriceEntry;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button addButton2;
+        private System.Windows.Forms.TextBox textBoxBranch;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox comboBoxSize;
     }
 }

@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewProduct = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numUpDownAmount = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownSize = new System.Windows.Forms.NumericUpDown();
+            this.textBoxPriceIn = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.labelNotify = new System.Windows.Forms.Label();
             this.textBoxUnit = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -58,14 +58,13 @@
             this.addButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.textBoxPriceIn = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.numUpDownAmount = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,10 +93,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.numUpDownAmount);
+            this.panel2.Controls.Add(this.comboBoxSize);
             this.panel2.Controls.Add(this.textBoxPriceIn);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.numUpDownAmount);
-            this.panel2.Controls.Add(this.numUpDownSize);
             this.panel2.Controls.Add(this.labelNotify);
             this.panel2.Controls.Add(this.textBoxUnit);
             this.panel2.Controls.Add(this.textBoxID);
@@ -120,25 +119,27 @@
             this.panel2.Size = new System.Drawing.Size(815, 256);
             this.panel2.TabIndex = 1;
             // 
-            // numUpDownAmount
+            // textBoxPriceIn
             // 
-            this.numUpDownAmount.Enabled = false;
-            this.numUpDownAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownAmount.Location = new System.Drawing.Point(618, 151);
-            this.numUpDownAmount.Name = "numUpDownAmount";
-            this.numUpDownAmount.Size = new System.Drawing.Size(166, 35);
-            this.numUpDownAmount.TabIndex = 15;
-            this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPriceIn.Enabled = false;
+            this.textBoxPriceIn.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceIn.Location = new System.Drawing.Point(192, 206);
+            this.textBoxPriceIn.Multiline = true;
+            this.textBoxPriceIn.Name = "textBoxPriceIn";
+            this.textBoxPriceIn.Size = new System.Drawing.Size(166, 33);
+            this.textBoxPriceIn.TabIndex = 16;
+            this.textBoxPriceIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numUpDownSize
+            // label11
             // 
-            this.numUpDownSize.Enabled = false;
-            this.numUpDownSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numUpDownSize.Location = new System.Drawing.Point(192, 100);
-            this.numUpDownSize.Name = "numUpDownSize";
-            this.numUpDownSize.Size = new System.Drawing.Size(60, 35);
-            this.numUpDownSize.TabIndex = 11;
-            this.numUpDownSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label11.Location = new System.Drawing.Point(13, 202);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(135, 33);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Giá nhập";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelNotify
             // 
@@ -421,27 +422,24 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // textBoxPriceIn
+            // comboBoxSize
             // 
-            this.textBoxPriceIn.Enabled = false;
-            this.textBoxPriceIn.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPriceIn.Location = new System.Drawing.Point(192, 206);
-            this.textBoxPriceIn.Multiline = true;
-            this.textBoxPriceIn.Name = "textBoxPriceIn";
-            this.textBoxPriceIn.Size = new System.Drawing.Size(166, 33);
-            this.textBoxPriceIn.TabIndex = 16;
-            this.textBoxPriceIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.comboBoxSize.Enabled = false;
+            this.comboBoxSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Location = new System.Drawing.Point(192, 96);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(74, 35);
+            this.comboBoxSize.TabIndex = 36;
             // 
-            // label11
+            // numUpDownAmount
             // 
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label11.Location = new System.Drawing.Point(13, 202);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(135, 33);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Giá nhập";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.numUpDownAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numUpDownAmount.Location = new System.Drawing.Point(618, 153);
+            this.numUpDownAmount.Name = "numUpDownAmount";
+            this.numUpDownAmount.Size = new System.Drawing.Size(166, 35);
+            this.numUpDownAmount.TabIndex = 37;
+            this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ProductForm
             // 
@@ -459,9 +457,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSize)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAmount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,9 +493,9 @@
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TextBox textBoxUnit;
         private System.Windows.Forms.Label labelNotify;
-        private System.Windows.Forms.NumericUpDown numUpDownSize;
-        private System.Windows.Forms.NumericUpDown numUpDownAmount;
         private System.Windows.Forms.TextBox textBoxPriceIn;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBoxSize;
+        private System.Windows.Forms.NumericUpDown numUpDownAmount;
     }
 }

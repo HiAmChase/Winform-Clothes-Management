@@ -59,6 +59,7 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\SizeDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\BranchDAO.cs" />
@@ -74,6 +75,7 @@
       <DependentUpon>TrashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\TypeDAO.cs" />
+    <Compile Include="DTO\Size.cs" />
     <Compile Include="DTO\Staff.cs" />
     <Compile Include="DTO\BillProductEntry.cs" />
     <Compile Include="DTO\BillProductOut.cs" />

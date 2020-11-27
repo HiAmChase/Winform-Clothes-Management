@@ -32,7 +32,7 @@ namespace QuanLyQuanAo.DAO
             return listProduct;
         }
 
-        public bool InsertProduct(string name, string type, string branch, int size,
+        public bool InsertProduct(string name, string type, string branch, string size,
                                     string color, int amount, string unit, double priceIn, double priceOut)
         {
             string query = string.Format("EXEC USP_InsertProduct @Name = N'{0}', @Type = N'{1}'," +
@@ -44,11 +44,11 @@ namespace QuanLyQuanAo.DAO
             return result > 0;
         }
 
-        public bool UpdateProduct(int id, string name, string type, string branch, int size,
+        public bool UpdateProduct(int id, string name, string type, string branch, string size,
                                     string color, int amount, string unit, double priceIn, double priceOut)
         {
             string query = string.Format("EXEC USP_UpdateProduct @IDProduct = {0},@Name = N'{1}', @Type = N'{2}'," +
-                                    " @Branch = N'{3}', @Size = {4}, @Color = N'{5}', " +
+                                    " @Branch = N'{3}', @Size = N'{4}', @Color = N'{5}', " +
                                     " @Amount = {6}, @Unit = N'{7}', @PriceIn = {8}, @PriceOut = {9}",
                                         id, name, type, branch, size, color, amount, unit, priceIn ,priceOut);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
