@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,12 +46,12 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewSupplier = new System.Windows.Forms.DataGridView();
+            this.textBoxBranch = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,7 +60,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBoxBranch);
+            this.panel2.Controls.Add(this.textBoxBranch);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.textBoxAddress);
             this.panel2.Controls.Add(this.label6);
@@ -79,17 +78,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(574, 269);
             this.panel2.TabIndex = 5;
-            // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.Enabled = false;
-            this.comboBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(428, 36);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(124, 29);
-            this.comboBoxBranch.TabIndex = 45;
-            this.comboBoxBranch.Tag = "";
             // 
             // label7
             // 
@@ -205,7 +193,6 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(98, 27);
             this.textBoxID.TabIndex = 31;
-            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
             // label4
             // 
@@ -233,7 +220,6 @@
             this.panel3.Controls.Add(this.exitButton);
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Controls.Add(this.saveButton);
-            this.panel3.Controls.Add(this.deleteButton);
             this.panel3.Controls.Add(this.addButton);
             this.panel3.Controls.Add(this.editButton);
             this.panel3.Controls.Add(this.label10);
@@ -279,18 +265,6 @@
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Location = new System.Drawing.Point(15, 134);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(86, 40);
-            this.deleteButton.TabIndex = 22;
-            this.deleteButton.Text = "Xóa";
-            this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -349,6 +323,16 @@
             this.dataViewSupplier.Size = new System.Drawing.Size(806, 296);
             this.dataViewSupplier.TabIndex = 0;
             // 
+            // textBoxBranch
+            // 
+            this.textBoxBranch.Enabled = false;
+            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBranch.Location = new System.Drawing.Point(428, 37);
+            this.textBoxBranch.Multiline = true;
+            this.textBoxBranch.Name = "textBoxBranch";
+            this.textBoxBranch.Size = new System.Drawing.Size(124, 27);
+            this.textBoxBranch.TabIndex = 43;
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,13 +372,12 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataViewSupplier;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBoxBranch;
+        private System.Windows.Forms.TextBox textBoxBranch;
     }
 }

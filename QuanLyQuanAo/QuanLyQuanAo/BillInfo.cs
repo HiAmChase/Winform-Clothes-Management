@@ -37,9 +37,9 @@ namespace QuanLyQuanAo
         public BillInfo()
         {
             InitializeComponent();
-            LoadData();
+            LoadDataExport();
             LoadClientData();
-            LoadSupplierData();
+            LoadDataImport();
         }
         #region Export
 
@@ -117,7 +117,7 @@ namespace QuanLyQuanAo
                 {
                     MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearBinding();
-                    LoadData();
+                    LoadDataExport();
                     ClearBilDisplay();
                 }
             }
@@ -163,7 +163,7 @@ namespace QuanLyQuanAo
 
         #region Methods
 
-        private void LoadData()
+        private void LoadDataExport()
         {
             LoadProduct();
             AddBinding();
@@ -332,7 +332,14 @@ namespace QuanLyQuanAo
         #region Methods
         private void SetBillInfoToDefault()
         {
+            LoadSupplierData();
+
             stateProduct = State.Available;
+
+            listViewProductEntry.Items.Clear();
+            productsEntry.Clear();
+            paymentPriceEntry = 0;
+
 
             confirmButton.Enabled = false;
             availableSupButton.Enabled = true;
@@ -345,7 +352,17 @@ namespace QuanLyQuanAo
             panelStateProduct.Visible = false;
             panelAmount.Visible = false;
 
+            ReleaseTextBox();
             SwitchSupplierInfo(true);
+            PrintTotalPriceEntry();
+        }
+
+        private void LoadDataImport()
+        {
+            LoadSupplierData();
+            LoadTypeIntoComboBox();
+            LoadColorIntoComboBox();
+            LoadSizeIntoComboBox();
         }
 
         private void LoadSupplierData()
@@ -402,7 +419,51 @@ namespace QuanLyQuanAo
             PrintTotalPriceEntry();
         }
 
-        private void AddNewProduct()
+        private void ConfirmEntry(int idSupplier, List<ProductInfo> products)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn xác nhận thanh toán không ?", "Thông báo",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (BillInfoDAO.Instance.InsertBillImport(idSupplier, products))
+                {
+                    MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SetBillInfoToDefault();
+                }
+            }
+        }
+
+        private void AddNewProductHadSupplier()
+        {
+            string name = textBoxNewName.Text;
+            string type = comboBoxType.Text;
+            string branch = (string)dataViewSupplier.SelectedCells[0].OwningRow.Cells["Branch"].Value;
+            string color = comboBoxColor.Text;
+            string size = comboBoxSize.Text;
+            string unit = textBoxUnit.Text;
+            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+
+            int newAmount = (int)numericAmountEntry.Value;
+
+            ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
+                                                    unit, size, newAmount, priceIn, priceOut);
+
+            if (CheckAmount(newProduct))
+            {
+                MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            productsEntry.Add(newProduct);
+
+            ListViewItem listView = CreateListViewItem(newProduct);
+
+            listViewProductEntry.Items.Add(listView);
+
+            PrintTotalPriceEntry();
+        }
+
+        private void AddNewProductHadNotSupplier()
         {
             string name = textBoxNewName.Text;
             string type = comboBoxType.Text;
@@ -432,7 +493,6 @@ namespace QuanLyQuanAo
 
             PrintTotalPriceEntry();
         }
-
         private ListViewItem CreateListViewItem(ProductInfo product)
         {
             ListViewItem listView = new ListViewItem(product.Name.ToString()) { Tag = product };
@@ -470,14 +530,38 @@ namespace QuanLyQuanAo
 
         }
 
-        private void GetNewSupplier()
+        private int GetNewSupplier()
         {
+            int newID = ERROR;
             string name = textBoxSupName.Text;
             string phone = textBoxSupPhone.Text;
             string email = textBoxSupEmail.Text;
-            string address = textBoxAddress.Text;
+            string address = textBoxSupAddress.Text;
+            string branch = textBoxBranch.Text;
 
-            //if (SupplierDAO.Instance.InsertSupplier(name, ))
+            if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
+            {
+                newID = SupplierDAO.Instance.GetNewIDSupplier();
+            }
+            return newID;
+        }
+
+        private void LoadTypeIntoComboBox()
+        {
+            comboBoxType.DataSource = TypeDAO.Instance.GetTypeInfo();
+            comboBoxType.DisplayMember = "Name";
+        }
+
+        private void LoadColorIntoComboBox()
+        {
+            comboBoxColor.DataSource = ColorDAO.Instance.GetColor();
+            comboBoxColor.DisplayMember = "NameColor";
+        }
+
+        private void LoadSizeIntoComboBox()
+        {
+            comboBoxSize.DataSource = SizeDAO.Instance.GetSize();
+            comboBoxSize.DisplayMember = "SizeInfo";
         }
 
         private bool CheckAmount(ProductInfo productEntry)
@@ -488,6 +572,23 @@ namespace QuanLyQuanAo
         private void PrintTotalPriceEntry()
         {
             textBoxPriceEntry.Text = paymentPriceEntry.ToString("c", culture);
+        }
+
+        private void ReleaseTextBox()
+        {
+            textBoxNewName.Text = "";
+            comboBoxType.SelectedIndex = 0;
+            comboBoxColor.SelectedIndex = 0;
+            comboBoxSize.SelectedIndex= 0;
+            textBoxUnit.Text = "";
+            textBoxPriceIn.Text = "";
+            textBoxPriceOut.Text = "";
+
+            textBoxSupName.Text = "";
+            textBoxBranch.Text = "";
+            textBoxSupPhone.Text = "";
+            textBoxSupAddress.Text = "";
+            textBoxSupEmail.Text = "";
         }
 
         private void SwitchSupplierInfo(bool status)
@@ -536,7 +637,10 @@ namespace QuanLyQuanAo
                     AddProductIntoListView();
                     break;
                 case State.Unavailable:
-                    AddNewProduct();
+                    if (stateSupplier == State.Available)
+                        AddNewProductHadSupplier();
+                    else
+                        AddNewProductHadNotSupplier();
                     break;
             }
         }
@@ -557,9 +661,10 @@ namespace QuanLyQuanAo
                     idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
                     break;
                 case State.Unavailable:
-                    GetNewSupplier();
+                    idSupplier = GetNewSupplier();
                     break;
             }
+            ConfirmEntry(idSupplier, productsEntry);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

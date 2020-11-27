@@ -24,14 +24,5 @@ AS BEGIN
 	UPDATE Product SET Amount = Amount + @AmountIn WHERE IDProduct = @IDProduct
 END
 
-USP_GetProduct
 
-SELECT * FROM BillImport
 
-SELECT * FROM Supplier
-
-INSERT INTO BillImport(IDSupplier, DateIn)
-VALUES (3, GETDATE())
-
-INSERT INTO BillImportInfo
-VALUES (2, 4, 20)

@@ -26,7 +26,6 @@ C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\D
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.exe
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.pdb
-C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.DAO.TrashForm.resources
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.DAO.TrashForm.resources
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormLogin.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormLogin.resources

@@ -51,6 +51,7 @@
             this.textBoxSupName = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.panelUnavailableProduct = new System.Windows.Forms.Panel();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.textBoxUnit = new System.Windows.Forms.TextBox();
             this.textBoxPriceIn = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -120,7 +121,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.panelUnavailableSup.SuspendLayout();
@@ -273,7 +273,7 @@
             // textBoxBranch
             // 
             this.textBoxBranch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBranch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBranch.Location = new System.Drawing.Point(203, 90);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.Size = new System.Drawing.Size(396, 29);
@@ -305,7 +305,7 @@
             // textBoxSupAddress
             // 
             this.textBoxSupAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSupAddress.Location = new System.Drawing.Point(203, 224);
             this.textBoxSupAddress.Multiline = true;
             this.textBoxSupAddress.Name = "textBoxSupAddress";
@@ -326,7 +326,7 @@
             // textBoxSupEmail
             // 
             this.textBoxSupEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSupEmail.Location = new System.Drawing.Point(203, 183);
             this.textBoxSupEmail.Name = "textBoxSupEmail";
             this.textBoxSupEmail.Size = new System.Drawing.Size(396, 29);
@@ -346,7 +346,7 @@
             // textBoxSupPhone
             // 
             this.textBoxSupPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupPhone.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSupPhone.Location = new System.Drawing.Point(203, 135);
             this.textBoxSupPhone.Name = "textBoxSupPhone";
             this.textBoxSupPhone.Size = new System.Drawing.Size(396, 29);
@@ -366,7 +366,7 @@
             // textBoxSupName
             // 
             this.textBoxSupName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSupName.Location = new System.Drawing.Point(203, 42);
             this.textBoxSupName.Name = "textBoxSupName";
             this.textBoxSupName.Size = new System.Drawing.Size(396, 29);
@@ -405,6 +405,16 @@
             this.panelUnavailableProduct.Size = new System.Drawing.Size(607, 270);
             this.panelUnavailableProduct.TabIndex = 34;
             this.panelUnavailableProduct.Visible = false;
+            // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Location = new System.Drawing.Point(152, 159);
+            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(159, 32);
+            this.comboBoxSize.TabIndex = 30;
             // 
             // textBoxUnit
             // 
@@ -1173,16 +1183,6 @@
             this.button1.Text = "<-";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBoxSize
-            // 
-            this.comboBoxSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Location = new System.Drawing.Point(152, 159);
-            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(159, 32);
-            this.comboBoxSize.TabIndex = 30;
             // 
             // BillInfo
             // 

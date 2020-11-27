@@ -36,12 +36,12 @@ AS
 	INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch
 GO
 
-CREATE PROC USP_GetProductByIDAndAmount
+ALTER PROC USP_GetProductByIDAndAmount
 @IDProduct INT, @Amount INT
 AS
 	SELECT 
 	P.IDProduct,
-	P.Name AS [Name,
+	P.Name AS [Name],
 	T.Name AS [Type],
 	B.Name AS [Branch],
 	C.Color,
@@ -147,10 +147,12 @@ INSERT INTO Product (Name, IDType, IDSupplier, IDSize, IDColor, Amount, Unit, Pr
 
 END
 
---Example
-EXEC USP_InsertProduct @Name = N'Giày thể thao', @Type = N'Giày', @Branch = N'GUCCI', @Size = 'XL',
+SELECT * FROM Type
 
-				@Color = N'Lục', @Amount = 5, @Unit = N'Đôi', @PriceIn = 500000, @PriceOut = 2000000
+--Example
+EXEC USP_InsertProduct @Name = N'Áo', @Type = N'Mũ', @Branch = N'GUCCI', @Size = 'XL',
+
+				@Color = N'Lục', @Amount = 1, @Unit = N'Cái', @PriceIn = 120000, @PriceOut = 400000
 
 GO
 
@@ -375,6 +377,14 @@ BEGIN
 	VALUES (@IDSupplier, GETDATE())
 END
 GO
+
+CREATE PROC USP_InsertBillImportInfo
+@IDBillImport INT, @IDProduct INT, @Amount INT
+AS
+BEGIN
+	INSERT INTO BillImportInfo
+	VALUES (@IDBillImport, @IDProduct, @Amount)
+END
 
 --new query
 ALTER PROC USP_GetProductBySupplier

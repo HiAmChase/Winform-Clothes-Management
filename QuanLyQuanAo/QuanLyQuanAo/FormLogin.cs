@@ -36,7 +36,7 @@ namespace QuanLyQuanAo
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
 
-            int getStatus = Testadmin(username, password);
+            int getStatus = Login(username, password);
             
             switch(getStatus)
             {
@@ -58,9 +58,9 @@ namespace QuanLyQuanAo
             }
         }
 
-        int Testadmin(string Username, string Password)
+        int Login(string Username, string Password)
         {
-            return StaffDAO.Instance.Testadmin(Username, Password);
+            return StaffDAO.Instance.Login(Username, Password);
         }
     }
 }

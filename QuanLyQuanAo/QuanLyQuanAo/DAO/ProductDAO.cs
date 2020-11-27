@@ -36,7 +36,7 @@ namespace QuanLyQuanAo.DAO
                                     string color, int amount, string unit, double priceIn, double priceOut)
         {
             string query = string.Format("EXEC USP_InsertProduct @Name = N'{0}', @Type = N'{1}'," +
-                                    " @Branch = N'{2}', @Size = {3}, @Color = N'{4}', " +
+                                    " @Branch = N'{2}', @Size = N'{3}', @Color = N'{4}', " +
                                     " @Amount = {5}, @Unit = N'{6}', @PriceIn = {7}, @PriceOut = {8}",
                                         name, type, branch, size, color, amount, unit, priceIn, priceOut);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
@@ -96,6 +96,13 @@ namespace QuanLyQuanAo.DAO
                 return product;
             }
             return product;
+        }
+
+        public int GetIDProductMax()
+        {
+            int result = (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(IDProduct) FROM Product");
+
+            return result;
         }
     }
 }

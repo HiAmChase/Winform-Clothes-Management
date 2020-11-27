@@ -26,7 +26,7 @@ namespace QuanLyQuanAo.DAO
             return DataProvider.Instance.ExecuteQuery("Select IDAccount, Username, Name,Status,Phone,Email ,Address From dbo.Staff");
         }
 
-        public int Testadmin(string username, string password)
+        public int Login(string username, string password)
         {
             //byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
             //byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
@@ -39,7 +39,7 @@ namespace QuanLyQuanAo.DAO
             int ERROR = -100;
             int result = ERROR;
 
-            string query = string.Format("EXEC USP_Testadmin @Username = '{0}', @Password = '{1}'", username, /*haspass*/password );
+            string query = string.Format("EXEC USP_Login @Username = '{0}', @Password = '{1}'", username, /*haspass*/password );
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {

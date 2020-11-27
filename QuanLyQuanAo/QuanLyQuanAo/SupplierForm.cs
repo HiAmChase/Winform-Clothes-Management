@@ -27,7 +27,6 @@ namespace QuanLyQuanAo
         {
             LoadSupplier();
             AddBinding();
-            AddBranchIntoComboBox();
             DisableTextBoxAndComboBox();
             TurnOffFlag();
         }
@@ -45,18 +44,7 @@ namespace QuanLyQuanAo
             textBoxPhone.DataBindings.Add("Text", dataViewSupplier.DataSource, "Phone");
             textBoxEmail.DataBindings.Add("Text", dataViewSupplier.DataSource, "Email");
             textBoxAddress.DataBindings.Add("Text", dataViewSupplier.DataSource, "Address");
-        }
-
-        private void AddBranchIntoComboBox()
-        {
-            comboBoxBranch.DataSource = BranchDAO.Instance.GetBranch();
-            comboBoxBranch.DisplayMember = "Name";
-        }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-            int idSupplier = (int)dataViewSupplier.SelectedCells[0].OwningRow.Cells["IDSupplier"].Value;
-            AutoUpdateComboBoxBranch(idSupplier);
+            textBoxBranch.DataBindings.Add("Text", dataViewSupplier.DataSource, "Branch");
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -92,16 +80,6 @@ namespace QuanLyQuanAo
                 UpdateSupplier();
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
-            {
-                ClearBinding();
-                DeleteSupplier();
-            }
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -114,6 +92,7 @@ namespace QuanLyQuanAo
             textBoxPhone.DataBindings.Clear();
             textBoxEmail.DataBindings.Clear();
             textBoxAddress.DataBindings.Clear();
+            textBoxBranch.DataBindings.Clear();
         }
 
         private void EnableTextBoxAndComboBox()
@@ -122,7 +101,6 @@ namespace QuanLyQuanAo
             textBoxPhone.Enabled = true;
             textBoxEmail.Enabled = true;
             textBoxAddress.Enabled = true;
-            comboBoxBranch.Enabled = true;
         }
 
         private void DisableTextBoxAndComboBox()
@@ -131,7 +109,7 @@ namespace QuanLyQuanAo
             textBoxPhone.Enabled = false;
             textBoxEmail.Enabled = false;
             textBoxAddress.Enabled = false;
-            comboBoxBranch.Enabled = false;
+            textBoxBranch.Enabled = false;
 
 
             labelNotify.Text = "";
@@ -147,28 +125,7 @@ namespace QuanLyQuanAo
             textBoxPhone.Text = "";
             textBoxEmail.Text = "";
             textBoxAddress.Text = "";
-            comboBoxBranch.Text = "";
-        }
-
-        private void AutoUpdateComboBoxBranch(int id)
-        {
-            string query = "USP_GetBranchBySupplierID";
-            string variable = "@IDSupplier";
-            Branch branch = BranchDAO.Instance.GetBranchByID(id, query, variable);
-
-            int index = -1;
-            int i = 0;
-
-            foreach (Branch item in comboBoxBranch.Items)
-            {
-                if (item.IdBranch == branch.IdBranch)
-                {
-                    index = i;
-                    break;
-                }
-                i++;
-            }
-            comboBoxBranch.SelectedIndex = index;
+            textBoxBranch.Text = "";
         }
 
         private void TurnOffFlag()
@@ -183,7 +140,7 @@ namespace QuanLyQuanAo
             string address = textBoxAddress.Text.ToString();
             string phone = textBoxPhone.Text.ToString();
             string email = textBoxEmail.Text.ToString();
-            string branch = comboBoxBranch.Text.ToString();
+            string branch = textBoxBranch.Text.ToString();
 
             if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
             {
@@ -203,7 +160,7 @@ namespace QuanLyQuanAo
             string address = textBoxAddress.Text.ToString();
             string phone = textBoxPhone.Text.ToString();
             string email = textBoxEmail.Text.ToString();
-            string branch = comboBoxBranch.Text.ToString();
+            string branch = textBoxBranch.Text.ToString();
 
             if (SupplierDAO.Instance.UpdateSupplier(id, name, branch, phone, email, address))
             {
