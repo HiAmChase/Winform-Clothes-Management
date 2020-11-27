@@ -371,8 +371,6 @@ BEGIN
 		IDAccount = @IDAccount
 END
 GO
-<<<<<<< HEAD
-=======
 
 CREATE PROC USP_DeleteStaff
 @IDAccount INT
@@ -403,4 +401,3 @@ Begin
 		Username =@Username AND Password =@Password
 
 end
->>>>>>> 3706dee03a77cb80054c23319e14c28e5685a2a6
