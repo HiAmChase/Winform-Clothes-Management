@@ -50,13 +50,13 @@
             this.label26 = new System.Windows.Forms.Label();
             this.panelUnavailableProduct = new System.Windows.Forms.Panel();
             this.textBoxUnit = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxPriceIn = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxPriceOut = new System.Windows.Forms.TextBox();
             this.comboBoxBranch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNewName = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -357,13 +357,13 @@
             // panelUnavailableProduct
             // 
             this.panelUnavailableProduct.Controls.Add(this.textBoxUnit);
-            this.panelUnavailableProduct.Controls.Add(this.textBox3);
+            this.panelUnavailableProduct.Controls.Add(this.textBoxPriceIn);
             this.panelUnavailableProduct.Controls.Add(this.label27);
-            this.panelUnavailableProduct.Controls.Add(this.textBox2);
+            this.panelUnavailableProduct.Controls.Add(this.textBoxPriceOut);
             this.panelUnavailableProduct.Controls.Add(this.comboBoxBranch);
             this.panelUnavailableProduct.Controls.Add(this.label20);
             this.panelUnavailableProduct.Controls.Add(this.label24);
-            this.panelUnavailableProduct.Controls.Add(this.textBox1);
+            this.panelUnavailableProduct.Controls.Add(this.textBoxNewName);
             this.panelUnavailableProduct.Controls.Add(this.label22);
             this.panelUnavailableProduct.Controls.Add(this.comboBoxType);
             this.panelUnavailableProduct.Controls.Add(this.label11);
@@ -387,13 +387,13 @@
             this.textBoxUnit.Size = new System.Drawing.Size(182, 29);
             this.textBoxUnit.TabIndex = 29;
             // 
-            // textBox3
+            // textBoxPriceIn
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(152, 217);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 29);
-            this.textBox3.TabIndex = 28;
+            this.textBoxPriceIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceIn.Location = new System.Drawing.Point(152, 217);
+            this.textBoxPriceIn.Name = "textBoxPriceIn";
+            this.textBoxPriceIn.Size = new System.Drawing.Size(159, 29);
+            this.textBoxPriceIn.TabIndex = 28;
             // 
             // label27
             // 
@@ -408,13 +408,13 @@
             this.label27.Text = "Giá nhập:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // textBoxPriceOut
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(418, 213);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 29);
-            this.textBox2.TabIndex = 26;
+            this.textBoxPriceOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceOut.Location = new System.Drawing.Point(418, 213);
+            this.textBoxPriceOut.Name = "textBoxPriceOut";
+            this.textBoxPriceOut.Size = new System.Drawing.Size(182, 29);
+            this.textBoxPriceOut.TabIndex = 26;
             // 
             // comboBoxBranch
             // 
@@ -452,13 +452,13 @@
             this.label24.Text = "Giá bán:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // textBoxNewName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(152, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 29);
-            this.textBox1.TabIndex = 25;
+            this.textBoxNewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNewName.Location = new System.Drawing.Point(152, 48);
+            this.textBoxNewName.Name = "textBoxNewName";
+            this.textBoxNewName.Size = new System.Drawing.Size(159, 29);
+            this.textBoxNewName.TabIndex = 25;
             // 
             // label22
             // 
@@ -1277,11 +1277,11 @@
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.DataGridView dataViewProduct2;
         private System.Windows.Forms.Panel panelUnavailableProduct;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPriceOut;
         private System.Windows.Forms.ComboBox comboBoxBranch;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNewName;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Label label11;
@@ -1302,7 +1302,7 @@
         private System.Windows.Forms.TextBox textBoxSupName;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxPriceIn;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBoxUnit;
         private System.Windows.Forms.ListView listViewProductEntry;

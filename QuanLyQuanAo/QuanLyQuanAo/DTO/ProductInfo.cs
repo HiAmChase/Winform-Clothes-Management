@@ -100,6 +100,5 @@ namespace QuanLyQuanAo.DTO
             get => priceOut; 
             set => priceOut = value; 
         }
-
     }
 }

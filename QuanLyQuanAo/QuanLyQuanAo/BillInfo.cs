@@ -21,8 +21,9 @@ namespace QuanLyQuanAo
         private const int ID_CLIENT_DEFAULT = 1;
         private const int ERROR = -100;
 
+
         List<BillProductOut> productsOut = new List<BillProductOut>();
-        List<BillProductEntry> productsEntry = new List<BillProductEntry>();
+        List<ProductInfo> productsEntry = new List<ProductInfo>();
 
         private double paymentPriceOut = 0;
         private double paymentPriceEntry = 0;
@@ -374,23 +375,23 @@ namespace QuanLyQuanAo
 
             int amount = Convert.ToInt32(numericAmountEntry.Value);
 
-            BillProductEntry billinfo = BillInfoDAO.Instance.GetBillProductEntry(idProduct, amount);
+            ProductInfo product = ProductDAO.Instance.GetProductByIDAndAmount(idProduct, amount);
 
-            CheckAvailable(listViewProductEntry, billinfo);
+            CheckAvailable(listViewProductEntry, product);
 
-            if (CheckAmount(billinfo))
+            if (CheckAmount(product))
             {
-                MessageBox.Show("Không hợp lệ !", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            productsEntry.Add(billinfo);
+            productsEntry.Add(product);
 
-            ListViewItem listView = CreateListViewItem(billinfo);
+            ListViewItem listView = CreateListViewItem(product);
 
             listViewProductEntry.Items.Add(listView);
 
-            //foreach (BillProductEntry item in productsEntry)
+            //foreach (ProductInfo item in productsEntry)
             //{
             //    MessageBox.Show(item.Amount.ToString());
             //}
@@ -398,35 +399,66 @@ namespace QuanLyQuanAo
             PrintTotalPriceEntry();
         }
 
-        private ListViewItem CreateListViewItem(BillProductEntry billInfo)
+        private void AddNewProduct()
         {
-            ListViewItem listView = new ListViewItem(billInfo.Name.ToString()) { Tag = billInfo };
-            listView.SubItems.Add(billInfo.Amount.ToString());
-            listView.SubItems.Add(billInfo.PriceIn.ToString());
-            paymentPriceEntry += billInfo.TotalPrice;
-            listView.SubItems.Add(billInfo.TotalPrice.ToString());
+            string name = textBoxNewName.Text;
+            string type = comboBoxType.Text;
+            string branch = comboBoxBranch.Text;
+            string color = comboBoxColor.Text;
+            int size = (int)numUpDownSize.Value;
+            string unit = textBoxUnit.Text;
+            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+
+            int newAmount = (int)numericAmountEntry.Value;
+
+            ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
+                                                    unit, size, newAmount, priceIn, priceOut);
+
+            if (CheckAmount(newProduct))
+            {
+                MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            productsEntry.Add(newProduct);
+
+            ListViewItem listView = CreateListViewItem(newProduct);
+
+            listViewProductEntry.Items.Add(listView);
+
+            PrintTotalPriceEntry();
+        }
+
+        private ListViewItem CreateListViewItem(ProductInfo product)
+        {
+            ListViewItem listView = new ListViewItem(product.Name.ToString()) { Tag = product };
+            listView.SubItems.Add(product.Amount.ToString());
+            listView.SubItems.Add(product.PriceIn.ToString());
+            listView.SubItems.Add((product.Amount * product.PriceIn).ToString());
+            paymentPriceEntry += product.Amount * product.PriceIn;
 
             return listView;
         }
 
-        private void CheckAvailable(ListView listView, BillProductEntry billInfo)
+        private void CheckAvailable(ListView listView, ProductInfo product)
         {
             int index = 0;
 
             foreach (ListViewItem item in listView.Items)
             {
-                BillProductEntry preBillInfo = item.Tag as BillProductEntry;
-                if (preBillInfo.IdProduct == billInfo.IdProduct)
+                
+                ProductInfo preProduct = item.Tag as ProductInfo;
+                if (preProduct.IdProduct == product.IdProduct)
                 {
-                    int tempAmout = preBillInfo.Amount;
-                    billInfo.Amount += tempAmout;
-                    billInfo.TotalPrice = billInfo.Amount * billInfo.PriceIn;
-                    if (CheckAmount(billInfo))
+                    int tempAmout = preProduct.Amount;
+                    product.Amount += tempAmout;
+                    if (CheckAmount(product))
                     {
                         break;
                     }
                     productsEntry.RemoveAt(index);
-                    paymentPriceEntry -= tempAmout * billInfo.PriceIn;
+                    paymentPriceEntry -= tempAmout * product.PriceIn;
                     listView.Items.Remove(item);
                     break;
                 }
@@ -435,7 +467,7 @@ namespace QuanLyQuanAo
 
         }
 
-        private bool CheckAmount(BillProductEntry productEntry)
+        private bool CheckAmount(ProductInfo productEntry)
         {
             return productEntry.Amount < 1;
         }
@@ -480,6 +512,7 @@ namespace QuanLyQuanAo
                     AddProductIntoListView();
                     break;
                 case State.Unavailable:
+                    AddNewProduct();
                     break;
             }
         }

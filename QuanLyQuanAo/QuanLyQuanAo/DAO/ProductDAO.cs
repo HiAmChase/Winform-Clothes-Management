@@ -81,5 +81,21 @@ namespace QuanLyQuanAo.DAO
 
             return listProduct;
         }
+
+        public ProductInfo GetProductByIDAndAmount(int idProduct, int amount)
+        {
+            ProductInfo product = null;
+
+            string query = "EXEC USP_GetProductByIDAndAmount @IDProduct , @Amount";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idProduct, amount });
+
+            foreach (DataRow item in data.Rows)
+            {
+                product = new ProductInfo(item);
+                return product;
+            }
+            return product;
+        }
     }
 }

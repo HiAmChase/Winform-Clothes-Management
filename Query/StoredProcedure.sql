@@ -34,6 +34,28 @@ AS
 	INNER JOIN Color C ON C.IDColor = P.IDColor
 GO
 
+CREATE PROC USP_GetProductByIDAndAmount
+@IDProduct INT, @Amount INT
+AS
+	SELECT 
+	P.IDProduct AS [ID],
+	P.Name AS [Tên],
+	T.Name AS [Loại],
+	B.Name AS [Thương Hiệu],
+	C.Color AS [Màu Sắc],
+	P.Unit AS [Đơn Vị Tính],
+	S.Size AS [Kích Thước],
+	@Amount AS [Số Lượng],
+	P.PriceOut AS [Đơn Giá],
+	P.PriceIn
+	FROM Product P
+	INNER JOIN Type T ON T.IDType = P.IDType
+	INNER JOIN Branch B ON B.IDBranch = P.IDBranch
+	INNER JOIN Size S ON S.IDSize = P.IDSize
+	INNER JOIN Color C ON C.IDColor = P.IDColor
+	WHERE IDProduct = @IDProduct
+GO
+
 CREATE PROC USP_GetBranchByProductID
 @IDProduct INT
 AS
@@ -319,4 +341,3 @@ BEGIN
 	SELECT Status From dbo.Account WHERE Username= @Username AND Password=@Password
 END
 GO
-
