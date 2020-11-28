@@ -121,6 +121,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.deleteButton2 = new System.Windows.Forms.Button();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.panelUnavailableSup.SuspendLayout();
@@ -684,12 +685,13 @@
             // 
             // panelAmount
             // 
+            this.panelAmount.Controls.Add(this.deleteButton2);
             this.panelAmount.Controls.Add(this.addButton2);
             this.panelAmount.Controls.Add(this.label19);
             this.panelAmount.Controls.Add(this.numericAmountEntry);
             this.panelAmount.Location = new System.Drawing.Point(643, 389);
             this.panelAmount.Name = "panelAmount";
-            this.panelAmount.Size = new System.Drawing.Size(115, 161);
+            this.panelAmount.Size = new System.Drawing.Size(115, 170);
             this.panelAmount.TabIndex = 28;
             this.panelAmount.Visible = false;
             // 
@@ -707,7 +709,7 @@
             // 
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(9, 87);
+            this.label19.Location = new System.Drawing.Point(9, 106);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(102, 22);
             this.label19.TabIndex = 26;
@@ -717,7 +719,7 @@
             // numericAmountEntry
             // 
             this.numericAmountEntry.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericAmountEntry.Location = new System.Drawing.Point(9, 112);
+            this.numericAmountEntry.Location = new System.Drawing.Point(9, 131);
             this.numericAmountEntry.Minimum = new decimal(new int[] {
             100,
             0,
@@ -823,7 +825,7 @@
             this.clientDisplay.Name = "clientDisplay";
             this.clientDisplay.Size = new System.Drawing.Size(147, 28);
             this.clientDisplay.TabIndex = 19;
-            this.clientDisplay.Text = "Chưa biết tên";
+            this.clientDisplay.Text = "Khách hàng cũ";
             this.clientDisplay.UseVisualStyleBackColor = true;
             this.clientDisplay.Click += new System.EventHandler(this.clientDisplay_Click);
             // 
@@ -1184,6 +1186,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // deleteButton2
+            // 
+            this.deleteButton2.Location = new System.Drawing.Point(9, 54);
+            this.deleteButton2.Name = "deleteButton2";
+            this.deleteButton2.Size = new System.Drawing.Size(102, 45);
+            this.deleteButton2.TabIndex = 27;
+            this.deleteButton2.Text = "Xóa";
+            this.deleteButton2.UseVisualStyleBackColor = true;
+            this.deleteButton2.Click += new System.EventHandler(this.deleteButton2_Click);
+            // 
             // BillInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1318,5 +1330,6 @@
         private System.Windows.Forms.TextBox textBoxBranch;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox comboBoxSize;
+        private System.Windows.Forms.Button deleteButton2;
     }
 }

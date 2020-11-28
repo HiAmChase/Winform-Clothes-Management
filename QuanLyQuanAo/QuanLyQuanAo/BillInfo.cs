@@ -645,6 +645,27 @@ namespace QuanLyQuanAo
             }
         }
 
+        private void deleteButton2_Click(object sender, EventArgs e)
+        {
+            if (listViewProductEntry.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin cần xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ListViewItem item = listViewProductEntry.SelectedItems[0];
+
+            ProductInfo product = item.Tag as ProductInfo;
+
+            paymentPriceEntry -= (product.PriceIn * product.Amount);
+
+            productsEntry.Remove(product);
+
+            listViewProductEntry.Items.Remove(item);
+
+            PrintTotalPriceEntry();
+        }
+
         private void confirmButton_Click(object sender, EventArgs e)
         {
             if (listViewProductEntry.Items.Count == 0)
