@@ -393,6 +393,7 @@ namespace QuanLyQuanAo
             this.textBoxPassword2.Name = "textBoxPassword2";
             this.textBoxPassword2.Size = new System.Drawing.Size(485, 30);
             this.textBoxPassword2.TabIndex = 6;
+            this.textBoxPassword2.UseSystemPasswordChar = true;
             // 
             // textBoxPassword
             // 
@@ -400,6 +401,7 @@ namespace QuanLyQuanAo
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(485, 30);
             this.textBoxPassword.TabIndex = 5;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxUsername2
             // 

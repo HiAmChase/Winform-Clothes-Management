@@ -12,5 +12,17 @@ BEGIN
 	ELSE
 		UPDATE Product SET Amount = Amount - @AmountOut WHERE IDProduct = @IDProduct
 END
+GO
 
---Test
+CREATE TRIGGER TRG_InsertBillImportInfo
+ON BillImportInfo FOR INSERT
+AS BEGIN
+	DECLARE @IDProduct INT, @Amount INT, @AmountIn INT
+	SELECT @IDProduct = IDProduct, @AmountIn = Amount FROM INSERTED
+	SELECT @Amount = Amount FROM Product WHERE IDProduct = @IDProduct
+	
+	UPDATE Product SET Amount = Amount + @AmountIn WHERE IDProduct = @IDProduct
+END
+
+
+

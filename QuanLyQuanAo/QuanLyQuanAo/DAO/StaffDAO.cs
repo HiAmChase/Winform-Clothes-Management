@@ -25,24 +25,38 @@ namespace QuanLyQuanAo.DAO
         {
             return DataProvider.Instance.ExecuteQuery("Select IDAccount, Username, Name,Status,Phone,Email ,Address From dbo.Staff");
         }
-
-        public int Testadmin(string username, string password)
+        
+        public string MHMD5(string password)
         {
-            //byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
-            //byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
-            //string haspass = "";
-            //foreach(byte item in hasdata)
-            //{
-            //    haspass += item;
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
+            byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string haspass = "";
+            foreach (byte item in hasdata)
+            {
+                haspass += item;
+             }
+            return haspass;
+        }
+       
 
-            //}
+        public int Login(string username, string password)
+        {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
+            byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string haspass = "";
+            foreach (byte item in hasdata)
+            {
+                haspass += item;
+            }
+
             int ERROR = -100;
             int result = ERROR;
 
-            string query = string.Format("EXEC USP_Testadmin @Username = '{0}', @Password = '{1}'", username, /*haspass*/password );
+            string query = string.Format("EXEC USP_Login @Username = '{0}', @Password = '{1}'", username,password);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {
+               
                 result = (int)DataProvider.Instance.ExecuteScalar(query);
             }
 
@@ -62,6 +76,7 @@ namespace QuanLyQuanAo.DAO
 
                 return result > 0;
             }
+            
             
         }
 
@@ -93,7 +108,8 @@ namespace QuanLyQuanAo.DAO
         }
 
         public bool UpdatePassword(string  username, string password, string newpassword )
-        {
+        {   
+
             string query = string.Format("EXEC USP_UpdatePassword @Username = N'{0}',@Password=N'{1}',@newPassword=N'{2}'", username, password, newpassword);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 

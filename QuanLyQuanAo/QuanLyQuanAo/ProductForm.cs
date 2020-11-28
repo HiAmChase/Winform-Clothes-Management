@@ -28,6 +28,7 @@ namespace QuanLyQuanAo
         {
             LoadProduct();
             AddProductBinding();
+            LoadSizeIntoComboBox();
             LoadBranchesIntoComboBox();
             LoadColorIntoComboBox();
             LoadTypeIntoComboBox();
@@ -46,11 +47,16 @@ namespace QuanLyQuanAo
         {
             textBoxID.DataBindings.Add("Text", dataViewProduct.DataSource, "IDProduct");
             textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
-            numUpDownSize.DataBindings.Add("Text", dataViewProduct.DataSource, "Size");
             numUpDownAmount.DataBindings.Add("Text", dataViewProduct.DataSource, "Amount");
             textBoxPriceIn.DataBindings.Add("Text", dataViewProduct.DataSource, "PriceIn");
             textBoxPriceOut.DataBindings.Add("Text", dataViewProduct.DataSource, "PriceOut");
             textBoxUnit.DataBindings.Add("Text", dataViewProduct.DataSource, "Unit");
+        }
+
+        private void LoadSizeIntoComboBox()
+        {
+            comboBoxSize.DataSource = SizeDAO.Instance.GetSize();
+            comboBoxSize.DisplayMember = "SizeInfo";
         }
 
         private void LoadBranchesIntoComboBox()
@@ -74,7 +80,6 @@ namespace QuanLyQuanAo
         private void DisableTextBoxAndComboBox()
         {
             textBoxProduct.Enabled = false;
-            numUpDownSize.Enabled = false;
             numUpDownAmount.Enabled = false;
             textBoxPriceIn.Enabled = false;
             textBoxPriceOut.Enabled = false;
@@ -82,6 +87,7 @@ namespace QuanLyQuanAo
             comboBoxBranch.Enabled = false;
             comboBoxColor.Enabled = false;
             comboBoxType.Enabled = false;
+            comboBoxSize.Enabled = false;
 
             saveButton.Enabled = false;
             cancelButton.Enabled = false;
@@ -99,9 +105,29 @@ namespace QuanLyQuanAo
         {
             int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
 
+            AutoUpdateComboBoxSize(idProduct);
             AutoUpdateComboBoxBranch(idProduct);
             AutoUpdateComboBoxColor(idProduct);
             AutoUpdateComboBoxType(idProduct);
+        }
+
+        private void AutoUpdateComboBoxSize(int idProduct)
+        {
+            DTO.Size size = SizeDAO.Instance.GetSizeByIDProduct(idProduct);
+
+            int index = -1;
+            int i = 0;
+
+            foreach (DTO.Size item in comboBoxSize.Items)
+            {
+                if (item.IdSize == size.IdSize)
+                {
+                    index = i;
+                    break;
+                }
+                i++;
+            }
+            comboBoxSize.SelectedIndex = index;
         }
 
         private void AutoUpdateComboBoxBranch(int idProduct)
@@ -210,7 +236,6 @@ namespace QuanLyQuanAo
         {
             textBoxID.DataBindings.Clear();
             textBoxProduct.DataBindings.Clear();
-            numUpDownSize.DataBindings.Clear();
             numUpDownAmount.DataBindings.Clear();
             textBoxPriceIn.DataBindings.Clear();
             textBoxPriceOut.DataBindings.Clear();
@@ -220,21 +245,20 @@ namespace QuanLyQuanAo
         private void EnableTextBoxAndComboBox()
         {
             textBoxProduct.Enabled = true;
-            numUpDownSize.Enabled = true;
             numUpDownAmount.Enabled = true;
             textBoxPriceIn.Enabled = true;
             textBoxPriceOut.Enabled = true;
             textBoxUnit.Enabled = true;
-            comboBoxBranch.Enabled = true;
+
             comboBoxColor.Enabled = true;
             comboBoxType.Enabled = true;
+            comboBoxSize.Enabled = true;
         }
 
         private void ReleaseInput()
         {
             textBoxID.Text = "";
             textBoxProduct.Text = "";
-            numUpDownSize.Text = "";
             numUpDownAmount.Text = "";
             textBoxPriceIn.Text = "";
             textBoxPriceOut.Text = "";
@@ -242,13 +266,14 @@ namespace QuanLyQuanAo
             comboBoxBranch.SelectedIndex = 0;
             comboBoxColor.SelectedIndex = 0;
             comboBoxType.SelectedIndex = 0;
+            comboBoxSize.SelectedIndex = 0;
         }
 
         private void InsertProduct()
         {
             string name = textBoxProduct.Text;
             string branch = comboBoxBranch.Text;
-            int size = Convert.ToInt32(numUpDownSize.Value);
+            string size = comboBoxSize.Text;
             string type = comboBoxType.Text;
             string color = comboBoxColor.Text;
             string unit = textBoxUnit.Text;
@@ -272,7 +297,7 @@ namespace QuanLyQuanAo
             int id = Convert.ToInt32(textBoxID.Text);
             string name = textBoxProduct.Text;
             string branch = comboBoxBranch.Text;
-            int size = Convert.ToInt32(numUpDownSize.Value);
+            string size = comboBoxSize.Text;
             string type = comboBoxType.Text;
             string color = comboBoxColor.Text;
             string unit = textBoxUnit.Text;

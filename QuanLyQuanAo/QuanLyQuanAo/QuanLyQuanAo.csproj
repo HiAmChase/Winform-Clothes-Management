@@ -59,6 +59,7 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\SizeDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\BranchDAO.cs" />
@@ -67,13 +68,8 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\SupplierDAO.cs" />
-    <Compile Include="DAO\TrashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DAO\TrashForm.Designer.cs">
-      <DependentUpon>TrashForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DAO\TypeDAO.cs" />
+    <Compile Include="DTO\Size.cs" />
     <Compile Include="DTO\Staff.cs" />
     <Compile Include="DTO\BillProductEntry.cs" />
     <Compile Include="DTO\BillProductOut.cs" />
@@ -121,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DAO\TrashForm.resx">
-      <DependentUpon>TrashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormController.resx">
       <DependentUpon>FormController.cs</DependentUpon>

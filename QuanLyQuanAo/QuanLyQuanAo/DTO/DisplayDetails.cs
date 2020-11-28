@@ -14,12 +14,12 @@ namespace QuanLyQuanAo.DTO
         protected int amount;
         protected double totalPrice;
 
-        public DisplayDetails(int idProduct, string name, int amount, double totalPrice)
+        public DisplayDetails(int idProduct, string name, int amount)
         {
             this.IdProduct = idProduct;
             this.Name = name;
             this.Amount = amount;
-            this.TotalPrice = totalPrice;
+            this.TotalPrice = 0;
         }
 
         public DisplayDetails(DataRow row)

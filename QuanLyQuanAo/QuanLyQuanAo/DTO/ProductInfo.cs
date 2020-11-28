@@ -16,13 +16,13 @@ namespace QuanLyQuanAo.DTO
         private string branch;
         private string color;
         private string unit;
-        private int size;
+        private string size;
         private int amount;
         private double priceOut;
         private double priceIn;
 
         public ProductInfo(int idProduct, string name, string type, string branch, string color,
-                        string unit, int size, int amount, double priceIn ,double priceOut)
+                        string unit, string size, int amount, double priceIn ,double priceOut)
         {
             this.IdProduct = idProduct;
             this.Name = name;
@@ -38,16 +38,16 @@ namespace QuanLyQuanAo.DTO
 
         public ProductInfo(DataRow row)
         {
-            this.IdProduct = (int)row["ID"];
-            this.Name = row["Tên"].ToString();
-            this.Type = row["Loại"].ToString();
-            this.Branch = row["Thương Hiệu"].ToString();
-            this.Color = row["Màu Sắc"].ToString();
-            this.Unit = row["Đơn Vị Tính"].ToString();
-            this.Size = (int)row["Kích Thước"];
-            this.Amount = (int)row["Số Lượng"];
+            this.IdProduct = (int)row["IDProduct"];
+            this.Name = row["Name"].ToString();
+            this.Type = row["Type"].ToString();
+            this.Branch = row["Branch"].ToString();
+            this.Color = row["Color"].ToString();
+            this.Unit = row["Unit"].ToString();
+            this.Size = row["Size"].ToString();
+            this.Amount = (int)row["Amount"];
             this.PriceIn = Math.Round(Convert.ToDouble(row["PriceIn"]), 1);
-            this.PriceOut = Math.Round(Convert.ToDouble(row["Đơn Giá"]), 1);
+            this.PriceOut = Math.Round(Convert.ToDouble(row["PriceOut"]), 1);
         }
         public int IdProduct
         {
@@ -79,9 +79,9 @@ namespace QuanLyQuanAo.DTO
             get => unit; 
             set => unit = value; 
         }
-        public int Size 
+        public string Size
         { 
-            get => size; 
+            get => size;
             set => size = value;
         }
         public int Amount 
@@ -100,6 +100,5 @@ namespace QuanLyQuanAo.DTO
             get => priceOut; 
             set => priceOut = value; 
         }
-
     }
 }

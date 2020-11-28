@@ -12,11 +12,12 @@ namespace QuanLyQuanAo.DTO
         private double priceOut;
         private int maxAmount;
 
-        public BillProductOut(int idProduct, string name, double priceOut, int amount, int maxAmount, double totalPrice)
-            : base(idProduct, name, amount, totalPrice)
+        public BillProductOut(int idProduct, string name, double priceOut, int amount, int maxAmount)
+            : base(idProduct, name, amount)
         {
             this.PriceOut = priceOut;
             this.MaxAmount = maxAmount;
+            this.TotalPrice = priceOut * amount;
         }
 
         public BillProductOut(DataRow row)

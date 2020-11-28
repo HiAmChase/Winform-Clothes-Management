@@ -11,10 +11,11 @@ namespace QuanLyQuanAo.DTO
     {
         private double priceIn;
 
-        public BillProductEntry(int idProduct, string name, double priceIn, int amount, double totalPrice)
-            : base(idProduct, name, amount, totalPrice)
+        public BillProductEntry(int idProduct, string name, double priceIn, int amount)
+            : base(idProduct, name, amount)
         {
             this.PriceIn = priceIn;
+            this.TotalPrice = amount * priceIn;
         }
 
         public BillProductEntry(DataRow row)
