@@ -18,7 +18,7 @@ CREATE TABLE Staff
 GO
 INSERT INTO Staff(Username,Password,Status,Name,Address,Phone,Email)
 VALUES (N'Vinh',N'1',1,N'Vĩnh',N'Wellington city',N'0354175296',N'typhuso1thegioi@gmail.com'),
-		(N'Thinh',N'1',0,N'Thịnh',N'Newyork city',N'0359999999',N'seplonkhotinh@gmail.com')
+		(N'Thinh',N'1',0,N'Thịnh',N'Newyork city',N'0359999999',N'ngocthinh@gmail.com')
 GO
 
 CREATE TABLE Type
@@ -28,7 +28,7 @@ CREATE TABLE Type
 	Name NVARCHAR(50) NOT NULL DEFAULT N'Chưa đặt tên'
 )
 GO
-
+delete staff
 INSERT INTO Type(Name)
 VALUES (N'Không'),
 	(N'Áo sơ mi'),

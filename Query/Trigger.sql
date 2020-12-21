@@ -24,5 +24,3 @@ AS BEGIN
 	UPDATE Product SET Amount = Amount + @AmountIn WHERE IDProduct = @IDProduct
 END
 
-
-

@@ -62,5 +62,10 @@ namespace QuanLyQuanAo
         {
             return StaffDAO.Instance.Login(Username, Password);
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

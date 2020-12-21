@@ -34,7 +34,7 @@ namespace QuanLyQuanAo.DAO
             foreach (byte item in hasdata)
             {
                 haspass += item;
-             }
+            }
             return haspass;
         }
        

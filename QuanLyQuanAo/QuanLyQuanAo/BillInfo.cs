@@ -196,7 +196,7 @@ namespace QuanLyQuanAo
         private void AddBinding()
         {
             textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
-            textBoxType.DataBindings.Add("Text", dataViewProduct.DataSource, "Type");
+            
         }
 
         private void CheckAvailable(ListView listView, BillProductOut billInfo)
@@ -286,7 +286,7 @@ namespace QuanLyQuanAo
         private void ClearBinding()
         {
             textBoxProduct.DataBindings.Clear();
-            textBoxType.DataBindings.Clear();
+            
         }
 
         private void ClearListView()
@@ -645,6 +645,27 @@ namespace QuanLyQuanAo
             }
         }
 
+        private void deleteButton2_Click(object sender, EventArgs e)
+        {
+            if (listViewProductEntry.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin cần xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ListViewItem item = listViewProductEntry.SelectedItems[0];
+
+            ProductInfo product = item.Tag as ProductInfo;
+
+            paymentPriceEntry -= (product.PriceIn * product.Amount);
+
+            productsEntry.Remove(product);
+
+            listViewProductEntry.Items.Remove(item);
+
+            PrintTotalPriceEntry();
+        }
+
         private void confirmButton_Click(object sender, EventArgs e)
         {
             if (listViewProductEntry.Items.Count == 0)
@@ -693,6 +714,8 @@ namespace QuanLyQuanAo
             panelUnavailableProduct.Visible = false;
         }
 
+
+
         private void unavailableProcButton_Click_1(object sender, EventArgs e)
         {
             stateProduct = State.Unavailable;
@@ -710,7 +733,6 @@ namespace QuanLyQuanAo
                 dataView.Columns[item].Visible = false;
             }
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {

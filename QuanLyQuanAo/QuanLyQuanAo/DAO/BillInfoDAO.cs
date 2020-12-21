@@ -52,6 +52,8 @@ namespace QuanLyQuanAo.DAO
             return result > 0;
         }
 
+
+
         public bool InsertBillImport(int idSupplier, List<ProductInfo> products)
         {
             int result = 0;
