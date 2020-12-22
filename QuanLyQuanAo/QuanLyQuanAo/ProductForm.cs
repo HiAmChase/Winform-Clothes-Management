@@ -88,7 +88,7 @@ namespace QuanLyQuanAo
             comboBoxColor.Enabled = false;
             comboBoxType.Enabled = false;
             comboBoxSize.Enabled = false;
-
+        
             saveButton.Enabled = false;
             cancelButton.Enabled = false;
 
@@ -101,14 +101,21 @@ namespace QuanLyQuanAo
             editFlag = 0;
         }
 
+
+
         private void textBoxID_TextChanged(object sender, EventArgs e)
         {
-            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+            try { int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
 
-            AutoUpdateComboBoxSize(idProduct);
-            AutoUpdateComboBoxBranch(idProduct);
-            AutoUpdateComboBoxColor(idProduct);
-            AutoUpdateComboBoxType(idProduct);
+
+                AutoUpdateComboBoxSize(idProduct);
+                AutoUpdateComboBoxBranch(idProduct);
+                AutoUpdateComboBoxColor(idProduct);
+                AutoUpdateComboBoxType(idProduct);
+            }
+            catch 
+            { };
+
         }
 
         private void AutoUpdateComboBoxSize(int idProduct)
@@ -340,6 +347,24 @@ namespace QuanLyQuanAo
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        List<ProductInfo> findProduct(string name)
+        {
+            
+
+            List<ProductInfo> listProduct = ProductDAO.Instance.findProduct(name);
+
+            return listProduct;
+        }
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listProduct.DataSource= findProduct(textBoxFindPro.Text);
+        }
+
+        private void exitfindButton_Click(object sender, EventArgs e)
+        {
+            LoadProduct();
         }
     }
 }

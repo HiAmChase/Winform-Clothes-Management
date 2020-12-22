@@ -32,6 +32,22 @@ namespace QuanLyQuanAo.DAO
             return listProduct;
         }
 
+        public List<ProductInfo> findProduct(string name)
+        {
+            List<ProductInfo> listProduct = new List<ProductInfo>();
+
+            string query = string.Format("EXEC USP_FindProduct @name = {0} ", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                ProductInfo product = new ProductInfo(item);
+                listProduct.Add(product);
+            }
+
+            return listProduct;
+        }
+
         public bool InsertProduct(string name, string type, string branch, string size,
                                     string color, int amount, string unit, double priceIn, double priceOut)
         {

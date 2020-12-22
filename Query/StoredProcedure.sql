@@ -1,17 +1,6 @@
 ﻿USE QuanLyQuanAo
 GO
 
---Example
---CREATE PROC USP_GetProductByProductID
---@productID NVARCHAR(10)
---AS
---BEGIN
---	SELECT * FROM MatHang WHERE MaMatHang = @productID
---END
---GO
-
-----Example
---EXEC USP_GetProductByProductID @productID = '2'
 GO
 
 

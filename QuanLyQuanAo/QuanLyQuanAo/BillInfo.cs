@@ -20,7 +20,7 @@ namespace QuanLyQuanAo
         //************************Lưu ý: ID_CLIENT_DEFAULT******************
         private const int ID_DEFAULT = 1;
         private const int ERROR = -100;
-
+        BindingSource listProduct = new BindingSource();
 
         List<BillProductOut> productsOut = new List<BillProductOut>();
         List<ProductInfo> productsEntry = new List<ProductInfo>();
@@ -116,7 +116,7 @@ namespace QuanLyQuanAo
                 if (BillInfoDAO.Instance.InsertBillExport(idClient, productsOut))
                 {
                     MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearBinding();
+                    
                     LoadDataExport();
                     ClearBilDisplay();
                 }
@@ -166,7 +166,7 @@ namespace QuanLyQuanAo
         private void LoadDataExport()
         {
             LoadProduct();
-            AddBinding();
+            
         }
 
         private void LoadClientData()
@@ -188,16 +188,12 @@ namespace QuanLyQuanAo
 
         private void LoadProduct()
         {
-            dataViewProduct.DataSource = ProductDAO.Instance.GetProduct();
+            dataViewProduct.DataSource = listProduct;
+            listProduct.DataSource = ProductDAO.Instance.GetProduct();
 
             InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit", "PriceIn" });
         }
 
-        private void AddBinding()
-        {
-            textBoxProduct.DataBindings.Add("Text", dataViewProduct.DataSource, "Name");
-            
-        }
 
         private void CheckAvailable(ListView listView, BillProductOut billInfo)
         {
@@ -283,11 +279,7 @@ namespace QuanLyQuanAo
             return idClient;
         }
 
-        private void ClearBinding()
-        {
-            textBoxProduct.DataBindings.Clear();
-            
-        }
+        
 
         private void ClearListView()
         {
@@ -737,6 +729,38 @@ namespace QuanLyQuanAo
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        List<ProductInfo> findProduct(string name)
+        {
+            List<ProductInfo> listProduct = ProductDAO.Instance.findProduct(name);
+
+            return listProduct;
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listProduct.DataSource = findProduct(textBoxFindPro.Text);
+        }
+
+        private void exitfindButton_Click(object sender, EventArgs e)
+        {
+            LoadProduct();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listViewProductOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BillInfo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
