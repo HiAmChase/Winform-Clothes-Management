@@ -195,10 +195,7 @@ namespace QuanLyQuanAo
             string email = textBoxEmail.Text.ToString();
             string address = textBoxAddress.Text.ToString();
 
-                      
-                
-
-            if (StaffDAO.Instance.UpdateStaff(/*Username, name,*/id, status, phone, email, address))
+            if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
             {
                 MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
@@ -217,10 +214,7 @@ namespace QuanLyQuanAo
             if (StaffDAO.Instance.UpdatePassword(username,password,newpassword))
             {
                 MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormLogin login = new FormLogin();
-                this.Hide();
-                login.ShowDialog();
-                login.ShowDialog();
+                this.Close();
             }
             else
             {
@@ -248,7 +242,8 @@ namespace QuanLyQuanAo
 
         private void saveButton2_Click(object sender, EventArgs e)
         {
-                
+            if (MessageBox.Show("Bạn sẽ thay đổi mật khẩu tài khoản và đăng xuất ?", "Cảnh báo",
+               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
                 UpdatePassword();
                 
                 
@@ -262,6 +257,16 @@ namespace QuanLyQuanAo
         private void exitButton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

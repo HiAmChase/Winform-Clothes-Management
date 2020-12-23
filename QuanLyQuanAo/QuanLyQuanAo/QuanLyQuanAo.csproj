@@ -166,6 +166,206 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trash-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filled-trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot %2884%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot %2884%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-sign--v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-sign--v11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-sign--v12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clothes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-male-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trash-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0017-Pencil-and-Ruler-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-error-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coin-us-dollar-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trash-icon %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-2-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-error-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0017-Pencil-and-Ruler-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-error-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lucky-cat-money-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lucky-cat-money-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal-power-plant-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lucky-cat-money-icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal-power-plant-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-shoes-woman-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clothes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T-Shirt-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apple-Store-Tshirt-Red-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery-truck-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-service-man-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-service-man-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0017-Pencil-and-Ruler-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-error-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-add-icon5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0017-Pencil-and-Ruler-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-error-icon4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-icon1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

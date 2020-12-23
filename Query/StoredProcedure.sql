@@ -1,17 +1,6 @@
 ﻿USE QuanLyQuanAo
 GO
 
---Example
---CREATE PROC USP_GetProductByProductID
---@productID NVARCHAR(10)
---AS
---BEGIN
---	SELECT * FROM MatHang WHERE MaMatHang = @productID
---END
---GO
-
-----Example
---EXEC USP_GetProductByProductID @productID = '2'
 GO
 
 
@@ -47,7 +36,7 @@ AS
 	C.Color,
 	P.Unit,
 	S.Size,
-	@Amount,
+	@Amount AS [Amount],
 	P.PriceOut,
 	P.PriceIn
 	FROM Product P
@@ -156,7 +145,7 @@ EXEC USP_InsertProduct @Name = N'Áo', @Type = N'Mũ', @Branch = N'GUCCI', @Size
 
 GO
 
-ALTER PROC USP_UpdateProduct
+CREATE PROC USP_UpdateProduct
 @IDProduct INT,@Name NVARCHAR(50), @Type NVARCHAR(50), @Branch NVARCHAR(50), @Size NVARCHAR(50), @Color NVARCHAR(50),
 @Amount INT, @Unit NVARCHAR(50), @PriceOut DECIMAL(19, 4), @PriceIn DECIMAL(19, 4)
 AS
@@ -244,7 +233,7 @@ BEGIN
 END
 GO
 
-ALTER PROC USP_InsertSupplier
+CREATE PROC USP_InsertSupplier
 @Name NVARCHAR(50), @Address NVARCHAR(100), @Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
 AS
 BEGIN
@@ -275,7 +264,7 @@ EXEC USP_InsertSupplier @Name = N'Balenciaga', @Address = '2332 ABC', @Phone = '
 							@NameBranch = 'Humor'
 GO
 
-ALTER PROC USP_UpdateSupplier
+CREATE PROC USP_UpdateSupplier
 @IDSupplier INT, @Name NVARCHAR(50), @Address NVARCHAR(100), 
 @Phone NVARCHAR(50), @Email NVARCHAR(50), @NameBranch NVARCHAR(50)
 AS
@@ -318,7 +307,6 @@ EXEC USP_UpdateSupplier @IDSupplier = 13, @Name = 'Balfsiaga', @Address = '12342
 								@Email = 'newemail@gmail.com', @NameBranch = 'NIKE'
 GO
 
---Chưa sửa
 CREATE PROC USP_GetBillProductOut
 @IDProduct INT, @Amount INT
 AS
@@ -387,7 +375,7 @@ BEGIN
 END
 
 --new query
-ALTER PROC USP_GetProductBySupplier
+CREATE PROC USP_GetProductBySupplier
 @IDSupplier INT
 AS
 	SELECT 

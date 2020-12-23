@@ -18,7 +18,7 @@ CREATE TABLE Staff
 GO
 INSERT INTO Staff(Username,Password,Status,Name,Address,Phone,Email)
 VALUES (N'Vinh',N'1',1,N'Vĩnh',N'Wellington city',N'0354175296',N'typhuso1thegioi@gmail.com'),
-		(N'Thinh',N'1',0,N'Thịnh',N'Newyork city',N'0359999999',N'seplonkhotinh@gmail.com')
+		(N'Thinh',N'1',0,N'Thịnh',N'Newyork city',N'0359999999',N'ngocthinh@gmail.com')
 GO
 
 CREATE TABLE Type
@@ -28,7 +28,7 @@ CREATE TABLE Type
 	Name NVARCHAR(50) NOT NULL DEFAULT N'Chưa đặt tên'
 )
 GO
-
+delete staff
 INSERT INTO Type(Name)
 VALUES (N'Không'),
 	(N'Áo sơ mi'),
@@ -75,7 +75,7 @@ CREATE TABLE Supplier
 
 INSERT INTO Supplier(Name, Address , Phone, Email, IDBranch)
 VALUES
-(N'Không', N'Không', N'Không', N'Không', 1),
+(N'Văn Hảo', N'Duy Châu', N'0908999999', N'vanhao565@gmail.com', 1),
 (N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không', 2),
 (N'Văn Vĩnh',N'Lệ Bắc',N'0354175296',N'vanvinhqn2310@gmail.com',3)
 
@@ -109,7 +109,6 @@ CREATE TABLE Client
 
 INSERT INTO Client (Name, Address, Phone, Email)
 VALUES
-(N'Không', N'Không', N'Không', N'Không'),
 (N'Ngọc Thịnh', N'29 Trần Xuân Lê', N'0898208980', N'Không'),
 (N'Văn Vĩnh',N'Lệ Bắc',N'0354175296',N'vanvinhqn2310@gmail.com')
 
@@ -237,48 +236,11 @@ ADD CONSTRAINT FK_Product_IDSupplier
 	REFERENCES Size(IDSize)
 	ON UPDATE CASCADE ON DELETE SET DEFAULT
 
-SELECT * FROM Type
-
-SELECT * FROM Branch
-
-SELECT * FROM Size
-
-SELECT * FROM Color
-
-SELECT * FROM Product
-
-SELECT * FROM Client
-
-SELECT * FROM Supplier
-
 INSERT INTO Product (Name, IDType, IDSupplier, IDSize, IDColor, Amount, Unit, PriceOut, PriceIn)
 VALUES
 (N'Áo hoodie', 4, 1, 2, 2, 50, N'Cái', 750000,12000),
 (N'Quần jean', 3, 2, 2, 3, 20, N'Cái', 900000,10000),
 (N'Giày thể thao', 6, 1, 4, 3, 10, N'Đôi', 350000,20000),
 (N'Mũ', 1, 2, 1, 4, 25, N'Cái', 50000,20000)
-GO
 
 
-SELECT * FROM Product
-
-SELECT B.* FROM BillExportInfo B
-
-SELECT B.*
-FROM
-	BillExportInfo B
-INNER JOIN
-	Product P
-ON
-	B.IDProduct = P.IDProduct
-GO
-
---DECLARE @Amount INT = 3, @IDProduct INT = 3
---SELECT P.IDProduct, P.Name, P.Price, @Amount, P.Price * @Amount AS [TotalPrice]
---FROM
---	Product P
---WHERE P.IDProduct = @IDProduct
-GO
-
-SELECT * FROM staff
-go
