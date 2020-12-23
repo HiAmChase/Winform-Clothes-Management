@@ -112,6 +112,13 @@
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrashForm.Designer.cs">
+      <DependentUpon>TrashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Variable.cs" />
     <EmbeddedResource Include="BillInfo.resx">
       <DependentUpon>BillInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrashForm.resx">
+      <DependentUpon>TrashForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
