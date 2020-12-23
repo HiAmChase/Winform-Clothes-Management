@@ -164,77 +164,109 @@ namespace QuanLyQuanAo
 
         private void InsertStaff()
         {
-            string Username = textBoxUsername.Text.ToString();
-            string name = textBoxName.Text.ToString();
-            int status = Convert.ToInt32(numericStatus.Value);
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
-
-            
-
-            if (StaffDAO.Instance.InsertStaff(Username,name,status ,phone, email, address))
+            try
             {
-                MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                string Username = Variable.ToInput(textBoxUsername.Text);
+                string name = Variable.ToInput(textBoxName.Text);
+                int status = Convert.ToInt32(numericStatus.Value);
+                string phone = Variable.ToPhone(textBoxPhone.Text);
+                string email = Variable.ToEmail(textBoxEmail.Text);
+                string address = Variable.ToInput(textBoxAddress.Text);
+
+                if (StaffDAO.Instance.InsertStaff(Username, name, status, phone, email, address))
+                {
+                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Tên tài khoản đã tồn tại !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Tên tài khoản đã tồn tại !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
 
         private void UpdateStaff()
         {
-            int id = Convert.ToInt32(textBoxID.Text);
-            string username = textBoxUsername.Text.ToString();
-            string name = textBoxName.Text.ToString();
-            int status = Convert.ToInt32(numericStatus.Value);
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
+            try
+            {
+                int id = Convert.ToInt32(textBoxID.Text);
+                string username = Variable.ToInput(textBoxUsername.Text);
+                string name = Variable.ToInput(textBoxName.Text);
+                int status = Convert.ToInt32(numericStatus.Value);
+                string phone = Variable.ToPhone(textBoxPhone.Text);
+                string email = Variable.ToEmail(textBoxEmail.Text);
+                string address = Variable.ToInput(textBoxAddress.Text);
 
-            if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
-            {
-                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
+                {
+                    MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
         private void UpdatePassword()
         {
-            string username = textBoxUsername2.Text.ToString();
-            string password = textBoxPassword.Text.ToString();
-            string newpassword = textBoxPassword2.Text.ToString();
-            if (StaffDAO.Instance.UpdatePassword(username,password,newpassword))
+            try
             {
-                MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                string username = Variable.ToInput(textBoxUsername2.Text);
+                string password = Variable.ToInput(textBoxPassword.Text);
+                string newpassword = Variable.ToInput(textBoxPassword2.Text);
+                if (StaffDAO.Instance.UpdatePassword(username, password, newpassword))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch(Exception error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
-
-
         }
         private void DeleteStaff()
         {
-            int idstaff = Convert.ToInt32(textBoxID.Text);
+            try
+            {
+                int idstaff = Convert.ToInt32(textBoxID.Text);
 
-            if (StaffDAO.Instance.DeleteStaff(idstaff))
-            {
-                MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (StaffDAO.Instance.DeleteStaff(idstaff))
+                {
+                    MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
         }
 
@@ -260,11 +292,6 @@ namespace QuanLyQuanAo
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
