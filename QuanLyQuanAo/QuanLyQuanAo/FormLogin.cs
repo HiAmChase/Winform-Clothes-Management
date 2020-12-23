@@ -35,8 +35,8 @@ namespace QuanLyQuanAo
         {
             try
             {
-                string username = Variable.ToInput(textBoxUsername.Text);
-                string password = Variable.ToInput(textBoxPassword.Text);
+                string username = Process.ToInput(textBoxUsername.Text);
+                string password = Process.ToInput(textBoxPassword.Text);
 
 
                 int getStatus = Login(username, password);

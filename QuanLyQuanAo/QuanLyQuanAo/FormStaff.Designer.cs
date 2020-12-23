@@ -56,7 +56,6 @@ namespace QuanLyQuanAo
             this.exitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataViewStaff = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.exitButton2 = new System.Windows.Forms.Button();
             this.saveButton2 = new System.Windows.Forms.Button();
@@ -68,24 +67,25 @@ namespace QuanLyQuanAo
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.dataViewStaff = new System.Windows.Forms.DataGridView();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatus)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewStaff)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1106, 577);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Quản lý tài khoản";
@@ -98,7 +98,7 @@ namespace QuanLyQuanAo
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(4, 5);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1103, 597);
             this.panel1.TabIndex = 0;
@@ -123,7 +123,7 @@ namespace QuanLyQuanAo
             this.panel4.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.SystemColors.Highlight;
             this.panel4.Location = new System.Drawing.Point(38, 2);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(782, 234);
             this.panel4.TabIndex = 5;
@@ -131,7 +131,7 @@ namespace QuanLyQuanAo
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(127, 39);
-            this.textBoxID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(90, 27);
             this.textBoxID.TabIndex = 21;
@@ -149,7 +149,7 @@ namespace QuanLyQuanAo
             // numericStatus
             // 
             this.numericStatus.Location = new System.Drawing.Point(416, 40);
-            this.numericStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericStatus.Margin = new System.Windows.Forms.Padding(2);
             this.numericStatus.Maximum = new decimal(new int[] {
             1,
             0,
@@ -162,7 +162,7 @@ namespace QuanLyQuanAo
             // textBoxAddress
             // 
             this.textBoxAddress.Location = new System.Drawing.Point(127, 186);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(380, 27);
             this.textBoxAddress.TabIndex = 18;
@@ -170,7 +170,7 @@ namespace QuanLyQuanAo
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(508, 131);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(262, 27);
             this.textBoxEmail.TabIndex = 17;
@@ -178,7 +178,7 @@ namespace QuanLyQuanAo
             // textBoxPhone
             // 
             this.textBoxPhone.Location = new System.Drawing.Point(127, 131);
-            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(234, 27);
             this.textBoxPhone.TabIndex = 16;
@@ -216,7 +216,7 @@ namespace QuanLyQuanAo
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(508, 84);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(262, 27);
             this.textBoxName.TabIndex = 11;
@@ -224,7 +224,7 @@ namespace QuanLyQuanAo
             // textBoxUsername
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(127, 84);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(234, 27);
             this.textBoxUsername.TabIndex = 10;
@@ -281,7 +281,7 @@ namespace QuanLyQuanAo
             this.panel3.Controls.Add(this.cancelButton);
             this.panel3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(824, 297);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 244);
             this.panel3.TabIndex = 1;
@@ -292,7 +292,7 @@ namespace QuanLyQuanAo
             this.editButton.Image = global::QuanLyQuanAo.Properties.Resources._0017_Pencil_and_Ruler_icon1;
             this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.editButton.Location = new System.Drawing.Point(158, 136);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(86, 38);
             this.editButton.TabIndex = 5;
@@ -307,7 +307,7 @@ namespace QuanLyQuanAo
             this.saveButton.Image = global::QuanLyQuanAo.Properties.Resources.Save_as_icon1;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Location = new System.Drawing.Point(37, 46);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(86, 42);
             this.saveButton.TabIndex = 3;
@@ -321,7 +321,7 @@ namespace QuanLyQuanAo
             this.addButton.Image = global::QuanLyQuanAo.Properties.Resources.sign_add_icon3;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addButton.Location = new System.Drawing.Point(37, 136);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(86, 38);
             this.addButton.TabIndex = 0;
@@ -335,7 +335,7 @@ namespace QuanLyQuanAo
             this.deleteButton.Image = global::QuanLyQuanAo.Properties.Resources.Trash_icon__1_;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.deleteButton.Location = new System.Drawing.Point(37, 193);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(85, 39);
             this.deleteButton.TabIndex = 1;
@@ -349,7 +349,7 @@ namespace QuanLyQuanAo
             this.exitButton.Image = global::QuanLyQuanAo.Properties.Resources.house_icon;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exitButton.Location = new System.Drawing.Point(158, 193);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(86, 39);
             this.exitButton.TabIndex = 2;
@@ -364,7 +364,7 @@ namespace QuanLyQuanAo
             this.cancelButton.Image = global::QuanLyQuanAo.Properties.Resources.sign_error_icon1;
             this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cancelButton.Location = new System.Drawing.Point(158, 46);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(86, 42);
             this.cancelButton.TabIndex = 4;
@@ -376,22 +376,12 @@ namespace QuanLyQuanAo
             // panel2
             // 
             this.panel2.Controls.Add(this.dataViewStaff);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(14, 241);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(806, 353);
             this.panel2.TabIndex = 0;
-            // 
-            // dataViewStaff
-            // 
-            this.dataViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewStaff.Location = new System.Drawing.Point(8, 11);
-            this.dataViewStaff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataViewStaff.Name = "dataViewStaff";
-            this.dataViewStaff.RowHeadersWidth = 51;
-            this.dataViewStaff.RowTemplate.Height = 24;
-            this.dataViewStaff.Size = new System.Drawing.Size(782, 329);
-            this.dataViewStaff.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -406,9 +396,9 @@ namespace QuanLyQuanAo
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(1106, 577);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Đổi mật khẩu";
@@ -419,7 +409,7 @@ namespace QuanLyQuanAo
             this.exitButton2.Image = global::QuanLyQuanAo.Properties.Resources.house_icon1;
             this.exitButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exitButton2.Location = new System.Drawing.Point(690, 359);
-            this.exitButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton2.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton2.Name = "exitButton2";
             this.exitButton2.Size = new System.Drawing.Size(94, 41);
             this.exitButton2.TabIndex = 9;
@@ -433,7 +423,7 @@ namespace QuanLyQuanAo
             this.saveButton2.Image = global::QuanLyQuanAo.Properties.Resources.floppy_icon;
             this.saveButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton2.Location = new System.Drawing.Point(574, 359);
-            this.saveButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton2.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton2.Name = "saveButton2";
             this.saveButton2.Size = new System.Drawing.Size(96, 41);
             this.saveButton2.TabIndex = 7;
@@ -445,7 +435,7 @@ namespace QuanLyQuanAo
             // textBoxPassword2
             // 
             this.textBoxPassword2.Location = new System.Drawing.Point(421, 286);
-            this.textBoxPassword2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassword2.Name = "textBoxPassword2";
             this.textBoxPassword2.Size = new System.Drawing.Size(365, 26);
             this.textBoxPassword2.TabIndex = 6;
@@ -454,7 +444,7 @@ namespace QuanLyQuanAo
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(421, 226);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(365, 26);
             this.textBoxPassword.TabIndex = 5;
@@ -463,7 +453,7 @@ namespace QuanLyQuanAo
             // textBoxUsername2
             // 
             this.textBoxUsername2.Location = new System.Drawing.Point(421, 167);
-            this.textBoxUsername2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxUsername2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUsername2.Name = "textBoxUsername2";
             this.textBoxUsername2.Size = new System.Drawing.Size(365, 26);
             this.textBoxUsername2.TabIndex = 2;
@@ -516,12 +506,28 @@ namespace QuanLyQuanAo
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(15, 21);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1114, 610);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.Tag = "";
+            // 
+            // dataViewStaff
+            // 
+            this.dataViewStaff.AllowUserToAddRows = false;
+            this.dataViewStaff.AllowUserToDeleteRows = false;
+            this.dataViewStaff.AllowUserToResizeColumns = false;
+            this.dataViewStaff.AllowUserToResizeRows = false;
+            this.dataViewStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewStaff.Location = new System.Drawing.Point(8, 3);
+            this.dataViewStaff.Name = "dataViewStaff";
+            this.dataViewStaff.ReadOnly = true;
+            this.dataViewStaff.RowHeadersWidth = 51;
+            this.dataViewStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewStaff.Size = new System.Drawing.Size(795, 323);
+            this.dataViewStaff.TabIndex = 1;
             // 
             // FormStaff
             // 
@@ -529,7 +535,7 @@ namespace QuanLyQuanAo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 640);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStaff";
@@ -540,10 +546,10 @@ namespace QuanLyQuanAo
             ((System.ComponentModel.ISupportInitialize)(this.numericStatus)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewStaff)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewStaff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,7 +583,6 @@ namespace QuanLyQuanAo
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataViewStaff;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button exitButton2;
         private System.Windows.Forms.Button saveButton2;
@@ -589,6 +594,7 @@ namespace QuanLyQuanAo
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.DataGridView dataViewStaff;
 
         public EventHandler listView1_SelectedIndexChanged { get; private set; }
     }

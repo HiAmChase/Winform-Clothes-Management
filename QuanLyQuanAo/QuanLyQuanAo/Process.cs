@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyQuanAo
 {
-    public class Variable
+    public class Process
     {
         public static string ToInput(string text)
         {
             if (isEmpty(text))
             {
-                Exception e = new Exception("Xuất hiện dữ liệu trống");
+                Exception e = new Exception("Vui lòng nhập đầy đủ thông tin");
                 throw e;
             }
             return text;
@@ -22,7 +23,7 @@ namespace QuanLyQuanAo
         {
             if (isEmpty(text))
             {
-                Exception e = new Exception("Xuất hiện dữ liệu trống");
+                Exception e = new Exception("Vui lòng nhập đầy đủ thông tin");
                 throw e;
             }
             if (!isNumber(text))
@@ -36,7 +37,7 @@ namespace QuanLyQuanAo
         {
             if (isEmpty(text))
             {
-                Exception e = new Exception("Ký tự trống");
+                Exception e = new Exception("Vui lòng nhập đầy đủ thông tin");
                 throw e;
             }
             if (!isEmail(text))
@@ -75,6 +76,13 @@ namespace QuanLyQuanAo
             if (text == "")
                 return true;
             return false;
+        }
+        public static void InvisibleAttributes(DataGridView dataView, object[] parameters = null)
+        {
+            foreach (string item in parameters)
+            {
+                dataView.Columns[item].Visible = false;
+            }
         }
     }
 }

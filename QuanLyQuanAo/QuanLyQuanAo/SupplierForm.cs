@@ -35,6 +35,7 @@ namespace QuanLyQuanAo
         {
             dataViewSupplier.DataSource = listSupplier;
             listSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
+            Process.InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier" });
         }
 
         private void AddBinding()
@@ -101,6 +102,7 @@ namespace QuanLyQuanAo
             textBoxPhone.Enabled = true;
             textBoxEmail.Enabled = true;
             textBoxAddress.Enabled = true;
+            textBoxBranch.Enabled = true;
         }
 
         private void DisableTextBoxAndComboBox()
@@ -136,57 +138,59 @@ namespace QuanLyQuanAo
 
         private void InsertSupplier()
         {
-            string name = textBoxName.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string branch = textBoxBranch.Text.ToString();
+            try
+            {
+                string name = Process.ToInput(textBoxName.Text);
+                string address = Process.ToInput(textBoxAddress.Text);
+                string phone = Process.ToPhone(textBoxPhone.Text);
+                string email = Process.ToEmail(textBoxEmail.Text);
+                string branch = Process.ToInput(textBoxBranch.Text);
 
-            if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
-            {
-                MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
+                {
+                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
         }
 
         private void UpdateSupplier()
         {
-            int id = Convert.ToInt32(textBoxID.Text);
-            string name = textBoxName.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string branch = textBoxBranch.Text.ToString();
-
-            if (SupplierDAO.Instance.UpdateSupplier(id, name, branch, phone, email, address))
+            try
             {
-                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+                int id = Convert.ToInt32(textBoxID.Text);
+                string name = Process.ToInput(textBoxName.Text);
+                string address = Process.ToInput(textBoxAddress.Text);
+                string phone = Process.ToPhone(textBoxPhone.Text);
+                string email = Process.ToEmail(textBoxEmail.Text);
+                string branch = Process.ToInput(textBoxBranch.Text);
 
-        private void DeleteSupplier()
-        {
-            int id = Convert.ToInt32(textBoxID.Text);
-
-            if (SupplierDAO.Instance.DeleteSupplier(id))
+                if (SupplierDAO.Instance.UpdateSupplier(id, name, branch, phone, email, address))
+                {
+                    MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } 
+            catch (FormatException error)
             {
-                MessageBox.Show("Xoá thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                MessageBox.Show(error.Message);
             }
-            else
+            catch (Exception error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
-
         }
 
         private void exitButton_Click(object sender, EventArgs e)
