@@ -74,61 +74,15 @@ namespace QuanLyQuanAo
             editFlag = 0;
         }
 
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            addFlag = 1;
-            
+        
 
-            saveButton.Enabled = true;
-            cancelButton.Enabled = true;
+        
 
-            ClearBinding();
-            EnableTextBox();
-            
-            ReleaseInput();
-        }
+         
+        
 
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            editFlag = 1;
-           
-
-            saveButton.Enabled = true;
-            cancelButton.Enabled = true;
-
-            ClearBinding();
-            EnableTextBox();
-            textBoxUsername.Enabled = false;
-            textBoxName.Enabled = false;
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            if (addFlag == 1)
-                InsertStaff();
-            if (editFlag == 1)
-                UpdateStaff();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
-            {
-                ClearBinding();
-                DeleteStaff();
-            }
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
+        
 
         private void ClearBinding()
         {
@@ -162,92 +116,154 @@ namespace QuanLyQuanAo
             textBoxAddress.Text = "";
         }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            addFlag = 1;
+
+
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearBinding();
+            EnableTextBox();
+
+            ReleaseInput();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            editFlag = 1;
+
+
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearBinding();
+            EnableTextBox();
+            textBoxUsername.Enabled = false;
+            textBoxName.Enabled = false;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
+            {
+                ClearBinding();
+                DeleteStaff();
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (addFlag == 1)
+                InsertStaff();
+            if (editFlag == 1)
+                UpdateStaff();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
         private void InsertStaff()
         {
-            string Username = textBoxUsername.Text.ToString();
-            string name = textBoxName.Text.ToString();
-            int status = Convert.ToInt32(numericStatus.Value);
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
-
-            
-
-            if (StaffDAO.Instance.InsertStaff(Username,name,status ,phone, email, address))
+            try
             {
-                MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                string Username = Variable.ToInput(textBoxUsername.Text);
+                string name = Variable.ToInput(textBoxName.Text);
+                int status = Convert.ToInt32(numericStatus.Value);
+                string phone = Variable.ToPhone(textBoxPhone.Text);
+                string email = Variable.ToEmail(textBoxEmail.Text);
+                string address = Variable.ToInput(textBoxAddress.Text);
+
+                if (StaffDAO.Instance.InsertStaff(Username, name, status, phone, email, address))
+                {
+                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Tên tài khoản đã tồn tại !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Tên tài khoản đã tồn tại !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
 
         private void UpdateStaff()
         {
-            int id = Convert.ToInt32(textBoxID.Text);
-            string username = textBoxUsername.Text.ToString();
-            string name = textBoxName.Text.ToString();
-            int status = Convert.ToInt32(numericStatus.Value);
-            string phone = textBoxPhone.Text.ToString();
-            string email = textBoxEmail.Text.ToString();
-            string address = textBoxAddress.Text.ToString();
+            try
+            {
+                int id = Convert.ToInt32(textBoxID.Text);
+                string username = Variable.ToInput(textBoxUsername.Text);
+                string name = Variable.ToInput(textBoxName.Text);
+                int status = Convert.ToInt32(numericStatus.Value);
+                string phone = Variable.ToPhone(textBoxPhone.Text);
+                string email = Variable.ToEmail(textBoxEmail.Text);
+                string address = Variable.ToInput(textBoxAddress.Text);
 
-            if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
-            {
-                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
+                {
+                    MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
-        private void UpdatePassword()
-        {
-            string username = textBoxUsername2.Text.ToString();
-            string password = textBoxPassword.Text.ToString();
-            string newpassword = textBoxPassword2.Text.ToString();
-            if (StaffDAO.Instance.UpdatePassword(username,password,newpassword))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-
-        }
         private void DeleteStaff()
         {
-            int idstaff = Convert.ToInt32(textBoxID.Text);
+            try
+            {
+                int idstaff = Convert.ToInt32(textBoxID.Text);
 
-            if (StaffDAO.Instance.DeleteStaff(idstaff))
-            {
-                MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (StaffDAO.Instance.DeleteStaff(idstaff))
+                {
+                    MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
         }
+
+
 
         
-
-        private void saveButton2_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn sẽ thay đổi mật khẩu tài khoản và đăng xuất ?", "Cảnh báo",
-               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
-                UpdatePassword();
-                
-                
-        }
 
         private void cancleButton2_Click(object sender, EventArgs e)
         {
@@ -259,14 +275,6 @@ namespace QuanLyQuanAo
             this.Close();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

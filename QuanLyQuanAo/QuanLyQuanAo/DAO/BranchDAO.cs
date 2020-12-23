@@ -35,7 +35,7 @@ namespace QuanLyQuanAo.DAO
 
             return listBranches;
         }
-
+       
         public Branch GetBranchByID(int id, string storeProcName, string variable)
         {
             Branch branch = null;

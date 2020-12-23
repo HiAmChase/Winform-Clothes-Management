@@ -30,3 +30,6 @@ C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\D
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormLogin.resources
 C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormStaff.resources
 C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormStaff.resources
+C:\Users\OS\Desktop\DoAn\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.TrashForm.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.TrashForm.resources
+C:\Users\DELL\Desktop\Winform-Clothes-Management\QuanLyQuanAo\QuanLyQuanAo\obj\Debug\QuanLyQuanAo.FormUpdatePass.resources

@@ -36,6 +36,7 @@ namespace QuanLyQuanAo
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.UpdatePasswordButton = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -60,7 +61,7 @@ namespace QuanLyQuanAo
             this.textBoxUsername.Location = new System.Drawing.Point(179, 26);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(384, 27);
+            this.textBoxUsername.Size = new System.Drawing.Size(395, 27);
             this.textBoxUsername.TabIndex = 1;
             // 
             // label1
@@ -89,7 +90,7 @@ namespace QuanLyQuanAo
             this.textBoxPassword.Location = new System.Drawing.Point(179, 26);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(384, 27);
+            this.textBoxPassword.Size = new System.Drawing.Size(395, 27);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -104,6 +105,7 @@ namespace QuanLyQuanAo
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.UpdatePasswordButton);
             this.panel3.Controls.Add(this.buttonExit);
             this.panel3.Controls.Add(this.buttonLogin);
             this.panel3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,9 +116,20 @@ namespace QuanLyQuanAo
             this.panel3.Size = new System.Drawing.Size(605, 70);
             this.panel3.TabIndex = 3;
             // 
+            // UpdatePasswordButton
+            // 
+            this.UpdatePasswordButton.Location = new System.Drawing.Point(12, 14);
+            this.UpdatePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UpdatePasswordButton.Name = "UpdatePasswordButton";
+            this.UpdatePasswordButton.Size = new System.Drawing.Size(162, 43);
+            this.UpdatePasswordButton.TabIndex = 4;
+            this.UpdatePasswordButton.Text = "Đổi mật khẩu";
+            this.UpdatePasswordButton.UseVisualStyleBackColor = true;
+            this.UpdatePasswordButton.Click += new System.EventHandler(this.UpdatePasswordButton_Click);
+            // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(435, 14);
+            this.buttonExit.Location = new System.Drawing.Point(447, 14);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(127, 43);
@@ -127,7 +140,7 @@ namespace QuanLyQuanAo
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(295, 14);
+            this.buttonLogin.Location = new System.Drawing.Point(314, 14);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(127, 43);
@@ -149,7 +162,6 @@ namespace QuanLyQuanAo
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -170,5 +182,6 @@ namespace QuanLyQuanAo
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button UpdatePasswordButton;
     }
 }

@@ -26,28 +26,12 @@ namespace QuanLyQuanAo.DAO
             return DataProvider.Instance.ExecuteQuery("Select IDAccount, Username, Name,Status,Phone,Email ,Address From dbo.Staff");
         }
         
-        public string MHMD5(string password)
-        {
-            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
-            byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
-            string haspass = "";
-            foreach (byte item in hasdata)
-            {
-                haspass += item;
-            }
-            return haspass;
-        }
+        
        
 
         public int Login(string username, string password)
         {
-            byte[] temp = ASCIIEncoding.ASCII.GetBytes(password);
-            byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(temp);
-            string haspass = "";
-            foreach (byte item in hasdata)
-            {
-                haspass += item;
-            }
+            
 
             int ERROR = -100;
             int result = ERROR;

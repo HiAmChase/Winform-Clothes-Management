@@ -33,28 +33,36 @@ namespace QuanLyQuanAo
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsername.Text;
-            string password = textBoxPassword.Text;
-
-            int getStatus = Login(username, password);
-            
-            switch(getStatus)
+            try
             {
-                case 1:
-                    FormController form = new FormController();
-                    this.Hide();
-                    form.ShowDialog();
-                    this.Show();
-                    break;
-                case 0:
-                    BillInfo formBill = new BillInfo();
-                    this.Hide();
-                    formBill.ShowDialog();
-                    this.Show();
-                    break;
-                default:
-                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu, vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK);
-                    break;
+                string username = Variable.ToInput(textBoxUsername.Text);
+                string password = Variable.ToInput(textBoxPassword.Text);
+
+
+                int getStatus = Login(username, password);
+
+                switch (getStatus)
+                {
+                    case 1:
+                        FormController form = new FormController();
+                        this.Hide();
+                        form.ShowDialog();
+                        this.Show();
+                        break;
+                    case 0:
+                        BillInfo formBill = new BillInfo();
+                        this.Hide();
+                        formBill.ShowDialog();
+                        this.Show();
+                        break;
+                    default:
+                        MessageBox.Show("Sai tên tài khoản hoặc mật khẩu, vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK);
+                        break;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
@@ -63,9 +71,13 @@ namespace QuanLyQuanAo
             return StaffDAO.Instance.Login(Username, Password);
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private void UpdatePasswordButton_Click(object sender, EventArgs e)
         {
-
+            
+            FormUpdatePass form = new FormUpdatePass();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }

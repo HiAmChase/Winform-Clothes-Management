@@ -35,6 +35,8 @@ namespace QuanLyQuanAo.DAO
             return list;
         }
 
+
+
         public bool InsertSupplier(string name, string nameBranch, string phone, string email, string address)
         {
             string query = string.Format("EXEC USP_InsertSupplier @Name = N'{0}', @NameBranch = N'{1}'," +

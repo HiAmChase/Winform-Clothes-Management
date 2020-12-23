@@ -113,6 +113,46 @@ namespace QuanLyQuanAo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon21 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon22 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Accept_icon {
             get {
                 object obj = ResourceManager.GetObject("Accept-icon", resourceCulture);
@@ -353,6 +393,16 @@ namespace QuanLyQuanAo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap floppy_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("floppy-icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
@@ -396,6 +446,16 @@ namespace QuanLyQuanAo.Properties {
         internal static System.Drawing.Bitmap house_icon1 {
             get {
                 object obj = ResourceManager.GetObject("house-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap house_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("house-icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
