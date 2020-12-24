@@ -40,7 +40,7 @@ namespace QuanLyQuanAo
         {
             dataViewProduct.DataSource = listProduct;
             listProduct.DataSource = ProductDAO.Instance.GetProduct();
-
+            Process.InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" });
         }
 
         private void AddProductBinding()
@@ -105,16 +105,12 @@ namespace QuanLyQuanAo
 
         private void textBoxID_TextChanged(object sender, EventArgs e)
         {
-            try { int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
 
-
-                AutoUpdateComboBoxSize(idProduct);
-                AutoUpdateComboBoxBranch(idProduct);
-                AutoUpdateComboBoxColor(idProduct);
-                AutoUpdateComboBoxType(idProduct);
-            }
-            catch 
-            { };
+            AutoUpdateComboBoxSize(idProduct);
+            AutoUpdateComboBoxBranch(idProduct);
+            AutoUpdateComboBoxColor(idProduct);
+            AutoUpdateComboBoxType(idProduct);
 
         }
 
@@ -278,64 +274,92 @@ namespace QuanLyQuanAo
 
         private void InsertProduct()
         {
-            string name = textBoxProduct.Text;
-            string branch = comboBoxBranch.Text;
-            string size = comboBoxSize.Text;
-            string type = comboBoxType.Text;
-            string color = comboBoxColor.Text;
-            string unit = textBoxUnit.Text;
-            int amount = Convert.ToInt32(numUpDownAmount.Value);
-            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
-            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+            try
+            {
+                string name = Process.ToInput(textBoxProduct.Text);
+                string branch = Process.ToInput(comboBoxBranch.Text);
+                string size = Process.ToInput(comboBoxSize.Text);
+                string type = Process.ToInput(comboBoxType.Text);
+                string color = Process.ToInput(comboBoxColor.Text);
+                string unit = Process.ToInput(textBoxUnit.Text);
+                int amount = Convert.ToInt32(numUpDownAmount.Value);
+                double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+                double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
 
-            if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, priceIn, priceOut))
-            {
-                MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (ProductDAO.Instance.InsertProduct(name, type, branch, size, color, amount, unit, priceIn, priceOut))
+                {
+                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void UpdateProduct()
         {
-            int id = Convert.ToInt32(textBoxID.Text);
-            string name = textBoxProduct.Text;
-            string branch = comboBoxBranch.Text;
-            string size = comboBoxSize.Text;
-            string type = comboBoxType.Text;
-            string color = comboBoxColor.Text;
-            string unit = textBoxUnit.Text;
-            int amount = Convert.ToInt32(numUpDownAmount.Value);
-            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
-            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
-
-            if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, priceIn, priceOut))
+            try
             {
-                MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                int id = Convert.ToInt32(textBoxID.Text);
+                string name = Process.ToInput(textBoxProduct.Text);
+                string branch = Process.ToInput(comboBoxBranch.Text);
+                string size = Process.ToInput(comboBoxSize.Text);
+                string type = Process.ToInput(comboBoxType.Text);
+                string color = Process.ToInput(comboBoxColor.Text);
+                string unit = Process.ToInput(textBoxUnit.Text);
+                int amount = Convert.ToInt32(numUpDownAmount.Value);
+                double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+                double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+
+                if (ProductDAO.Instance.UpdateProduct(id, name, type, branch, size, color, amount, unit, priceIn, priceOut))
+                {
+                    MessageBox.Show("Sửa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void DeleteProduct()
         {
-            int idProduct = Convert.ToInt32(textBoxID.Text);
+            try
+            {
+                int idProduct = Convert.ToInt32(textBoxID.Text);
 
-            if (ProductDAO.Instance.DeleteProduct(idProduct))
-            {
-                MessageBox.Show("Xoá thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (ProductDAO.Instance.DeleteProduct(idProduct))
+                {
+                    MessageBox.Show("Xoá thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (FormatException error)
             {
-                MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(error.Message);
             }
         }
 
@@ -351,8 +375,6 @@ namespace QuanLyQuanAo
 
         List<ProductInfo> findProduct(string name)
         {
-            
-
             List<ProductInfo> listProduct = ProductDAO.Instance.findProduct(name);
 
             return listProduct;

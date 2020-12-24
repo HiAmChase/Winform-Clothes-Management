@@ -15,8 +15,6 @@ namespace QuanLyQuanAo
     public partial class FormStaff : Form
     {
 
-
-
         BindingSource listStaff = new BindingSource();
         int addFlag = 0;
         int editFlag = 0;
@@ -25,8 +23,7 @@ namespace QuanLyQuanAo
             InitializeComponent();
             LoadData();
         }
-        
-        
+            
 
         private void LoadData()
         {
@@ -39,6 +36,7 @@ namespace QuanLyQuanAo
         {
             dataViewStaff.DataSource = listStaff;
             listStaff.DataSource = StaffDAO.Instance.GetStaff();
+            Process.InvisibleAttributes(dataViewStaff, new object[] { "IDAccount" });
         }
         private void AddBinding()
         {
@@ -63,8 +61,7 @@ namespace QuanLyQuanAo
 
             saveButton.Enabled = false;
             cancelButton.Enabled = false;
-
-            
+                       
         }
 
         
@@ -119,8 +116,6 @@ namespace QuanLyQuanAo
         private void addButton_Click(object sender, EventArgs e)
         {
             addFlag = 1;
-
-
             saveButton.Enabled = true;
             cancelButton.Enabled = true;
 
@@ -178,12 +173,12 @@ namespace QuanLyQuanAo
         {
             try
             {
-                string Username = Variable.ToInput(textBoxUsername.Text);
-                string name = Variable.ToInput(textBoxName.Text);
+                string Username = Process.ToInput(textBoxUsername.Text);
+                string name = Process.ToInput(textBoxName.Text);
                 int status = Convert.ToInt32(numericStatus.Value);
-                string phone = Variable.ToPhone(textBoxPhone.Text);
-                string email = Variable.ToEmail(textBoxEmail.Text);
-                string address = Variable.ToInput(textBoxAddress.Text);
+                string phone = Process.ToPhone(textBoxPhone.Text);
+                string email = Process.ToEmail(textBoxEmail.Text);
+                string address = Process.ToInput(textBoxAddress.Text);
 
                 if (StaffDAO.Instance.InsertStaff(Username, name, status, phone, email, address))
                 {
@@ -211,12 +206,12 @@ namespace QuanLyQuanAo
             try
             {
                 int id = Convert.ToInt32(textBoxID.Text);
-                string username = Variable.ToInput(textBoxUsername.Text);
-                string name = Variable.ToInput(textBoxName.Text);
+                string username = Process.ToInput(textBoxUsername.Text);
+                string name = Process.ToInput(textBoxName.Text);
                 int status = Convert.ToInt32(numericStatus.Value);
-                string phone = Variable.ToPhone(textBoxPhone.Text);
-                string email = Variable.ToEmail(textBoxEmail.Text);
-                string address = Variable.ToInput(textBoxAddress.Text);
+                string phone = Process.ToPhone(textBoxPhone.Text);
+                string email = Process.ToEmail(textBoxEmail.Text);
+                string address = Process.ToInput(textBoxAddress.Text);
 
                 if (StaffDAO.Instance.UpdateStaff(id, status, phone, email, address))
                 {
@@ -237,7 +232,6 @@ namespace QuanLyQuanAo
                 MessageBox.Show(error.Message);
             }
         }
-
 
         private void DeleteStaff()
         {
@@ -261,9 +255,6 @@ namespace QuanLyQuanAo
             }
         }
 
-
-
-        
 
         private void cancleButton2_Click(object sender, EventArgs e)
         {

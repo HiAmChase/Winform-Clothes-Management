@@ -332,6 +332,22 @@ namespace QuanLyQuanAo
             this.numericStatus.Size = new System.Drawing.Size(120, 32);
             this.numericStatus.TabIndex = 0;
             // 
+            // dataViewStaff
+            // 
+            this.dataViewStaff.AllowUserToAddRows = false;
+            this.dataViewStaff.AllowUserToDeleteRows = false;
+            this.dataViewStaff.AllowUserToResizeColumns = false;
+            this.dataViewStaff.AllowUserToResizeRows = false;
+            this.dataViewStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewStaff.Location = new System.Drawing.Point(8, 3);
+            this.dataViewStaff.Name = "dataViewStaff";
+            this.dataViewStaff.ReadOnly = true;
+            this.dataViewStaff.RowHeadersWidth = 51;
+            this.dataViewStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewStaff.Size = new System.Drawing.Size(795, 323);
+            this.dataViewStaff.TabIndex = 1;
+            // 
             // FormStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

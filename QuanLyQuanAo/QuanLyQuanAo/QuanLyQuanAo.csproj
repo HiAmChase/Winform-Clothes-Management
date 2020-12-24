@@ -124,7 +124,7 @@
     <Compile Include="TrashForm.Designer.cs">
       <DependentUpon>TrashForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Variable.cs" />
+    <Compile Include="Process.cs" />
     <EmbeddedResource Include="BillInfo.resx">
       <DependentUpon>BillInfo.cs</DependentUpon>
     </EmbeddedResource>

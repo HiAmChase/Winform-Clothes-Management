@@ -22,9 +22,9 @@ namespace QuanLyQuanAo
         {
             try
             {
-                string username = Variable.ToInput(textBoxUsername.Text);
-                string password = Variable.ToInput(textBoxPassword.Text);
-                string newpassword = Variable.ToInput(textBoxPassword2.Text);
+                string username = Process.ToInput(textBoxUsername.Text);
+                string password = Process.ToInput(textBoxPassword.Text);
+                string newpassword = Process.ToInput(textBoxPassword2.Text);
                 if (StaffDAO.Instance.UpdatePassword(username, password, newpassword))
                 {
                     MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

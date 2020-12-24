@@ -17,7 +17,6 @@ namespace QuanLyQuanAo
     public partial class BillInfo : Form
     {
         private const int PERCENT = 100;
-        //************************Lưu ý: ID_CLIENT_DEFAULT******************
         private const int ID_DEFAULT = 1;
         private const int ERROR = -100;
         BindingSource listProduct = new BindingSource();
@@ -47,34 +46,41 @@ namespace QuanLyQuanAo
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
-
-            int amount = Convert.ToInt32(numericAmountOut.Value);
-
-            if (amount == 0)
+            try
             {
-                MessageBox.Show("Không hợp lệ. Số lượng nhập vào đang là 0", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                int idProduct = (int)dataViewProduct.SelectedCells[0].OwningRow.Cells["IDProduct"].Value;
+
+                int amount = Convert.ToInt32(numericAmountOut.Value);
+
+                if (amount == 0)
+                {
+                    MessageBox.Show("Không hợp lệ. Số lượng nhập vào đang là 0", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                BillProductOut billInfo = BillInfoDAO.Instance.GetBillProductOut(idProduct, amount);
+
+                CheckAvailable(listViewProductOut, billInfo);
+
+                if (CheckAmount(billInfo))
+                {
+                    MessageBox.Show("Không hợp lệ !", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                ListViewItem listView = CreateListViewItem(billInfo);
+
+                listViewProductOut.Items.Add(listView);
+
+                productsOut.Add(billInfo);
+
+                PrintTotalPrice();
+                Payment();
             }
-
-            BillProductOut billInfo = BillInfoDAO.Instance.GetBillProductOut(idProduct, amount);
-
-            CheckAvailable(listViewProductOut, billInfo);
-
-            if (CheckAmount(billInfo))
+            catch (FormatException error)
             {
-                MessageBox.Show("Không hợp lệ !", "Cảnh báo !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show(error.Message);
             }
-
-            ListViewItem listView = CreateListViewItem(billInfo);
-
-            listViewProductOut.Items.Add(listView);
-
-            productsOut.Add(billInfo);
-
-            PrintTotalPrice();
-            Payment();
         }
 
         private void payButton_Click(object sender, EventArgs e)
@@ -191,7 +197,7 @@ namespace QuanLyQuanAo
             dataViewProduct.DataSource = listProduct;
             listProduct.DataSource = ProductDAO.Instance.GetProduct();
 
-            InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit", "PriceIn" });
+            Process.InvisibleAttributes(dataViewProduct, new object[] { "IDProduct" , "Branch", "Unit", "PriceIn" });
         }
 
 
@@ -247,10 +253,17 @@ namespace QuanLyQuanAo
 
         private void Payment()
         {
-            int discount = Convert.ToInt32(numericDiscount.Value);
-            double price = paymentPriceOut * (PERCENT - discount) / PERCENT;
+            try
+            {
+                int discount = Convert.ToInt32(numericDiscount.Value);
+                double price = paymentPriceOut * (PERCENT - discount) / PERCENT;
 
-            textBoxPayment.Text = price.ToString("c", culture);
+                textBoxPayment.Text = price.ToString("c", culture);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private bool TextBoxIsEmpty()
@@ -266,16 +279,23 @@ namespace QuanLyQuanAo
         private int GetNewIDClient()
         {
             int idClient = ERROR;
-            string name = textBoxName.Text;
-            string phone = textBoxPhone.Text;
-            string email = textBoxEmail.Text;
-            string address = textBoxAddress.Text;
-
-            if (ClientDAO.Instance.InsertClient(name, phone, email, address))
+            try
             {
-                idClient = ClientDAO.Instance.GetIDClientMax();
-            }
+                string name = Process.ToInput(textBoxName.Text);
+                string phone = Process.ToPhone(textBoxPhone.Text);
+                string email = Process.ToEmail(textBoxEmail.Text);
+                string address = Process.ToInput(textBoxAddress.Text);
 
+                if (ClientDAO.Instance.InsertClient(name, phone, email, address))
+                {
+                    idClient = ClientDAO.Instance.GetIDClientMax();
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
             return idClient;
         }
 
@@ -361,7 +381,7 @@ namespace QuanLyQuanAo
         { 
             dataViewSupplier.DataSource = SupplierDAO.Instance.GetSupplier();
 
-            InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier", "Phone" });
+            Process.InvisibleAttributes(dataViewSupplier, new object[] { "IDSupplier", "Phone" });
         }
 
         private void GetSupplierAndLoadProduct()
@@ -378,7 +398,7 @@ namespace QuanLyQuanAo
         {
             dataViewProduct2.DataSource = ProductDAO.Instance.GetProductBySupplier(idSupplier);
 
-            InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Type", "Branch", "Unit", "PriceOut" });
+            Process.InvisibleAttributes(dataViewProduct2, new object[] { "IDProduct", "Type", "Branch", "Unit", "PriceOut" });
         }
 
         private void AddProductIntoListView()
@@ -426,64 +446,86 @@ namespace QuanLyQuanAo
 
         private void AddNewProductHadSupplier()
         {
-            string name = textBoxNewName.Text;
-            string type = comboBoxType.Text;
-            string branch = (string)dataViewSupplier.SelectedCells[0].OwningRow.Cells["Branch"].Value;
-            string color = comboBoxColor.Text;
-            string size = comboBoxSize.Text;
-            string unit = textBoxUnit.Text;
-            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
-            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
-
-            int newAmount = (int)numericAmountEntry.Value;
-
-            ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
-                                                    unit, size, newAmount, priceIn, priceOut);
-
-            if (CheckAmount(newProduct))
+            try
             {
-                MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                string name = Process.ToInput(textBoxNewName.Text);
+                string type = Process.ToInput(comboBoxType.Text);
+                string branch = Process.ToInput((string)dataViewSupplier.SelectedCells[0].OwningRow.Cells["Branch"].Value);
+                string color = Process.ToInput(comboBoxColor.Text);
+                string size = Process.ToInput(comboBoxSize.Text);
+                string unit = Process.ToInput(textBoxUnit.Text);
+                double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+                double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+
+                int newAmount = (int)numericAmountEntry.Value;
+
+                ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
+                                                        unit, size, newAmount, priceIn, priceOut);
+
+                if (CheckAmount(newProduct))
+                {
+                    MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                productsEntry.Add(newProduct);
+
+                ListViewItem listView = CreateListViewItem(newProduct);
+
+                listViewProductEntry.Items.Add(listView);
+
+                PrintTotalPriceEntry();
             }
-
-            productsEntry.Add(newProduct);
-
-            ListViewItem listView = CreateListViewItem(newProduct);
-
-            listViewProductEntry.Items.Add(listView);
-
-            PrintTotalPriceEntry();
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void AddNewProductHadNotSupplier()
         {
-            string name = textBoxNewName.Text;
-            string type = comboBoxType.Text;
-            string branch = textBoxBranch.Text;
-            string color = comboBoxColor.Text;
-            string size = comboBoxSize.Text;
-            string unit = textBoxUnit.Text;
-            double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
-            double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
-
-            int newAmount = (int)numericAmountEntry.Value;
-
-            ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
-                                                    unit, size, newAmount, priceIn, priceOut);
-
-            if (CheckAmount(newProduct))
+            try
             {
-                MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                string name = Process.ToInput(textBoxNewName.Text);
+                string type = Process.ToInput(comboBoxType.Text);
+                string branch = Process.ToInput(textBoxBranch.Text);
+                string color = Process.ToInput(comboBoxColor.Text);
+                string size = Process.ToInput(comboBoxSize.Text);
+                string unit = Process.ToInput(textBoxUnit.Text);
+                double priceIn = Convert.ToDouble(textBoxPriceIn.Text);
+                double priceOut = Convert.ToDouble(textBoxPriceOut.Text);
+
+                int newAmount = (int)numericAmountEntry.Value;
+
+                ProductInfo newProduct = new ProductInfo(-1, name, type, branch, color,
+                                                        unit, size, newAmount, priceIn, priceOut);
+
+                if (CheckAmount(newProduct))
+                {
+                    MessageBox.Show("Không hợp lệ !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                productsEntry.Add(newProduct);
+
+                ListViewItem listView = CreateListViewItem(newProduct);
+
+                listViewProductEntry.Items.Add(listView);
+
+                PrintTotalPriceEntry();
             }
-
-            productsEntry.Add(newProduct);
-
-            ListViewItem listView = CreateListViewItem(newProduct);
-
-            listViewProductEntry.Items.Add(listView);
-
-            PrintTotalPriceEntry();
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
         private ListViewItem CreateListViewItem(ProductInfo product)
         {
@@ -525,15 +567,22 @@ namespace QuanLyQuanAo
         private int GetNewSupplier()
         {
             int newID = ERROR;
-            string name = textBoxSupName.Text;
-            string phone = textBoxSupPhone.Text;
-            string email = textBoxSupEmail.Text;
-            string address = textBoxSupAddress.Text;
-            string branch = textBoxBranch.Text;
-
-            if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
+            try
             {
-                newID = SupplierDAO.Instance.GetNewIDSupplier();
+                string name = Process.ToInput(textBoxSupName.Text);
+                string phone = Process.ToPhone(textBoxSupPhone.Text);
+                string email = Process.ToEmail(textBoxSupEmail.Text);
+                string address = Process.ToInput(textBoxSupAddress.Text);
+                string branch = Process.ToInput(textBoxBranch.Text);
+
+                if (SupplierDAO.Instance.InsertSupplier(name, branch, phone, email, address))
+                {
+                    newID = SupplierDAO.Instance.GetNewIDSupplier();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
             return newID;
         }
@@ -717,15 +766,6 @@ namespace QuanLyQuanAo
 
         #endregion
 
-
-        private void InvisibleAttributes(DataGridView dataView, object[] parameters = null)
-        {
-            foreach (string item in parameters)
-            {
-                dataView.Columns[item].Visible = false;
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -751,16 +791,6 @@ namespace QuanLyQuanAo
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void listViewProductOut_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BillInfo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
