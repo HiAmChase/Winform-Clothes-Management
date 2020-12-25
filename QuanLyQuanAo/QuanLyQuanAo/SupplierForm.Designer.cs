@@ -382,6 +382,7 @@
             this.findButton.Text = "Tìm";
             this.findButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // cancleButton
             // 
@@ -394,6 +395,7 @@
             this.cancleButton.Text = "Hủy Tìm";
             this.cancleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
             // 
             // textBoxFindSupplier
             // 

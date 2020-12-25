@@ -47,13 +47,13 @@
             this.dataViewClient = new System.Windows.Forms.DataGridView();
             this.textBoxFindClient = new System.Windows.Forms.TextBox();
             this.cancleButton = new System.Windows.Forms.Button();
+            this.findButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.findButton = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -103,7 +103,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(521, 63);
-            this.textBoxAddress.TabIndex = 41;
+            this.textBoxAddress.TabIndex = 11;
             // 
             // label6
             // 
@@ -126,7 +126,7 @@
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(521, 32);
-            this.textBoxEmail.TabIndex = 39;
+            this.textBoxEmail.TabIndex = 10;
             // 
             // label5
             // 
@@ -149,7 +149,7 @@
             this.textBoxPhone.Multiline = true;
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(521, 32);
-            this.textBoxPhone.TabIndex = 37;
+            this.textBoxPhone.TabIndex = 9;
             // 
             // label3
             // 
@@ -172,7 +172,7 @@
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(521, 32);
-            this.textBoxName.TabIndex = 35;
+            this.textBoxName.TabIndex = 8;
             // 
             // label2
             // 
@@ -206,7 +206,7 @@
             this.textBoxID.Multiline = true;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(129, 32);
-            this.textBoxID.TabIndex = 31;
+            this.textBoxID.TabIndex = 7;
             // 
             // label4
             // 
@@ -267,7 +267,7 @@
             this.dataViewClient.RowHeadersWidth = 51;
             this.dataViewClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewClient.Size = new System.Drawing.Size(1075, 364);
-            this.dataViewClient.TabIndex = 0;
+            this.dataViewClient.TabIndex = 6;
             // 
             // textBoxFindClient
             // 
@@ -275,31 +275,44 @@
             this.textBoxFindClient.Location = new System.Drawing.Point(1031, 272);
             this.textBoxFindClient.Name = "textBoxFindClient";
             this.textBoxFindClient.Size = new System.Drawing.Size(263, 30);
-            this.textBoxFindClient.TabIndex = 43;
+            this.textBoxFindClient.TabIndex = 0;
             // 
             // cancleButton
             // 
-            this.cancleButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon22;
+            this.cancleButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon27;
             this.cancleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cancleButton.Location = new System.Drawing.Point(1179, 322);
             this.cancleButton.Name = "cancleButton";
             this.cancleButton.Size = new System.Drawing.Size(115, 49);
-            this.cancleButton.TabIndex = 45;
+            this.cancleButton.TabIndex = 2;
             this.cancleButton.Text = "Hủy Tìm";
             this.cancleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancleButton.UseVisualStyleBackColor = true;
             this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
+            // 
+            // findButton
+            // 
+            this.findButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon1;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(1031, 322);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(115, 49);
+            this.findButton.TabIndex = 1;
+            this.findButton.Text = "Tìm";
+            this.findButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Image = global::QuanLyQuanAo.Properties.Resources.house_icon1;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(176, 161);
+            this.exitButton.Location = new System.Drawing.Point(175, 161);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(115, 49);
-            this.exitButton.TabIndex = 25;
+            this.exitButton.TabIndex = 14;
             this.exitButton.Text = "Thoát";
             this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exitButton.UseVisualStyleBackColor = true;
@@ -315,7 +328,7 @@
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(115, 57);
-            this.cancelButton.TabIndex = 24;
+            this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Hủy";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -327,11 +340,11 @@
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Image = global::QuanLyQuanAo.Properties.Resources.Save_as_icon5;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(176, 37);
+            this.saveButton.Location = new System.Drawing.Point(176, 38);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(115, 57);
-            this.saveButton.TabIndex = 23;
+            this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Lưu";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = true;
@@ -346,7 +359,7 @@
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(115, 49);
-            this.deleteButton.TabIndex = 22;
+            this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Xóa";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -376,24 +389,11 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(115, 57);
-            this.editButton.TabIndex = 21;
+            this.editButton.TabIndex = 4;
             this.editButton.Text = "Sửa";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
-            // 
-            // findButton
-            // 
-            this.findButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon1;
-            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(1031, 322);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(115, 49);
-            this.findButton.TabIndex = 44;
-            this.findButton.Text = "Tìm";
-            this.findButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.findButton.UseVisualStyleBackColor = true;
-            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // ClientForm
             // 

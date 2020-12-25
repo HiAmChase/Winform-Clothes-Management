@@ -30,13 +30,13 @@ namespace QuanLyQuanAo
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Savebutton = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxPassword2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Savebutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,19 +55,6 @@ namespace QuanLyQuanAo
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(757, 548);
             this.panel1.TabIndex = 0;
-            // 
-            // Savebutton
-            // 
-            this.Savebutton.Image = global::QuanLyQuanAo.Properties.Resources.floppy_icon2;
-            this.Savebutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Savebutton.Location = new System.Drawing.Point(561, 370);
-            this.Savebutton.Name = "Savebutton";
-            this.Savebutton.Size = new System.Drawing.Size(119, 45);
-            this.Savebutton.TabIndex = 32;
-            this.Savebutton.Text = "Lưu";
-            this.Savebutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Savebutton.UseVisualStyleBackColor = true;
-            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click_1);
             // 
             // textBoxPassword
             // 
@@ -118,6 +105,19 @@ namespace QuanLyQuanAo
             this.label1.Size = new System.Drawing.Size(164, 29);
             this.label1.TabIndex = 27;
             this.label1.Text = "Tên tài khoản:";
+            // 
+            // Savebutton
+            // 
+            this.Savebutton.Image = global::QuanLyQuanAo.Properties.Resources.floppy_icon2;
+            this.Savebutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Savebutton.Location = new System.Drawing.Point(561, 370);
+            this.Savebutton.Name = "Savebutton";
+            this.Savebutton.Size = new System.Drawing.Size(119, 45);
+            this.Savebutton.TabIndex = 4;
+            this.Savebutton.Text = "Lưu";
+            this.Savebutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Savebutton.UseVisualStyleBackColor = true;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click_1);
             // 
             // FormUpdatePass
             // 

@@ -118,12 +118,6 @@
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrashForm.Designer.cs">
-      <DependentUpon>TrashForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Process.cs" />
     <EmbeddedResource Include="BillInfo.resx">
       <DependentUpon>BillInfo.cs</DependentUpon>
@@ -158,9 +152,6 @@
     </Compile>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrashForm.resx">
-      <DependentUpon>TrashForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -384,6 +375,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\62851-magnifying-glass-tilted-right-icon22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon27.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

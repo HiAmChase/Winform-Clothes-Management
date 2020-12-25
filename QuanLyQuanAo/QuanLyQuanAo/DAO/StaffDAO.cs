@@ -23,11 +23,16 @@ namespace QuanLyQuanAo.DAO
 
         public DataTable GetStaff()
         {
-            return DataProvider.Instance.ExecuteQuery("Select IDAccount, Username, Name,Status,Phone,Email ,Address From dbo.Staff");
+            return DataProvider.Instance.ExecuteQuery("Select IDAccount, Username, Name,Phone,Email ,Address, CASE Status When 1 THEN 'Manage' Else 'Nhân viên' END AS Status From dbo.Staff");
         }
-        
-        
+
        
+        public DataTable FindStaff(string name)
+        {
+            string query = String.Format("Select IDAccount, Username, Name,Phone,Email ,Address, CASE Status When 1 THEN 'Manager' Else 'Employee' END AS Status From dbo.Staff Where Name like N'%{0}%'", name);
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
 
         public int Login(string username, string password)
         {

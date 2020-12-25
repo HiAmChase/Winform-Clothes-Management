@@ -203,6 +203,19 @@ namespace QuanLyQuanAo
 
         }
 
-        
+        List<SupplierInfo> FindSupplier(string name)
+        {
+            List<SupplierInfo> list = SupplierDAO.Instance.FindSupplier(name);
+            return list;
+        }
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listSupplier.DataSource = FindSupplier(textBoxFindSupplier.Text);
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            LoadSupplier();
+        }
     }
 }

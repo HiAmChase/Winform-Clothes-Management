@@ -43,7 +43,7 @@ namespace QuanLyQuanAo
             textBoxID.DataBindings.Add("Text", dataViewStaff.DataSource, "IDAccount");
             textBoxUsername.DataBindings.Add("Text", dataViewStaff.DataSource, "Username");
             textBoxName.DataBindings.Add("Text", dataViewStaff.DataSource, "Name");
-            numericStatus.DataBindings.Add("Value", dataViewStaff.DataSource, "Status");
+           // numericStatus.DataBindings.Add("Value", dataViewStaff.DataSource, "Status");
             textBoxPhone.DataBindings.Add("Text", dataViewStaff.DataSource, "Phone");
             textBoxEmail.DataBindings.Add("Text", dataViewStaff.DataSource, "Email");
             textBoxAddress.DataBindings.Add("Text", dataViewStaff.DataSource, "Address");
@@ -86,7 +86,7 @@ namespace QuanLyQuanAo
             textBoxID.DataBindings.Clear();
             textBoxUsername.DataBindings.Clear();
             textBoxName.DataBindings.Clear();
-            numericStatus.DataBindings.Clear();
+          //  numericStatus.DataBindings.Clear();
             textBoxPhone.DataBindings.Clear();
             textBoxEmail.DataBindings.Clear();
             textBoxAddress.DataBindings.Clear();
@@ -182,7 +182,7 @@ namespace QuanLyQuanAo
 
                 if (StaffDAO.Instance.InsertStaff(Username, name, status, phone, email, address))
                 {
-                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm thành công, mật khẩu tài khoản mặt định là: 0000 !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                 }
                 else
@@ -266,6 +266,25 @@ namespace QuanLyQuanAo
             this.Close();
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        DataTable findStaff(string name)
+        {
+            DataTable list = StaffDAO.Instance.FindStaff(name);
+            return list;
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listStaff.DataSource = findStaff(textBoxFindStaff.Text);
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            LoadStaff();
+        }
     }
 }

@@ -153,6 +153,66 @@ namespace QuanLyQuanAo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon23 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon24 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon25 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon26 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon27 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _62851_magnifying_glass_tilted_right_icon3 {
+            get {
+                object obj = ResourceManager.GetObject("62851-magnifying-glass-tilted-right-icon3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Accept_icon {
             get {
                 object obj = ResourceManager.GetObject("Accept-icon", resourceCulture);

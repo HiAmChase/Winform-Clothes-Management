@@ -792,5 +792,7 @@ namespace QuanLyQuanAo
         {
             this.Close();
         }
+
+       
     }
 }
