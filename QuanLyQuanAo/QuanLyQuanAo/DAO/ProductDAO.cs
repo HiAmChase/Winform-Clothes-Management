@@ -17,6 +17,51 @@ namespace QuanLyQuanAo.DAO
         }
         private ProductDAO() { }
 
+
+        // thuật toán sắp xếp quick sort, sắp xếp giá sản phẩm tăng dần
+       
+        private static int Partion(List<ProductInfo> list , int low, int high)
+        {
+            ProductInfo pivot = list[high];
+            int right = high - 1;
+            int left = low;
+            while(true)
+            {
+                while (left <= right && list[left].PriceOut < pivot.PriceOut) left++;
+                while (left <= right && list[right].PriceOut > pivot.PriceOut) right--;
+                if (left >= right) break;
+                ProductInfo a = list[left];
+                list[left] = list[right];
+                list[right] =a ;
+                left++;
+                right--;
+           
+
+            }
+
+            ProductInfo b = list[left];
+            list[left] = list[high];
+            list[high] = b;
+
+            return left;
+
+        }
+
+        private static void QuickSort(List<ProductInfo> list, int low, int high)
+        {
+            if(low<high)
+            {
+                int p = Partion(list, low, high);
+                QuickSort(list, low, p - 1);
+                QuickSort(list, p + 1, high);
+            }    
+        }
+
+
+
+
+
+
         public List<ProductInfo> GetProduct()
         {
             List<ProductInfo> listProduct = new List<ProductInfo>();
@@ -28,6 +73,7 @@ namespace QuanLyQuanAo.DAO
                 ProductInfo product = new ProductInfo(item);
                 listProduct.Add(product);
             }
+            QuickSort(listProduct, 0, listProduct.Count -1);
 
             return listProduct;
         }

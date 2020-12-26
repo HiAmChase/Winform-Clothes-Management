@@ -100,5 +100,10 @@ namespace QuanLyQuanAo.DTO
             get => priceOut; 
             set => priceOut = value; 
         }
+
+        public static implicit operator List<object>(ProductInfo v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

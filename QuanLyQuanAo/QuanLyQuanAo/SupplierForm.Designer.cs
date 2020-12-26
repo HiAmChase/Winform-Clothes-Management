@@ -386,7 +386,7 @@
             // 
             // cancleButton
             // 
-            this.cancleButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon22;
+            this.cancleButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon27;
             this.cancleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cancleButton.Location = new System.Drawing.Point(1168, 323);
             this.cancleButton.Name = "cancleButton";

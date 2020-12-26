@@ -13,7 +13,14 @@ VALUES (N'Không'),
 	(N'Quần'),
 	(N'Mũ'),
 	(N'Giày'),
-	(N'Váy')
+	(N'Váy'),
+	(N'Áo dài'),
+	(N'Áo ấm'),
+	(N'Áo gió'),
+	(N'Quần ngắn'),
+	(N'Giày cao gót'),
+	(N'Giày thể thao'),
+	(N'Mũ')
 	
 GO
 INSERT INTO Branch(Name)
@@ -54,7 +61,10 @@ VALUES (N'Không'),
 (N'Lục'),
 (N'Lam'),
 (N'Chàm'),
-(N'Tím')
+(N'Tím'),
+(N'Trắng'),
+(N'Đen'),
+(N'Nhiều màu')
 
 INSERT INTO Product (Name, IDType, IDSupplier, IDSize, IDColor, Amount, Unit, PriceOut, PriceIn)
 VALUES
