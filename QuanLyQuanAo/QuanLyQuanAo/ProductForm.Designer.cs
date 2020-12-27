@@ -55,9 +55,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.exitfindButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxFindPro = new System.Windows.Forms.TextBox();
+            this.exitfindButton = new System.Windows.Forms.Button();
             this.findButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -135,7 +135,7 @@
             this.numUpDownAmount.Margin = new System.Windows.Forms.Padding(4);
             this.numUpDownAmount.Name = "numUpDownAmount";
             this.numUpDownAmount.Size = new System.Drawing.Size(221, 41);
-            this.numUpDownAmount.TabIndex = 37;
+            this.numUpDownAmount.TabIndex = 15;
             this.numUpDownAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBoxSize
@@ -147,7 +147,7 @@
             this.comboBoxSize.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSize.Name = "comboBoxSize";
             this.comboBoxSize.Size = new System.Drawing.Size(97, 42);
-            this.comboBoxSize.TabIndex = 36;
+            this.comboBoxSize.TabIndex = 11;
             // 
             // textBoxPriceIn
             // 
@@ -219,7 +219,6 @@
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(220, 42);
             this.comboBoxColor.TabIndex = 13;
-          
             // 
             // comboBoxType
             // 
@@ -407,20 +406,11 @@
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.findButton);
             this.panel4.Controls.Add(this.textBoxFindPro);
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(1171, 38);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(298, 158);
             this.panel4.TabIndex = 26;
-            // 
-            // exitfindButton
-            // 
-            this.exitfindButton.Location = new System.Drawing.Point(20, 93);
-            this.exitfindButton.Name = "exitfindButton";
-            this.exitfindButton.Size = new System.Drawing.Size(111, 48);
-            this.exitfindButton.TabIndex = 30;
-            this.exitfindButton.Text = "Thoát Tìm";
-            this.exitfindButton.UseVisualStyleBackColor = true;
-           
             // 
             // label12
             // 
@@ -439,17 +429,30 @@
             this.textBoxFindPro.Name = "textBoxFindPro";
             this.textBoxFindPro.Size = new System.Drawing.Size(263, 22);
             this.textBoxFindPro.TabIndex = 27;
-
+            // 
+            // exitfindButton
+            // 
+            this.exitfindButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon23;
+            this.exitfindButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exitfindButton.Location = new System.Drawing.Point(20, 93);
+            this.exitfindButton.Name = "exitfindButton";
+            this.exitfindButton.Size = new System.Drawing.Size(111, 48);
+            this.exitfindButton.TabIndex = 2;
+            this.exitfindButton.Text = "Hủy Tìm";
+            this.exitfindButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exitfindButton.UseVisualStyleBackColor = true;
+            this.exitfindButton.Click += new System.EventHandler(this.exitfindButton_Click);
             // 
             // findButton
             // 
-            this.findButton.Image = global::QuanLyQuanAo.Properties.Resources.Search_file_icon;
+            this.findButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon3;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.findButton.Location = new System.Drawing.Point(173, 93);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(111, 48);
-            this.findButton.TabIndex = 28;
+            this.findButton.TabIndex = 1;
             this.findButton.Text = "Tìm";
+            this.findButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
@@ -463,7 +466,7 @@
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(115, 64);
-            this.cancelButton.TabIndex = 24;
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Hủy";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -478,7 +481,7 @@
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(115, 61);
-            this.exitButton.TabIndex = 25;
+            this.exitButton.TabIndex = 8;
             this.exitButton.Text = "   Thoát";
             this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exitButton.UseVisualStyleBackColor = true;
@@ -494,7 +497,7 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(115, 69);
-            this.saveButton.TabIndex = 23;
+            this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Lưu";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = true;
@@ -509,7 +512,7 @@
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(115, 61);
-            this.deleteButton.TabIndex = 22;
+            this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Xóa";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -524,7 +527,7 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(115, 64);
-            this.editButton.TabIndex = 21;
+            this.editButton.TabIndex = 4;
             this.editButton.Text = "Sửa";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editButton.UseVisualStyleBackColor = true;
@@ -559,7 +562,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sản phẩm:";
-       
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataViewProduct)).EndInit();
             this.panel2.ResumeLayout(false);

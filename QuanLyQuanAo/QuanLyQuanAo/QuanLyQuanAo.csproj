@@ -98,6 +98,12 @@
     <Compile Include="FormStaff.Designer.cs">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdatePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePass.Designer.cs">
+      <DependentUpon>FormUpdatePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,12 +117,6 @@
     </Compile>
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TrashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrashForm.Designer.cs">
-      <DependentUpon>TrashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Process.cs" />
     <EmbeddedResource Include="BillInfo.resx">
@@ -134,6 +134,9 @@
     <EmbeddedResource Include="FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePass.resx">
+      <DependentUpon>FormUpdatePass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,9 +152,6 @@
     </Compile>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrashForm.resx">
-      <DependentUpon>TrashForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -308,16 +308,7 @@
     <None Include="Resources\floppy-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lucky-cat-money-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lucky-cat-money-icon %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\coal-power-plant-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lucky-cat-money-icon %282%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coal-power-plant-icon1.png" />
@@ -366,6 +357,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\floppy-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62851-magnifying-glass-tilted-right-icon27.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

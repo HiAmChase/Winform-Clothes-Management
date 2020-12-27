@@ -1,4 +1,5 @@
 ﻿using QuanLyQuanAo.DAO;
+using QuanLyQuanAo.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -220,6 +221,25 @@ namespace QuanLyQuanAo
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        List<Client> findClient(string name)
+        {
+
+
+            List<Client> listClient = ClientDAO.Instance.FindClient(name);
+
+            return listClient;
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            LoadClient();
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listClient.DataSource = findClient(textBoxFindClient.Text);
         }
     }
 }

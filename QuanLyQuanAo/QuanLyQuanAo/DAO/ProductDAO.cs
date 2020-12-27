@@ -17,6 +17,51 @@ namespace QuanLyQuanAo.DAO
         }
         private ProductDAO() { }
 
+
+        // thuật toán sắp xếp quick sort, sắp xếp giá sản phẩm tăng dần
+       
+        private static int Partion(List<ProductInfo> list , int low, int high)
+        {
+            ProductInfo pivot = list[high];
+            int right = high - 1;
+            int left = low;
+            while(true)
+            {
+                while (left <= right && list[left].PriceOut < pivot.PriceOut) left++;
+                while (left <= right && list[right].PriceOut > pivot.PriceOut) right--;
+                if (left >= right) break;
+                ProductInfo a = list[left];
+                list[left] = list[right];
+                list[right] =a ;
+                left++;
+                right--;
+           
+
+            }
+
+            ProductInfo b = list[left];
+            list[left] = list[high];
+            list[high] = b;
+
+            return left;
+
+        }
+
+        private static void QuickSort(List<ProductInfo> list, int low, int high)
+        {
+            if(low<high)
+            {
+                int p = Partion(list, low, high);
+                QuickSort(list, low, p - 1);
+                QuickSort(list, p + 1, high);
+            }    
+        }
+
+
+
+
+
+
         public List<ProductInfo> GetProduct()
         {
             List<ProductInfo> listProduct = new List<ProductInfo>();
@@ -28,6 +73,7 @@ namespace QuanLyQuanAo.DAO
                 ProductInfo product = new ProductInfo(item);
                 listProduct.Add(product);
             }
+            QuickSort(listProduct, 0, listProduct.Count -1);
 
             return listProduct;
         }
@@ -36,8 +82,9 @@ namespace QuanLyQuanAo.DAO
         {
             List<ProductInfo> listProduct = new List<ProductInfo>();
 
-            string query = string.Format("EXEC USP_FindProduct @name = {0} ", name);
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = string.Format("SELECT P.IDProduct,P.Name,T.Name AS [Type],B.Name AS [Branch],C.Color,P.Unit,S.Size, P.Amount,P.PriceOut,P.PriceIn FROM Product P INNER JOIN Type T ON T.IDType = P.IDType INNER JOIN Color C ON C.IDColor = P.IDColor INNER JOIN Size S ON S.IDSize = P.IDSize INNER JOIN Supplier SUP ON SUP.IDSupplier = P.IDSupplier  INNER JOIN Branch B ON B.IDBranch = SUP.IDBranch WHERE B.name like N'%{0}%'or P.name like N'%{1}%' or C.color like N'%{2}%' or T.name like N'%{3}%'", name,name,name, name);
+               
+                DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {

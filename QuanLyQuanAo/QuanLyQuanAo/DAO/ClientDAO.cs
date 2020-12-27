@@ -36,6 +36,21 @@ namespace QuanLyQuanAo.DAO
             return listClient;
         }
 
+        public List<Client> FindClient(string name)
+        {
+            List<Client> listClient = new List<Client>();
+            string query = string.Format("SELECT * FROM Client where name like N'%{0}%' ", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Client client = new Client(item);
+                listClient.Add(client);
+            }
+
+            return listClient;
+        }
+
+
         public bool InsertClient(string name, string phone, string email, string address)
         {
             string query = string.Format("EXEC USP_InsertClient @Name = N'{0}', @Phone = '{1}', @Email = '{2}', @Address = N'{3}'",

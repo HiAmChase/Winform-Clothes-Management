@@ -70,5 +70,14 @@ namespace QuanLyQuanAo
         {
             return StaffDAO.Instance.Login(Username, Password);
         }
+
+        private void UpdatePasswordButton_Click(object sender, EventArgs e)
+        {
+            
+            FormUpdatePass form = new FormUpdatePass();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
     }
 }

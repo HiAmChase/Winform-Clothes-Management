@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,10 +42,16 @@
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataViewClient = new System.Windows.Forms.DataGridView();
+            this.textBoxFindClient = new System.Windows.Forms.TextBox();
+            this.cancleButton = new System.Windows.Forms.Button();
+            this.findButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
@@ -65,53 +68,11 @@
             this.panel3.Controls.Add(this.deleteButton);
             this.panel3.Controls.Add(this.addButton);
             this.panel3.Controls.Add(this.editButton);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(1011, 141);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(1011, 13);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(287, 214);
+            this.panel3.Size = new System.Drawing.Size(295, 214);
             this.panel3.TabIndex = 5;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Image = global::QuanLyQuanAo.Properties.Resources.house_icon1;
-            this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(168, 161);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(115, 49);
-            this.exitButton.TabIndex = 25;
-            this.exitButton.Text = "Thoát";
-            this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Image = global::QuanLyQuanAo.Properties.Resources.Trash_icon__1_;
-            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(20, 165);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(115, 49);
-            this.deleteButton.TabIndex = 22;
-            this.deleteButton.Text = "Xóa";
-            this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(-4, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 28);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Chức năng";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -128,7 +89,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(219, 40);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(765, 331);
             this.panel2.TabIndex = 4;
@@ -138,11 +99,11 @@
             this.textBoxAddress.Enabled = false;
             this.textBoxAddress.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAddress.Location = new System.Drawing.Point(213, 252);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(521, 63);
-            this.textBoxAddress.TabIndex = 41;
+            this.textBoxAddress.TabIndex = 11;
             // 
             // label6
             // 
@@ -161,11 +122,11 @@
             this.textBoxEmail.Enabled = false;
             this.textBoxEmail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(213, 203);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(521, 32);
-            this.textBoxEmail.TabIndex = 39;
+            this.textBoxEmail.TabIndex = 10;
             // 
             // label5
             // 
@@ -184,11 +145,11 @@
             this.textBoxPhone.Enabled = false;
             this.textBoxPhone.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPhone.Location = new System.Drawing.Point(213, 149);
-            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPhone.Multiline = true;
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(521, 32);
-            this.textBoxPhone.TabIndex = 37;
+            this.textBoxPhone.TabIndex = 9;
             // 
             // label3
             // 
@@ -207,11 +168,11 @@
             this.textBoxName.Enabled = false;
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(213, 97);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(521, 32);
-            this.textBoxName.TabIndex = 35;
+            this.textBoxName.TabIndex = 8;
             // 
             // label2
             // 
@@ -241,11 +202,11 @@
             this.textBoxID.Enabled = false;
             this.textBoxID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxID.Location = new System.Drawing.Point(213, 47);
-            this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxID.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxID.Multiline = true;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(129, 32);
-            this.textBoxID.TabIndex = 31;
+            this.textBoxID.TabIndex = 7;
             // 
             // label4
             // 
@@ -270,11 +231,23 @@
             this.label1.Text = "Thông tin khách hàng";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(1007, 231);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(314, 38);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "nhâp tên khách hàng cần tìm:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataViewClient);
             this.panel1.Location = new System.Drawing.Point(219, 402);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1087, 399);
             this.panel1.TabIndex = 3;
@@ -288,13 +261,62 @@
             this.dataViewClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewClient.Location = new System.Drawing.Point(4, 4);
-            this.dataViewClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataViewClient.Margin = new System.Windows.Forms.Padding(4);
             this.dataViewClient.Name = "dataViewClient";
             this.dataViewClient.ReadOnly = true;
             this.dataViewClient.RowHeadersWidth = 51;
             this.dataViewClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewClient.Size = new System.Drawing.Size(1075, 364);
-            this.dataViewClient.TabIndex = 0;
+            this.dataViewClient.TabIndex = 6;
+            // 
+            // textBoxFindClient
+            // 
+            this.textBoxFindClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFindClient.Location = new System.Drawing.Point(1031, 272);
+            this.textBoxFindClient.Name = "textBoxFindClient";
+            this.textBoxFindClient.Size = new System.Drawing.Size(263, 30);
+            this.textBoxFindClient.TabIndex = 0;
+            // 
+            // cancleButton
+            // 
+            this.cancleButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon27;
+            this.cancleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancleButton.Location = new System.Drawing.Point(1179, 322);
+            this.cancleButton.Name = "cancleButton";
+            this.cancleButton.Size = new System.Drawing.Size(115, 49);
+            this.cancleButton.TabIndex = 2;
+            this.cancleButton.Text = "Hủy Tìm";
+            this.cancleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
+            // 
+            // findButton
+            // 
+            this.findButton.Image = global::QuanLyQuanAo.Properties.Resources._62851_magnifying_glass_tilted_right_icon1;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(1031, 322);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(115, 49);
+            this.findButton.TabIndex = 1;
+            this.findButton.Text = "Tìm";
+            this.findButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Image = global::QuanLyQuanAo.Properties.Resources.house_icon1;
+            this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exitButton.Location = new System.Drawing.Point(175, 161);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(115, 49);
+            this.exitButton.TabIndex = 14;
+            this.exitButton.Text = "Thoát";
+            this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // cancelButton
             // 
@@ -302,11 +324,11 @@
             this.cancelButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Image = global::QuanLyQuanAo.Properties.Resources.sign_error_icon3;
             this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cancelButton.Location = new System.Drawing.Point(168, 101);
+            this.cancelButton.Location = new System.Drawing.Point(176, 101);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(115, 57);
-            this.cancelButton.TabIndex = 24;
+            this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Hủy";
             this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -318,15 +340,30 @@
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Image = global::QuanLyQuanAo.Properties.Resources.Save_as_icon5;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(168, 37);
+            this.saveButton.Location = new System.Drawing.Point(176, 38);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(115, 57);
-            this.saveButton.TabIndex = 23;
+            this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Lưu";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Image = global::QuanLyQuanAo.Properties.Resources.Trash_icon__1_;
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(20, 165);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(115, 49);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Xóa";
+            this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -352,7 +389,7 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(115, 57);
-            this.editButton.TabIndex = 21;
+            this.editButton.TabIndex = 4;
             this.editButton.Text = "Sửa";
             this.editButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.editButton.UseVisualStyleBackColor = true;
@@ -363,10 +400,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1519, 826);
+            this.Controls.Add(this.cancleButton);
+            this.Controls.Add(this.findButton);
+            this.Controls.Add(this.textBoxFindClient);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý khách hàng";
@@ -376,6 +417,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataViewClient)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -387,7 +429,6 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelNotify;
         private System.Windows.Forms.TextBox textBoxID;
@@ -404,5 +445,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxFindClient;
+        private System.Windows.Forms.Button cancleButton;
+        private System.Windows.Forms.Button findButton;
     }
 }

@@ -43,7 +43,7 @@ namespace QuanLyQuanAo
             textBoxID.DataBindings.Add("Text", dataViewStaff.DataSource, "IDAccount");
             textBoxUsername.DataBindings.Add("Text", dataViewStaff.DataSource, "Username");
             textBoxName.DataBindings.Add("Text", dataViewStaff.DataSource, "Name");
-            numericStatus.DataBindings.Add("Value", dataViewStaff.DataSource, "Status");
+           // numericStatus.DataBindings.Add("Value", dataViewStaff.DataSource, "Status");
             textBoxPhone.DataBindings.Add("Text", dataViewStaff.DataSource, "Phone");
             textBoxEmail.DataBindings.Add("Text", dataViewStaff.DataSource, "Email");
             textBoxAddress.DataBindings.Add("Text", dataViewStaff.DataSource, "Address");
@@ -71,67 +71,22 @@ namespace QuanLyQuanAo
             editFlag = 0;
         }
 
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            addFlag = 1;
-            
-            saveButton.Enabled = true;
-            cancelButton.Enabled = true;
+        
 
-            ClearBinding();
-            EnableTextBox();
-            
-            ReleaseInput();
-        }
+        
 
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            editFlag = 1;
-           
+         
+        
 
-            saveButton.Enabled = true;
-            cancelButton.Enabled = true;
-
-            ClearBinding();
-            EnableTextBox();
-            textBoxUsername.Enabled = false;
-            textBoxName.Enabled = false;
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            if (addFlag == 1)
-                InsertStaff();
-            if (editFlag == 1)
-                UpdateStaff();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
-            {
-                ClearBinding();
-                DeleteStaff();
-            }
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
+        
 
         private void ClearBinding()
         {
             textBoxID.DataBindings.Clear();
             textBoxUsername.DataBindings.Clear();
             textBoxName.DataBindings.Clear();
-            numericStatus.DataBindings.Clear();
+          //  numericStatus.DataBindings.Clear();
             textBoxPhone.DataBindings.Clear();
             textBoxEmail.DataBindings.Clear();
             textBoxAddress.DataBindings.Clear();
@@ -158,6 +113,62 @@ namespace QuanLyQuanAo
             textBoxAddress.Text = "";
         }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            addFlag = 1;
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearBinding();
+            EnableTextBox();
+
+            ReleaseInput();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            editFlag = 1;
+
+
+            saveButton.Enabled = true;
+            cancelButton.Enabled = true;
+
+            ClearBinding();
+            EnableTextBox();
+            textBoxUsername.Enabled = false;
+            textBoxName.Enabled = false;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn xóa thông tin này ?", "Cảnh báo",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
+            {
+                ClearBinding();
+                DeleteStaff();
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (addFlag == 1)
+                InsertStaff();
+            if (editFlag == 1)
+                UpdateStaff();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
         private void InsertStaff()
         {
             try
@@ -171,7 +182,7 @@ namespace QuanLyQuanAo
 
                 if (StaffDAO.Instance.InsertStaff(Username, name, status, phone, email, address))
                 {
-                    MessageBox.Show("Thêm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm thành công, mật khẩu tài khoản mặt định là: 0000 !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                 }
                 else
@@ -222,28 +233,6 @@ namespace QuanLyQuanAo
             }
         }
 
-        private void UpdatePassword()
-        {
-            try
-            {
-                string username = Process.ToInput(textBoxUsername2.Text);
-                string password = Process.ToInput(textBoxPassword.Text);
-                string newpassword = Process.ToInput(textBoxPassword2.Text);
-                if (StaffDAO.Instance.UpdatePassword(username, password, newpassword))
-                {
-                    MessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Đã xảy ra lỗi !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch(Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
-        }
         private void DeleteStaff()
         {
             try
@@ -266,15 +255,6 @@ namespace QuanLyQuanAo
             }
         }
 
-        
-
-        private void saveButton2_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn sẽ thay đổi mật khẩu tài khoản và đăng xuất ?", "Cảnh báo",
-               MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
-                UpdatePassword();
-                             
-        }
 
         private void cancleButton2_Click(object sender, EventArgs e)
         {
@@ -286,9 +266,25 @@ namespace QuanLyQuanAo
             this.Close();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        DataTable findStaff(string name)
+        {
+            DataTable list = StaffDAO.Instance.FindStaff(name);
+            return list;
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            listStaff.DataSource = findStaff(textBoxFindStaff.Text);
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            LoadStaff();
         }
     }
 }

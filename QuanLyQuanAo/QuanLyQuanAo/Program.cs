@@ -17,7 +17,7 @@ namespace QuanLyQuanAo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormController());
+            Application.Run(new FormLogin());
         }
     }
 }
